@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_404.css') }}">
+</head>
+<body>
+    <div class="error-container">
+        <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Logo de tu sitio web" class="logo">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">Parece que la página que estás buscando no existe.</p>
+        <a href="/" class="back-button">Volver al inicio</a>
+    </div>
+</body>
+</html>

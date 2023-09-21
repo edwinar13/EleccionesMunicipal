@@ -1,0 +1,126 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+/* Estilos para la tarjeta */
+.card {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 30px;
+    box-shadow: 0 0px 12px rgba(0, 0, 0, 0.4);
+    background-color: rgba(250, 235, 215, 0.274);
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para el logo */
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 350px;
+}
+
+/* Estilos para el título */
+.title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la fecha */
+.date {
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las secciones */
+.section {
+    margin-bottom: 20px;
+}
+
+/* Estilos para los títulos de sección */
+.section-title {
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la lista de elementos */
+.list {
+    list-style: disc;
+    margin-left: 20px;
+    color: #555;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* Estilos para los párrafos */
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Estilos para las listas */
+ul, ol {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+/* Estilos para los elementos de lista */
+li {
+    margin-bottom: 5px;
+}
+
+/* Estilos para el botón de volver al inicio */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Cambia el color de fondo según tus preferencias */
+    color: #fff; /* Color de texto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    border-radius: 5px; /* Borde redondeado */
+    transition: background-color 0.3s ease; /* Transición suave de color de fondo */
+    margin: 30px;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse por encima */
+}
+
+
+
+@media (max-width: 900px) {
+    .card {
+        margin: 15px;
+    }
+    
+    .logo {
+        display: block;
+        margin: 10px;
+        width: 100%;
+        max-width: 350px;
+    }
+    .back-button {
+        margin: 30px 0;
+    }
+}

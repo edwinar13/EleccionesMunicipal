@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Elección Municipal</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" href="/static/favicon.png" />
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <header id="header-page">
+    <section id="section-header">
+      <img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagotipo" />
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="#section-home" class="li-hover">Inicio</a>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:void(0);">Candidatos &#9660;</a>
+            <div class="dropdown-content">
+              <a href="#about_genaldo_hernandez">Genaldo Hernández</a>
+              <a href="#about_edison_beltran">Edison Beltran</a>
+              <a href="#about_blanca_lilia">Blanca Lilia</a>
+              <a href="#about_jorge_mikan">Jorge Mikan</a>
+              <a href="#about_juan_andres">Juan Andrés</a>
+            </div>
+          </li>
+          <li>
+            <a href="#section-poll" class="li-hover">Encuesta</a>
+          </li>
+          <li>
+            <a href="#section-concejales" class="li-hover">Concejales</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+  <main id="main-page">
+    <section id="section-home">
+      <div class="fg-home">
+        <div class="container-contend">
+          <div class="information">
+            <div class="animated-text">
+              <h1>Candidatos <span>El Rosal</span></h1>
+            </div>
+            <h2>Votando por un Futuro Mejor</h2>
+            <p>Explora las visiones, propuestas y compromisos de nuestros candidatos políticos que trabajarán incansablemente por un Rosal mejor y más próspero. Conoce sus perfiles, valores y proyectos que marcarán el rumbo de nuestra comunidad.</p>
+            <p> Tu voto es una voz poderosa, ¡infórmate y participa en la construcción de un futuro brillante para El Rosal!</p>
+          </div>
+
+          <figure id="shield" class="shield">
+            <img id="escudo_rosal" src="{{ url_for('static', filename = 'images/escudo_rosal.png') }}" alt="Escudo El Rosal" class="" />
+          </figure>
+        </div>
+        <div class="container-photos">
+          <figure>
+            <a href="#about_genaldo_hernandez"><img src="{{ url_for('static', filename = 'images/photos/foto_genaldo_.png') }}" alt="Foto del candidato Genaldo Hernández" class="candidate-img cand-img-1" /></a>
+            <figcaption>Genaldo Hernández</figcaption>
+          </figure>
+
+          <figure>
+            <a href="#about_edison_beltran"><img src="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}" alt="Foto del candidato Edison Beltran" class="candidate-img cand-img-2" /></a>
+            <figcaption>Edison Beltran</figcaption>
+          </figure>
+          <figure>
+            <a href="#about_blanca_lilia"><img src="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" alt="Foto de la candidata Blanca Lilia Gonzales" class="candidate-img cand-img-3" /></a>
+            <figcaption>Blanca Lilia Gonzales</figcaption>
+          </figure>
+          <figure>
+            <a href="#about_jorge_mikan"><img src="{{ url_for('static', filename = 'images/photos/foto_mikan_.png') }}" alt="Foto del candidato Jorge Mikan" class="candidate-img cand-img-2" /></a>
+            <figcaption>Jorge Mikan</figcaption>
+          </figure>
+          <figure>
+            <a href="#about_juan_andres"><img src="{{ url_for('static', filename = 'images/photos/foto_juan_andres_.png') }}" alt="Foto del candidato Juan Andres Campos" class="candidate-img cand-img-1" /></a>
+            <figcaption>Juan Andrés Campos</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-candidates">
+      <aside class="publicidad"></aside>
+      <main class="candidates">
+        <h1 class="title-section">CONOCE MÁS SOBRE LOS CANDIDATOS</h1>
+
+        <article id="about_genaldo_hernandez" class="article-card about_genaldo_hernandez">
+          <div class="card-candidate card-in-izq card-in-der">
+            <div class="fg-card">
+              <h1 class="candidate-name">Genaldo Hernández Bello</h1>
+              <h2 class="candidate-profession"><span>Profesión:</span>Contador Público</h2>
+              <p class="candidate-about">Genaldo Hernández Bello, es un candidato comprometido con El Rosal, su carrera política surge del deseo de servir a la sociedad y promover la equidad, justicia social y calidad de vida sostenible. Con más de 20 años de experiencia en el sector público, incluyendo la Secretaría de Hacienda de Bogotá y el cargo de secretario de Hacienda de El Rosal, Genaldo ha demostrado su compromiso con la eficiencia fiscal y la gestión pública. Además, ha contribuido al desarrollo empresarial como empresario y socio fundador de GLM, generando empleo tanto en su comunidad como fuera de ella. Sus valores fundamentales, como el compromiso con la sociedad, la equidad, la responsabilidad y la promoción de una cultura de paz, lo guían en su búsqueda de representar a todos los Rosalunos sin excepción.</p>
+              <div class="link-plan">
+                <a href="government_plan_genaldo">Ver plan de gobierno →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="about_edison_beltran" class="article-card about_edison_beltran">
+          <div class="card-candidate card-in-izq card-in-der">
+            <div class="fg-card">
+              <h1 class="candidate-name">Edison Beltrán Sarmiento</h1>
+              <h2 class="candidate-profession"><span>Profesión:</span>Maestro en Artes Escénicas</h2>
+              <p class="candidate-about">Edison Beltrán Sarmiento, es un líder Rosaluno, con 20 años de experiencia en el sector público, se destaca por su sólida formación en artes escénicas y una amplia trayectoria en la gestión cultural y administrativa. Su liderazgo se ha reflejado en la creación del primer estatuto municipal de cultura del país en El Rosal y la promoción de la participación de la comunidad en eventos nacionales e internacionales. Su visión de "El Rosal Joven, Coqueto y Emprendedor" busca impulsar el desarrollo económico, cultural y social del municipio, brindando oportunidades a jóvenes y adultos, promoviendo el turismo y la producción agrícola, y mejorando la calidad de vida de sus habitantes. Su compromiso con la comunidad y su experiencia respaldan su candidatura en El Rosal.</p>
+              <div class="link-plan">
+                <a href="government_plan_edison">Ver plan de gobierno →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="about_blanca_lilia" class="article-card about_blanca_lilia">
+          <div class="card-candidate card-in-izq card-in-der">
+            <div class="fg-card">
+              <h1 class="candidate-name">Blanca Lilia González Castro</h1>
+              <h2 class="candidate-profession"><span>Profesión:</span>Zootecnista</h2>
+              <p class="candidate-about">Blanca Lilia González Castro, candidata a la Alcaldía de El Rosal, representa una sólida trayectoria en el sector público y una profunda vocación por el bienestar de la comunidad. Su compromiso se refleja en su experiencia como Directora de UMATA, Secretaria de Desarrollo Económico, Agrario y Medio Ambiente, y otros cargos relevantes. Además, su formación en gestión social y ambiental la posicionan como una candidata capacitada y comprometida con el progreso de El Rosal. Su labor voluntaria en la Cruz Roja y su experiencia en proyectos regionales demuestran su pasión por el servicio público y la comunidad. Blanca Lilia González Castro ofrece un programa de gobierno enfocado en las necesidades de la población, con un enfoque en la gestión sostenible y el desarrollo integral del municipio. Su candidatura es un compromiso con un Rosal próspero y sostenible. "Juntos por el Rosal que soñamos" es más que una consigna; es una promesa de trabajo y dedicación hacia un futuro mejor para todos.</p>
+              <div class="link-plan">
+                <a href="government_plan_blanca_lilia">Ver plan de gobierno →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="about_jorge_mikan" class="article-card about_jorge_mikan">
+          <div class="card-candidate card-in-izq card-in-der">
+            <div class="fg-card">
+              <h1 class="candidate-name">Jorge Mikan Salgado</h1>
+              <h2 class="candidate-profession"><span>Profesión:</span>Zootecnista</h2>
+              <p class="candidate-about">Jorge Mikan Salgado, candidato a la alcaldía de El Rosal, es un zootecnista con una destacada trayectoria en el sector agropecuario. Con experiencia como Director de producción en la industria avícola y asesoría en proyectos de inversión para comunidades rurales, ha demostrado un compromiso sólido con el desarrollo rural y la agricultura sostenible. Su visión para El Rosal se enfoca en fortalecer la economía local, promover empleo y mejorar la calidad de vida de sus habitantes, respaldada por principios de respeto, participación, unidad y coherencia. Su programa se basa en el cambio con equidad social, centrado en el desarrollo agropecuario e industrial, y su misión es contribuir al bienestar de la comunidad, fomentando la identidad y la convivencia en paz. El Rosal necesita avanzar, y Jorge Mikan Salgado tiene la experiencia y la visión para liderar ese cambio</p>
+              <div class="link-plan">
+                <a href="government_plan_mikan">Ver plan de gobierno →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="about_juan_andres" class="article-card about_juan_andres">
+          <div class="card-candidate card-in-izq card-in-der">
+            <div class="fg-card">
+              <h1 class="candidate-name">Juan Andrés Campos Forero</h1>
+              <h2 class="candidate-profession"><span>Profesión:</span>Contador Público</h2>
+              <p class="candidate-about">Juan Andrés Campos Forero cuenta con una sólida y extensa trayectoria en el sector público, demostrando su compromiso con el servicio a la comunidad de diversas maneras. Ocupó el cargo de Concejal en El Rosal, donde llegó a ser presidente de esta prestigiosa entidad. Además, aportó su experiencia a la administración pública en la UAECOB de la Alcaldía Mayor de Bogotá, la Secretaría de Hacienda de El Municipio de Cota, y desempeñó el rol de Secretario de Desarrollo Económico y Agrario y Medio Ambiente en El Municipio de El Rosal. En un momento crítico en 2018, fue designado Alcalde del Municipio de El Rosal por el Gobernador de Cundinamarca. Su compromiso con el servicio público también se destacó en su papel como Jefe de Cartera de CORABASTOS y Tesorero General de la Empresa de Licores de Cundinamarca. Si duda un candidato con una trayectoria que aportaría valor al desarrollo de nuestro municipio.</p>
+              <div class="link-plan">
+                <a href="government_plan_juan_andres">Ver plan de gobierno →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </main>
+      <aside class="publicidad"></aside>
+    </section>
+
+    <section id="section-poll">
+      <div class="fg-poll">
+        <h1 class="title-poll">RESULTADOS DE LA ENCUESTA </h1>
+        
+        <div class="container-poll">
+          <div class="poll-results">
+            <img id="img-poll-0" src="{{ url_for('static', filename = 'images/polls/poll-2023-12-09.png') }}" alt="Resultados encuesta El Rosal" class="" />
+          </div>
+          <div class="poll-form">
+            
+            <p class="timer-text">Primer resultado en:</p>
+            <div id="countdown-timer">
+              <div class="countdown-card" id="days-card">
+                <span class="countdown-number" id="days">00</span>
+                <h3 class="countdown-label">Días</h3>
+              </div>
+              <p>:</p>
+              <div class="countdown-card" id="hours-card">
+                <span class="countdown-number" id="hours">00</span>
+                <h3 class="countdown-label">Horas</h3>
+              </div>
+              <p>:</p>
+              <div class="countdown-card" id="minutes-card">
+                <span class="countdown-number" id="minutes">00</span>
+                <h3 class="countdown-label">Minutos</h3>
+              </div>
+              <p>:</p>
+              <div class="countdown-card" id="seconds-card">
+                <span class="countdown-number" id="seconds">00</span>
+                <h3 class="countdown-label">Segundos</h3>
+              </div>
+            </div>
+            <h2 class="subtitle-poll">Candidatos a la alcaldía</h2>
+            <p class="text-poll">Tu participación es esencial para dar forma al futuro de El Rosal. Votar en esta encuesta es una forma valiosa de expresar tu opinión y contribuir a la toma de decisiones en nuestra comunidad.</p>
+            <p class="text-poll">Ingresa tu correo y te enviaremos un enlace para realizar la encuesta.</p>
+            <div id="alert-message" class="alert alert-danger" style="display: none;"></div>
+            <form id="poll-form" action="/enviar_correo" method="POST">
+              <input type="email" id="email-user" name="correo" required placeholder="Ingresa tu correo" />
+              <button type="submit"><span class="loader"></span> Enviar enlace de votación</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section-concejales">
+      <h2 class="title-section-dark">CONOCE LOS CANDIDATOS AL CONCEJO</h2>
+      <ul class="container-councilors">
+        <!--  -->
+        <li>
+          <div class="card-councilor">
+            <div class="card-border-int">
+              <div class="councilor-img">
+                <a href="https://www.facebook.com/arleyr.rocha" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_arley_rocha.png') }}" alt="Foto del candidato al concejo" /></a>
+              </div>
+              <div class="councilor-data">
+                <figcaption class="councilor-name">Arley Rocha</figcaption>
+                <div>
+                  <img src="{{ url_for('static', filename = 'images/councilors/partido_democrata.png') }}" alt="Foto del partido politico" />
+                  <figcaption>06</figcaption>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!--  -->
+        <li>
+          <div class="card-councilor">
+            <div class="card-border-int">
+              <div class="councilor-img">
+                <a href="" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_lina_carrascal.png') }}" alt="Foto del candidato al concejo" /></a>
+              </div>
+              <div class="councilor-data">
+                <figcaption class="councilor-name">Lina Carrascal</figcaption>
+                <div>
+                  <img src="{{ url_for('static', filename = 'images/councilors/partido_enmarcha.png') }}" alt="Foto del partido politico" />
+                  <figcaption>06</figcaption>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!--  -->
+        <li>
+          <div class="card-councilor">
+            <div class="card-border-int">
+              <div class="councilor-img">
+                <a href="https://www.facebook.com/profile.php?id=100006690887854" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_wilson_suaza.png') }}" alt="Foto del candidato al concejo" /></a>
+              </div>
+              <div class="councilor-data">
+                <figcaption class="councilor-name">Wilson Suaza</figcaption>
+                <div>
+                  <img src="{{ url_for('static', filename = 'images/councilors/partido_cambio_radical.png') }}" alt="Foto del partido politico" />
+                  <figcaption>10</figcaption>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!--  -->
+        <li>
+          <div class="card-councilor">
+            <div class="card-border-int">
+              <div class="councilor-img">
+                <a href="https://www.facebook.com/johnwilson.cortes" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_wilson_cortes.png') }}" alt="Foto del candidato al concejo" /></a>
+              </div>
+              <div class="councilor-data">
+                <figcaption class="councilor-name">Wilson Cortés</figcaption>
+                <div>
+                  <img src="{{ url_for('static', filename = 'images/councilors/partido_pacto_historico.png') }}" alt="Foto del partido politico" />
+                  <figcaption></figcaption>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!--  -->
+        <li>
+          <div class="card-councilor">
+            <div class="card-border-int">
+              <div class="councilor-img">
+                <a href="https://www.facebook.com/wilson.baron.9" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_wilson_baron.png') }}" alt="Foto del candidato al concejo" /></a>
+              </div>
+              <div class="councilor-data">
+                <figcaption class="councilor-name">Wilson Baron</figcaption>
+                <div>
+                  <img src="{{ url_for('static', filename = 'images/councilors/partido_u.png') }}" alt="Foto del partido politico" />
+                  <figcaption>01</figcaption>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!--  -->
+        <li>
+          <div class="card-councilor">
+            <div class="card-border-int">
+              <div class="councilor-img">
+                <a href="" target="_blank"></a>
+              </div>
+              <!--     
+                <img src="{{ url_for('static', filename = 'images/councilors/foto_arley_rocha.png') }}" alt="Foto del candidato al concejo" />
+              <div class="councilor-data">
+                <figcaption class="councilor-name">Arley Rocha</figcaption>
+                <div>
+                  <img src="{{ url_for('static', filename = 'images/councilors/partido_democrata.png') }}" alt="Foto del partido politico" />
+                  <figcaption>06</figcaption>
+                </div>
+              </div>
+                 -->
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+        <li>
+          <div class="card-councilor"></div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <img class="logo-header" src="/static/images/imagotipo.svg" alt="imagoipo" />
+      </div>
+      <div class="footer-section footer-section-lines">
+        <ul class="menu">
+
+
+          <li>
+            <a href="#section-home" >Inicio</a>
+          </li>
+          <li>
+            <a href="#section-candidates">Candidatos </a>
+          </li>
+          <li>
+            <a href="#section-poll" >Encuesta</a>
+          </li>
+          <li>
+            <a href="#section-concejales" >Concejales</a>
+          </li>
+        </ul>
+        <a class="copyright" href="politica-de-privacidad" >Política de Privacidad y Tratamiento de Datos</a>
+        <p class="copyright">&copy; 2023 Mi Candidato. Todos los derechos reservados.
+        </p>
+
+      </div>
+      <div class="footer-section">
+        <p class="contact">Contáctanos</p>
+        <div class="social-icons-footer">
+          <a href="https://www.linkedin.com/in/edwin-j-arevalo" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=573118994279&amp;text=Hola%20Edwin, " target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:edwinarevalo88@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+    document.addEventListener('click', function (event) {
+      const x = event.clientX / window.innerWidth
+      const y = event.clientY / window.innerHeight
+      confetti({
+        origin: { x, y }
+      })
+    })
+    confetti()
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename = 'js/scripts.js') }}"></script>
+</body>

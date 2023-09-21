@@ -1,0 +1,512 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/******************************************************************************************/
+/*                                 HEADER                                                */
+
+/* Estilo general */
+main {
+    display: flex;
+    width: 100%;
+}
+
+
+
+/* Estilos para el banner */
+.banner-container {
+    position: relative;
+    overflow: hidden;
+    height: 40vh;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    filter: blur(0px);
+    /* Efecto blur al fondo del banner */
+    object-fit: cover;
+}
+
+.view-image {
+    width: 100%;
+}
+
+
+
+
+
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(6, 23, 68, 0.6);
+    /* Fondo negro con transparencia */
+}
+
+/* Estilos para la foto circular del candidato */
+.candidato-container {
+    position: relative;
+    margin-top: -200px;
+    /* Ajusta según sea necesario */
+    text-align: center;
+}
+
+.candidato-image {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 1px solid #5e5e5e67;
+    box-shadow: 1px 1px 20px rgb(83, 80, 80);
+    background-color: #060e25;
+    object-fit: cover;
+
+}
+
+/* Estilos para los enlaces a redes sociales */
+.redes-sociales {
+    text-align: center;
+    margin-top: 20px;
+    /* Espacio entre la foto y los iconos */
+}
+
+.redes-ext {
+
+    margin-bottom: 20px;
+}
+
+.redes-sociales a {
+    display: inline-block;
+    margin: 0 1%;
+    /* Espacio entre los iconos */
+}
+
+.redes-sociales svg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Hace que los iconos sean circulares */
+    color: rgb(0, 0, 0);
+}
+
+
+
+
+/******************************************************************************************/
+/*                                 NAVEGATION                                                */
+
+/* Estilo para el menú de navegación */
+.menu-navegacion {
+    width: 15%;
+    padding: 20px;
+    margin: 0;
+
+}
+
+.menu {
+    margin: 0;
+    border-radius: 10px;
+    padding: 0 10px 10px 10px;
+    list-style: none;
+    background-color: #f0f0f000;
+    border: 2px solid #adadad;
+    animation: adjust-header linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 1000px;
+}
+
+@keyframes adjust-header {
+    to {
+        border: 2px solid #adadad00;
+        background-color: #f0f0f0;
+        box-shadow: 0 0 15px #00000073;
+        margin-top: 100vh;
+    }
+}
+
+
+
+
+.init,
+.link-plan {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.init {
+    margin-bottom: 20px;
+}
+
+.menu-navegacion li a {
+    text-decoration: none;
+}
+
+
+.init a {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    color: #ffffff;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    padding: 10px 20px;
+    width: fit-content;
+    border-radius: 10px;
+    background-image: linear-gradient(111deg, #073d3d 0%, #6b9494 100%);
+    top: 10%;
+}
+
+.link-plan a {
+
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: #060e25;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    padding: 10px;
+    width: fit-content;
+
+}
+
+
+
+
+
+.sets-projects img {
+    margin: 0px;
+    margin: auto;
+    width: calc(100% - 20px);
+    border-radius: 15px;
+    transition: scale 0.8s ease;
+    cursor: pointer;
+
+    view-timeline-name: --revealing-image;
+    animation-name: showImg;
+    animation-fill-mode: both;
+    animation-timeline: --revealing-image;
+    animation-range: entry 25% cover 60%;
+}
+
+
+@keyframes showImg {
+    from {
+        opacity: 0;
+        scale: 25%;
+    }
+
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************************************************************/
+/*                                 MAIN                                                */
+
+
+/* Estilo para la sección de información */
+.informacion {
+    float: left;
+    width: calc(70% - 120px);
+    padding: 30px;
+    box-shadow: 1px 1px 20px rgba(131, 131, 131, 0.1);
+}
+
+
+
+
+
+
+
+
+.title-page {
+    text-align: center;
+    font-size: 90px;
+    font-weight: bold;
+    color: rgb(13, 216, 206);
+    background-image: linear-gradient(111deg, #094161 0%, #0d7ec0 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    padding: 0 20px;
+    font-weight: 900;
+
+}
+
+
+.card-ia {
+    background-color: #dddddd;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    border-radius: 5px;
+}
+
+.text-Highlight-style {
+    font-size: 25px;
+    color: rgb(212, 76, 13);
+    font-weight: 600;
+    font-style: oblique;
+    text-decoration: underline;
+
+}
+
+.text-card-icon {
+    font-size: 40px;
+    margin: 5px;
+}
+
+
+
+
+.text-card-description {
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    line-height: 1.5;
+}
+
+
+/*
+<div class="card-ia">
+<p class="text-card-icon">🚀</p>
+<p class="text-card-description text-section">
+  <span class="text-Highlight-style">¡Resumen generado con inteligencia artificial!</span>
+  El plan de gobierno propuesto para El Rosal, Cundinamarca, se centra en diversos ejes temáticos que abarcan el desarrollo social, económico, territorial, de vivienda, vías y transporte, planeación y atención del riesgo, así como la promoción de la transparencia y la participación ciudadana. Entre las principales propuestas se incluyen el impulso a la agricultura familiar, la promoción de la agroecología, la creación de una granja de energía solar, la regulación de arrendamientos, el fomento del transporte público y la mejora de la infraestructura vial, todo ello con el objetivo de lograr un municipio más inclusivo, sostenible y participativo que mejore la calidad de vida de sus habitantes y promueva el desarrollo integral de la comunidad.
+</p>
+</div>
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.title-section {
+    font-size: 35px;
+    font-weight: 900;
+    color: #073d3d;
+    border-left: 3px solid #00e1ff;
+    padding-left: 10px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+.sub-title {
+    font-size: 25px;
+    font-weight: 800;
+    font-weight: bold;
+    font-style: italic;
+    color: #ffffff;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    padding: 10px 20px;
+    width: fit-content;
+    clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%);
+    border-radius: 10px;
+    background-image: linear-gradient(111deg, #073d3d 0%, #6b9494 100%);
+}
+
+.sub-title-intro {
+
+    font-size: 45px;
+    font-weight: 900;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: #000000;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+    padding: 20px;
+    width: fit-content;
+    border-radius: 10px;
+    background-image: linear-gradient(111deg, #073d3d11 0%, #6b949411 100%);
+
+}
+
+.text-section {
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    line-height: 2;
+}
+
+
+.text-Highlight-light {
+    font-size: 25px;
+    color: rgb(6, 33, 63);
+    font-weight: 600;
+    font-style: oblique;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+.text-Highlight-heavy {
+    font-size: 25px;
+    color: rgb(5, 5, 5);
+    font-weight: 800;
+}
+
+
+
+.mx-10 {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+
+
+
+
+
+.item-ol {
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+/******************************************************************************************/
+/*                                 FIRMA                                                */
+
+
+.plan-gobierno {
+    background-color: #b4ddcc;
+    /* Color de fondo del pie de página */
+    border-radius: 30px;
+    color: rgb(73, 73, 73);
+    /* Color del texto */
+    text-align: center;
+    /* Centra el texto */
+    padding: 15px;
+    /* Espaciado interno */
+    width: fit-content;
+    margin: auto;
+    margin-top: 70px;
+    box-shadow: 4px 4px 30px #073d3d4b;
+
+}
+
+.plan-gobierno p {
+    margin: 5px;
+    /* Espacio entre las líneas de texto */
+    font-size: 25px;
+    font-weight: 900;
+}
+
+
+
+
+
+/******************************************************************************************/
+/*                                 PUBLICIDAD                                                */
+
+/* Estilo para la sección de publicidad */
+.publicidad {
+    float: left;
+    width: 15%;
+    padding: 20px;
+}
+
+
+
+.visor-pdf {
+    width: 100%;
+    height: 98vh;
+}
+@media (max-width: 1000px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    .title-page {
+        font-size: 70px;
+    }
+    .publicidad {
+        width: 100%;
+        padding: 0;
+    }
+    .informacion {
+        width: 100%;
+        padding: 0;
+    }    
+    .menu-navegacion {
+        width: 90%;
+        padding: 50px 0;
+        
+
+    }
+    .visor-pdf {
+        height: 50vh;
+    }
+    
+@keyframes adjust-header {
+    to {
+        margin-top: 100px;
+    }
+}
+}
+@media (max-width: 500px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    .title-page {
+        font-size: 50px;
+    }
+    .candidato-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
+    }
+    .informacion {
+        width: 100%;
+    }    
+    .menu-navegacion {
+        width: 100%;
+    }
+}
+

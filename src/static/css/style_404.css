@@ -1,0 +1,57 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Color de fondo de la página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.error-container {
+    text-align: center;
+    background-color: #ffffff; /* Color de fondo del contenedor */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra alrededor del contenedor */
+}
+
+/* Estilos para el logo */
+.logo {
+    max-width: 200px; /* Ajusta el tamaño de tu logo según tus necesidades */
+    margin-right: 10px;
+}
+
+/* Estilos para el código de error 404 */
+.error-code {
+    font-size: 120px;
+    font-weight: bold;
+    color: #031222; /* Color del número 4 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra del texto */
+    display: inline-block;
+    margin: 10px 0;
+}
+
+/* Estilos para el mensaje de error */
+.error-message {
+    font-size: 20px;
+    color: #333; /* Color del texto del mensaje */
+    margin-bottom: 20px;
+}
+
+/* Estilos para el botón de volver al inicio */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el mouse sobre el botón */
+}

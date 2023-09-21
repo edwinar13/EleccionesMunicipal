@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan - Edison</title>
+    <link rel="icon" href="{{ url_for('static', filename = 'favicon.png') }}" type="image/png" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style_govert_plan.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <!-- Banner con efecto de fondo -->
+      <header class="banner-container">
+        <img src="{{ url_for('static', filename = 'images/banner/banner_edison.jpg') }}" alt="Banner Edison" class="banner-image" />
+        <div class="banner-overlay"></div>
+      </header>
+
+      <!-- Foto circular del candidato -->
+      <figure class="candidato-container">
+        <img src="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}" alt="Foto del candidato" class="candidato-image" />
+      </figure>
+
+      <!-- Enlaces a redes sociales -->
+      <nav class="redes-sociales">
+        <a class="redes-ext" href="mailto:correo@example.com" target="_blank">
+          <svg class="icon icon-tabler icon-tabler-mail-filled" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" stroke-width="0" fill="currentColor"></path>
+            <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" stroke-width="0" fill="currentColor"></path>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/edison.beltrans" target="_blank">
+          <svg class="icon icon-tabler icon-tabler-brand-facebook-filled" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 2a1 1 0 0 1 .993 .883l.007 .117v4a1 1 0 0 1 -.883 .993l-.117 .007h-3v1h3a1 1 0 0 1 .991 1.131l-.02 .112l-1 4a1 1 0 0 1 -.858 .75l-.113 .007h-2v6a1 1 0 0 1 -.883 .993l-.117 .007h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-6h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-4a1 1 0 0 1 .883 -.993l.117 -.007h2v-1a6 6 0 0 1 5.775 -5.996l.225 -.004h3z" stroke-width="0" fill="currentColor"></path>
+          </svg>
+        </a>
+        <a class="redes-ext" href="https://api.whatsapp.com/send?phone=+573118997279" target="_blank">
+          <svg class="icon icon-tabler icon-tabler-brand-whatsapp" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path>
+            <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"></path>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <!-- El contenido del plan de gobierno irá aquí -->
+
+    <main>
+      <aside class="menu-navegacion">
+        <ul class="menu">
+          <li class="init">
+            <a href="/">Inicio</a>
+          </li>
+          <li class="link-plan">
+            <a href="government_plan_genaldo">Genaldo Hernández</a>
+          </li>
+          <!--  
+            <li class="link-plan">
+              <a href="government_plan_edison">Edison Beltran</a>
+            </li>
+            -->
+          <li class="link-plan">
+            <a href="government_plan_blanca_lilia">Blanca Lilia</a>
+          </li>
+          <li class="link-plan">
+            <a href="government_plan_mikan">Jorge Mikan</a>
+          </li>
+          <li class="link-plan">
+            <a href="government_plan_juan_andres">Juan Andres</a>
+          </li>
+        </ul>
+      </aside>
+
+      <article class="informacion">
+        <!-- Contenido de la sección -->
+        <h1 class="title-page">PLAN DE GOBIERNO <span>EDISON BELTRAN</span></h1>
+
+        <!--  
+          
+          <div class="card-ia">
+            <p class="text-card-icon">🚀</p>
+            <p class="text-card-description">
+              <span class="text-Highlight-style">¡Resumen generado con inteligencia artificial!</span>
+              Edison Beltrán Sarmiento presenta un ambicioso plan de desarrollo para el municipio de El Rosal, dividido en tres ejes fundamentales: Desarrollo Social, Desarrollo Económico y Desarrollo Territorial, con un enfoque clave en la transparencia y la participación ciudadana.
+              
+              En el ámbito del Desarrollo Social, su propuesta se enfoca en mejorar la calidad de vida de los habitantes de El Rosal. Esto incluye programas para el fortalecimiento de la identidad cultural, el fomento de actividades artísticas y culturales, la atención a la tercera edad y la promoción de programas de juventud. También se destacan iniciativas para apoyar a personas con discapacidad y promover la equidad de género en la comunidad.
+              
+              En el eje del Desarrollo Económico, se busca impulsar la actividad empresarial y emprendedora en El Rosal. Se propone la creación de un centro de emprendimiento, así como el fomento de proyectos productivos y la asociatividad comercial. También se busca fortalecer la agricultura local y el turismo como fuentes de ingresos.
+              
+              Por último, en el Desarrollo Territorial, el plan se enfoca en la sostenibilidad y la preservación de la identidad del municipio. Se promueve la protección de espacios naturales, la generación de energías limpias y la regulación de actividades mineras que afecten los recursos hídricos. También se aborda la vivienda, la movilidad y la planificación territorial.
+              
+              En todos estos ejes, se enfatiza la importancia de la transparencia en la gestión pública y se promueve activamente la participación ciudadana como un pilar fundamental para el desarrollo de El Rosal.
+            </p>
+          </div>
+        
+
+        <section id="section1">
+          <h2 class="title-section">PACTO DE GOBIERNO, PRESENTADO POR EL CANDIDATO A LA ALCALDÍA DE EL ROSAL CUNDINAMARCA, EDISON BELTRÁN SARMIENTO.</h2>
+          <p class="text-section">Proyectamos para El Rosal, un gobierno en pro del desarrollo de toda la comunidad, con políticas y proyectos que brinden oportunidades y participación de la sociedad como actores principales en las dinámicas del territorio, potenciando los espacios de proyección y equidad en ámbitos sociales, culturales, educativos, salud y seguridad; con la visión de promover el turismo y la economía local desde la proyección y dinámica de un municipio “Joven, Coqueto y Emprendedor” y que sea visible de manera positiva y atractiva a nivel departamental, nacional e internacional, es así que esta visión recoge aportes de ciudadanos, líderes, activistas y sobre todo un gran análisis de las problemáticas actuales del territorio de El Rosal.</p>
+          <h3 class="sub-title-intro">“EL ROSAL JOVEN, COQUETO Y EMPRENDEDOR”</h3>
+          <p class="text-section">El nombre del Programa describe la gran necesidad de potenciar el municipio de El Rosal, buscando aprovechar su ubicación geográfica y cercanía con la capital del país para el desarrollo económico desde emprendimientos de turismo agro-ambiental, el arte, recreación, deporte y su principal vocación y tradición, la producción agrícola.</p>
+
+          <ul>
+            <li class="text-section">
+              <span class="text-Highlight-heavy">✅ JÓVEN:</span> El Rosal es el municipio más joven del departamento de Cundinamarca, fue erigido como municipio 116 el 25 de septiembre de 1997. Contando con un desarrollo administrativo de 25 años, los cuales no han sido de planeación y control en su desarrollo territorial y social; problemática a la que queremos impactar de manera positiva reorganizando el avance social desde lo territorial principalmente, para que sea un municipio que brinde espacios y servicios que mejoren la calidad de vida de sus habitantes y sobre todo que genere oportunidades a toda la comunidad, especialmente la población en su mayoría jóvenes y adultos entre los 14 y 50 años.
+            </li>
+            <li class="text-section">
+              <span class="text-Highlight-heavy">✅ COQUETO:</span> Buscamos por medio de la creación de proyectos y políticas públicas, que permitan que El Rosal sea un municipio “Coqueto” en el sentido de ser atractivo como destino turístico que genere oportunidades y desarrollo de la economía local.
+            </li>
+            <li class="text-section">
+              <span class="text-Highlight-heavy">✅ EMPRENDEDOR:</span> Desde nuestro proyecto político se generarán oportunidades y espacios para generar desarrollo empresarial familiar, asociativo y de pequeña empresa, tanto en el sector urbano como rural, con el objetivo de impactar socialmente en diferentes sectores como el desempleo, la seguridad social y alimentaria y que sean emprendimientos con visión a largo plazo y crecimiento.
+            </li>
+          </ul>
+
+          <p class="text-section">
+            Esta propuesta de plan programático <span class="text-Highlight-light">“EL ROSAL JOVEN, COQUETO Y EMPRENDEDOR”</span> se establece en transversalidad con los ejes de transformación establecidos por el plan nacional de desarrollo PND 2023-2026, en concordancia con la problemática y planes necesarios para la transformación y desarrollo desde lo Local del municipio de El Rosal.
+          </p>
+          <ol class="list-number">
+            <li class="item-ol text-section">
+              <span class="text-Highlight-light">Ordenamiento Territorial:</span>
+              Se pretende desde la gobernabilidad, la búsqueda del ordenamiento del territorio para saldar el déficit de espacios y servicios públicos que contribuyan al mejoramiento de la calidad de vida de los habitantes del territorio, con la consigna de generar diálogos constructivos desde la comunidades en todos los sectores sociales y etarios, donde prime la visión de desarrollo territorial, desde el aprovechamiento y cuidado de las áreas ambientales y de potencial agrícola y alimentario.
+            </li>
+            <li class="item-ol text-section">
+              <span class="text-Highlight-light">Seguridad Humana y Justicia Social:</span>
+              Nuestro proyecto estará encaminado al mejoramiento de la Seguridad Humana y Justicia social, desde la implementación de políticas públicas para mitigar el desorden en hábitat y vivienda con el que viene creciendo el municipio de El Rosal, y principal detonante del crecimiento en la inseguridad desde problemáticas de hurto, asesinatos y lesiones personales. De la misma manera que el hacinamiento y sobrepoblación flotante que día a día llega al territorio, genera una problemática social que se ha hecho incontrolable por las entidades y autoridades; de ahí que se haga indispensable planes y programas desde políticas públicas que permitan la organización y reglamentación del hábitat y vivienda en el municipio y que permita caracterizar y llegar con programas sociales que permitan mejorar equidad y una adecuada justicia social en los habitantes del municipio de El Rosal.
+            </li>
+            <li class="item-ol text-section">
+              <span class="text-Highlight-light">Derecho Humano a la Alimentación:</span>
+              El Rosal se caracteriza por contar con suelos de producción agrícola de alta calidad, suelos que buscaremos que continúen y recuperen la vocación agrícola alimentaria del territorio, desde este desarrollo de producción alimentaria agrícola, el municipio sea capaz de suplir directamente la comercialización y abastecimiento local de los alimentos básicos para el consumo local y abastecimiento a los programas de alimentación escolar y de los programas sociales del municipio. Este objetivo lo lograremos con el fortalecimiento y apoyo a proyectos de emprendimiento agrícola especialmente a pequeños productores y sector asociativo y huertas caseras. Sin duda la principal vocación que debe fortalecer el desarrollo del municipio de El Rosal debe ser el turismo desde lo agrícola y ambiental, teniendo como estrategia el aprovechamiento de la vía nacional que atraviesa el municipio y la cercanía con la capital de la república, paraatraer turismo que dinamice la economía local y que permita brindar oportunidades laborales que bajen las tasas de desempleo en el municipio y de esta manera asegurar que más familias puedan cumplir con su seguridad alimentaria dentro de su núcleo familiar.
+            </li>
+            <li class="item-ol text-section">
+              <span class="text-Highlight-light">Transformación Productiva, Internacionalización y Acción Climática:</span>
+              Desde nuestro proyecto social y ambiental se contempla la protección por los recursos naturales, ambientales y del suelo, en este camino creando estrategias en concertación con los cultivos confinados presentes en el municipio de El Rosal, en cuanto a estrategias de mitigación del uso de químicos que van afectando el ambiente y el suelo fértil; teniendo en cuenta también el uso racional del agua y la explotación minera y del agua que se viene adelantando en el territorio.
+            </li>
+            <li class="item-ol text-section">
+              <span class="text-Highlight-light">Convergencia Regional:</span>
+              En El Rosal buscaremos ser en la región, el departamento y en el país, un municipio líder y piloto en programas sociales, donde prevalezca una gobernanza y gobernabilidad, participativa desde las comunidades en todos sus grupos sociales y etarios; buscando el empoderamiento por el territorio y generando una identidad y cultura territorial en diálogo abierto desde todos los actores y habitantes del municipio, partiendo desde la generación de empatía, diálogo y reconciliación social entre comunidades de barrios y veredas.
+            </li>
+          </ol>
+        </section>
+
+        <section id="section2">
+          <h2 class="title-section">EJE DE SEGURIDAD Y CONVIVENCIA CIUDADANA</h2>
+          <h3 class="sub-title">Programa Seguridad y convivencia Ciudadana</h3>
+          <ul>
+            <li class="item-li text-section">Crear e implementar una política pública integral de seguridad y convivencia ciudadana, concertada con la comunidad, fuerza pública, administradores judiciales y administración municipal. La cual sea carta de navegación para hacer de El Rosal un municipio seguro.</li>
+            <li class="item-li text-section">Crear el programa de ciudad segura mediante la vinculación de gestores de seguridad cívicos y comunitarios en los sectores priorizados del municipio.</li>
+            <li class="item-li text-section">Liderar y articular con los organismos fuerza pública e inteligencia, operativos conjuntos que permitan la desarticulación de bandas delincuenciales, así como la desarticulación de los expendios de microtráfico en el municipio. Entre otras acciones, la de hacer efectiva con autoridades judiciales la extinción de dominio a la propiedad para inmuebles que sean utilizados para expendio y actividades ilícitas.</li>
+            <li class="item-li text-section">Establecer convenios comunitarios para la Integración de una red digital y de medios tecnológicos de vigilancia y alertas de reacción inmediata.</li>
+            <li class="item-li text-section">Brindar el apoyo, necesario a los administradores judiciales en el municipio con el fin de tener un mejor acceso a la justicia, siendo veedores de la buena administración de justicia y velando por los deberes y derechos de los habitantes del municipio de El Rosal.</li>
+            <li class="item-li text-section">Realizar consejos de seguridad en barrios y veredas atendiendo y haciendo seguimiento a casos prioritarios de afectación a la seguridad de la comunidad.</li>
+            <li class="item-li text-section">Establecer y organizar un centro o casa de la justicia y sociedad y brinde un adecuado acceso y trámite de denuncias, quejas y peticiones referentes a la seguridad municipal y comunitaria.</li>
+          </ul>
+        </section>
+
+        <section id="section3">
+          <h2 class="title-section">EJE DE BIENESTAR SOCIAL</h2>
+
+          <h3 class="sub-title">Programa Educación:</h3>
+          <ul>
+            <li class="item-li text-section">Garantizar la cobertura y el ingreso de todos los niños, niñas, jóvenes y adolescentes a la educación pública en el municipio.</li>
+            <li class="item-li text-section">Crear e implementar en concertación con las instituciones educativas del municipio, historiadores, adultos mayores y comunidad en general, la “Cátedra El Rosal”, desde la cual se genere identidad Rosaluna desde las instituciones educativas.</li>
+            <li class="item-li text-section">Fortalecer la educación de la primera infancia del municipio centrada en niños y niñas menores de 6 años y madres gestantes tratando de implementar la educación inicial en las instituciones públicas del municipio priorizando el acceso de niños y niñas con discapacidad.</li>
+            <li class="item-li text-section">Gestionar el personal docente requerido en las instituciones públicas que brinden el apoyo requerido a los niños y niñas con discapacidad para garantizar una educación de calidad.</li>
+            <li class="item-li text-section">Implementar diferentes estrategias y actividades en transversalidad con las instituciones educativas, que permitan fortalecer y mejorar la salud mental y emocional de nuestros niños, jóvenes y adolescentes.</li>
+            <li class="item-li text-section">Concertar con las instituciones educativas públicas y privadas del municipio acciones de soporte financiero y humano para jóvenes y adultos de la zona rural y urbana, que estén interesados en culminar su ciclo de formación en básica primaria, secundaria y técnico - profesional.</li>
+            <li class="item-li text-section">Resignificación de la labor docente en el municipio, la cual ha sido desvalorizada e ignorada desde hace varios años.</li>
+            <li class="item-li text-section">Concertar con las instituciones públicas y privadas del municipio, el programa de formación “Ingeniería del Hogar” a desarrollarse con niños, jóvenes y padres de familia.</li>
+            <li class="item-li text-section">Invertir en el mantenimiento y embellecimiento de las instituciones públicas del municipio.</li>
+            <li class="item-li text-section">Dotar e implementar de tecnología y material lúdico las escuelas rurales del municipio.</li>
+            <li class="item-li text-section">Implementar en las escuelas rurales espacios de educación no formal, de acceso para toda la comunidad rural.</li>
+            <li class="item-li text-section">Brindar la oportunidad de formación y capacitación a los estudiantes desde grado décimo para la presentación de las pruebas de estado.</li>
+            <li class="item-li text-section">Implementar y gestionar convenios y programas de educación superior que le permita a los jóvenes del municipio la continuidad de sus estudios profesionales dentro y fuera del municipio.</li>
+            <li class="item-li text-section">Implementar en las Instituciones educativas del municipio nuevos espacios educativos que permitan promover la equidad territorial, la formación integral y la educación CRESE tal y como lo contempla el PND.</li>
+            <li class="item-li text-section">Gestionar con entidades de educación superior la apertura de programas de postgrado de manera presencial en el municipio de El Rosal.</li>
+            <li class="item-li text-section">Promover la preparación y acompañamiento a jóvenes para el acceso a la universidad pública.</li>
+            <li class="item-li text-section">Gestionar ante la nación y el departamento la construcción de una sede universitaria en el municipio de El Rosal.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa de Salud</h3>
+          <ul>
+            <li class="item-li text-section">Exigir al departamento de Cundinamarca el cumplimiento de los estándares de atención en salud para el Centro de Salud del municipio de El Rosal, así como hacer control y vigilancia al cumplimiento de los servicios de salud y a los trámites que se dan a quejas y reclamos de los usuarios.</li>
+            <li class="item-li text-section">Implementar el programa “salud en casa” que permitirá la atención primaria en salud mediante la gestión de una unidad móvil y campañas de salud en las veredas y barrios del municipio. Este servicio será preventivo e incluirá temas médicos, odontológicos, vacunación, psicología y promoción de hábitos de vida saludable.</li>
+            <li class="item-li text-section">Creación y adecuación de la “Escuchoteca” será un centro municipal de atención pública en Salud mental y Emocional, al que podrán acceder los habitantes de El Rosal y contar con un equipo de profesionales en diferentes áreas de la Psicología y Salud mental.</li>
+            <li class="item-li text-section">Fortalecer la atención en salud pública con planes de atención sexual integral para niñas/os, jóvenes y adultos/as.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Cultura</h3>
+          <ul>
+            <li class="item-li text-section">Dignificar la vida y la sociedad desde la generación de una identidad cultural Rosaluna gestado por un programa de espacios barriales y veredales de integración y diálogos comunitarios interculturales, que promuevan la reconciliación, empatía y empoderamiento conjunto por el territorio y la comunidad.</li>
+            <li class="item-li text-section">Gestión y adecuación de infraestructura acorde, para el desarrollo de actividades y/o eventos relacionados con el Arte y la Cultura en El municipio de El Rosal, desarrollando eventos de impacto regional y nacional, articulados con el sector turístico y comercial del municipio.</li>
+            <li class="item-li text-section">Fortalecer los programas de escuelas de formación artística en las distintas modalidades y expresiones, gestionando procesos de emprendimiento y proyección laboral y de construcción de tejido social e identidad local.</li>
+            <li class="item-li text-section">Generar espacios de expresión y formación artística y cultural descentralizada en las veredas y barrios del municipio de El Rosal.</li>
+            <li class="item-li text-section">Apoyar las diferentes expresiones artísticas locales en su promoción, difusión y circulación a nivel regional, nacional e internacional, los artistas Rosalunos serán nuestra principal carta de presentación y promoción del municipio de El Rosal ante el país y el Mundo.</li>
+            <li class="item-li text-section">Fortalecer el programa de formación en medios audiovisuales, articulando el proceso con el fortalecimiento y dotación de los programas de emisoras estudiantiles, emisora comunitaria y medios de comunicación locales.</li>
+            <li class="item-li text-section">Reglamentar e implementar la ley nacional de espectáculos públicos en El Rosal, con el fin de beneficiar el portafolio de estímulos para artistas Rosalunos.</li>
+            <li class="item-li text-section">Fortalecer el programa de biblioteca municipal, descentralizando sus servicios a veredas y barrios del municipio, así como implementando programas y proyectos que fomenten buenos hábitos de lectura, escritura y formación en literatura e idiomas en el municipio de El Rosal.</li>
+            <li class="item-li text-section">Actualizar e implementar las políticas públicas culturales como el consejo municipal de cultura y el estatuto municipal de cultura.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Recreación y Deporte</h3>
+          <ul>
+            <li class="item-li text-section">Fortalecer los procesos y programas de escuelas de formación deportiva en diferentes áreas y modalidades, proyectándose para que sean semilleros de deportistas de alto rendimiento en las diferentes especialidades.</li>
+            <li class="item-li text-section">Apoyar a los deportistas élite y de alto rendimiento del municipio de todas las disciplinas deportivas, para que puedan acceder al óptimo desarrollo de sus capacidades competitivas a nivel local, regional, nacional e internacional.</li>
+            <li class="item-li text-section">Construir y realizar mantenimiento y dotación de los escenarios deportivos en el casco urbano y rural del municipio, así como promover su aprovechamiento y uso adecuado.</li>
+            <li class="item-li text-section">Dotar y mantener en condiciones óptimas y seguras para la práctica deportiva y de actividad física, los diferentes espacios y elementos por disciplina deportiva.</li>
+            <li class="item-li text-section">Implementar la formación, práctica y eventos de los juegos tradicionales y autóctonos (Tejo, Rana, Billar)</li>
+            <li class="item-li text-section">Actualizar las políticas públicas deportivas y recreativas existentes, como lo es el estatuto municipal del deporte y la recreación.</li>
+            <li class="item-li text-section">Fortalecer el programa de estímulos y apoyo a proyectos de emprendimiento deportivo, recreativo y de actividad física.</li>
+            <li class="item-li text-section">Apoyar el programa de recreación y campamentos juveniles aumentando su participación en los distintos sectores sociales y etarios.</li>
+            <li class="item-li text-section">Potenciar y promover la práctica formación y eventos deportivos en la modalidad femenina, en las distintas modalidades individuales y de conjunto.</li>
+            <li class="item-li text-section">Desarrollar el festival de juegos polimotor para el desarrollo de capacidades físicas en la primera infancia.</li>
+            <li class="item-li text-section">Potenciar los juegos campesinos y juegos comunales a nivel local con un enfoque de nivel competitivo y desarrollo de campeonatos locales de participación nacional.</li>
+            <li class="item-li text-section">Fomentar el desarrollo de eventos deportivos, recreativos y de actividad física con impacto regional y nacional, articulados con sector turístico, cultural y comercial del municipio.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Adulto Mayor</h3>
+          <ul>
+            <li class="item-li text-section">Fortalecer los centros día y hacerlos más incluyente con abuelos en condiciones de vulnerabilidad, soledad o abandono.</li>
+            <li class="item-li text-section">Hacer seguimiento y control por medio de la comisaría de familia al cumplimiento de los deberes de hijos y familiares con los adultos mayores.</li>
+            <li class="item-li text-section">Promover un programa de recuperación de saberes, valores, talentos de adultos mayores, así como participación en programas de cultura, recreación y granjas agropecuarias a los adultos mayores pensionados o retirados.</li>
+            <li class="item-li text-section">Descentralizar el programa de adulto mayor con la prestación de servicios en las veredas.</li>
+            <li class="item-li text-section">Crear espacios de Integración del adulto mayor con los colegios públicos y privados con el fin de que puedan ellos transferir conocimientos a los niños y jóvenes.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa de Juventud</h3>
+          <ul>
+            <li class="item-li text-section">Crear en concertación con los jóvenes, consejo de juventud, colectivos e instituciones educativas una política pública de juventud que establezca una ruta de derechos y deberes en el empoderamiento, espacios y oportunidades para la juventud Rosaluna teniendo en cuenta planes y programas juveniles en materia de salud, cultura, deporte, educación, turismo, emprendimiento y empleo.</li>
+            <li class="item-li text-section">Desarrollar estrategias pedagógicas y fortalecimiento de la participación juvenil para las elecciones del Consejo municipal de Juventudes en el municipio de El Rosal. Así como la gestión de espacios de formación democrática y política como estrategia de dinamizar liderazgos juveniles en el municipio de El Rosal.</li>
+            <li class="item-li text-section">Concertar un programa de “espacios jóvenes” de diálogo, capacitación, educación y formación en temas específicos como salud emocional, sexualidad, manejo de las adicciones y proyecto de vida.</li>
+            <li class="item-li text-section">Promover un programa de incentivos y semilleros para jóvenes emprendedores con ideas de trabajo y negocios.</li>
+            <li class="item-li text-section">Promover la gestión e implementación de proyectos empresariales liderados por jóvenes, ante el gobierno departamental, nacional y organizaciones internacionales.</li>
+            <li class="item-li text-section">Fortalecer los programas de políticas públicas como plataforma de juventud, semana de la juventud y consejo de juventud, en apoyo con diversos espacios de encuentro en temas como el arte, cultura, educación, trabajo audiovisual, baile, idiomas entre otros.</li>
+            <li class="item-li text-section">Fortalecer la gestión para implementar programas de educación superior en el municipio de El Rosal, gestionando el fácil acceso para los jóvenes especialmente de bajos recursos, jóvenes rurales, jóvenes artistas, jóvenes deportistas y jóvenes emprendedores.</li>
+            <li class="item-li text-section">Promover un programa de trabajo social de los jóvenes beneficiarios del subsidio de transporte universitario para potenciar sus talentos en beneficio de la comunidad de El Rosal.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Infancia y Niñez</h3>
+          <ul>
+            <li class="item-li text-section">Aumentar la cobertura del programa de 0 a siempre</li>
+            <li class="item-li text-section">Promover escuela de padres acorde a las necesidades de padres y madres para el cuidado de niños en los jardines infantiles.</li>
+            <li class="item-li text-section">Gestionar la construcción o adecuación de una gran ludoteca municipal.</li>
+            <li class="item-li text-section">Promover la generación de centros de desarrollo infantil para la protección de la primera infancia en las veredas de acuerdo a las necesidades.</li>
+            <li class="item-li text-section">Hacer escuelas de cuidado de menores de edad para cuidadoras, abuelas y niñeras con el fin de fortalecer y potenciar su labor.</li>
+            <li class="item-li text-section">Fortalecer el apoyo alimentario a menores identificados en peligro de desnutrición y hacer seguimiento con el trabajo de las promotoras de salud.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa de Equidad de Género</h3>
+          <ul>
+            <li class="item-li text-section">Crear el programa integral de atención para mujeres con enfoque de género que propenda a la no repetición en el marco de la justicia social y transicional.</li>
+            <li class="item-li text-section">Fomentar la resignificación del trabajo a partir de la regularización de jornadas y distribución de cargas en términos de equidad, así como el reconocimiento del trabajo sexual a partir de ejercicios cartográficos que permitan la identificación de las zonas y población que hacen parte de estos sectores.</li>
+            <li class="item-li text-section">Gestionar un plan de acción, prevención, atención, seguimiento y sanción de todas las formas de violencia contra la mujer principalmente.</li>
+            <li class="item-li text-section">Fortalecer las políticas públicas, planes y programas de equidad de género, población LGTBIQ, mujeres rurales entre otros. que les beneficie en materia de emprendimiento económico, acceso a créditos blandos, capital semilla, asistencia técnica y gestión del ciclo productivo y comercial.</li>
+            <li class="item-li text-section">Crear un programa de atención temprana en salud emocional y mental tanto para posibles víctimas, así como para posibles victimarios en casos de maltrato físico y psicológico, feminicidio y/o violencia intrafamiliar.</li>
+            <li class="item-li text-section">Promover la paridad en la participación de hombres y mujeres en los espacios de toma de decisiones y de participación tanto pública como privada a nivel local, regional y nacional.</li>
+            <li class="item-li text-section">Desarrollar acciones y programas para contribuir a la reducción, redistribución y reconocimiento de las actividades de cuidado (Niños y Adultos mayores)</li>
+          </ul>
+
+          <h3 class="sub-title">Programa de Discapacidad y Población Vulnerable</h3>
+          <ul>
+            <li class="item-li text-section">Generar, actualizar e implementar las políticas públicas que estén encaminadas a la protección, atención y derechos de la población en condición de discapacidad, como sujetos de derechos y atención prioritaria en programas de salud, educación, deporte, cultura, participación ciudadana entre otros.</li>
+            <li class="item-li text-section">Promover programas y proyectos de igualdad real y efectiva en favor de grupos vulnerables, discriminados y marginados, brindando atención y seguimiento en procesos de resocialización.</li>
+            <li class="item-li text-section">Creación de la red de solidaridad para población y personas en condición de discapacidad y/o vulnerabilidad en el municipio de El Rosal.</li>
+            <li class="item-li text-section">Desarrollar un proyecto de formación a docentes de las instituciones educativas y programas sociales y culturales del municipio en lenguaje de señas, como parte de priorizar la inclusión de personas con discapacidad auditiva, y sus derechos al acceso a la educación, espacios de participación ciudadana, formación y eventos artísticos y culturales.</li>
+            <li class="item-li text-section">Promover con la empresa pública y privada, la contratación de personas en condición de discapacidad, haciendo énfasis en los beneficios fiscales de ley nacional.</li>
+          </ul>
+        </section>
+
+        <img src="{{ url_for('static', filename = 'images/edison1.jpg') }}" alt="imagen candidato y concejales" class="view-image" />
+
+        <section id="section4">
+          <h2 class="title-section">EJE DESARROLLO ECONOMICO</h2>
+          <h3 class="sub-title">Programa Turismo</h3>
+          <ul>
+            <li class="item-li text-section">Hacer del Municipio de El Rosal un territorio “Coqueto” atractivo para propios y visitantes, desarrollando una política pública de identidad local desde el slogan por el que es reconocido el municipio de El Rosal “Jardín de La Sabana”, promoviendo el embellecimiento de las vías principales del municipio, así como de los espacios de uso público.</li>
+            <li class="item-li text-section">Apoyar la generación y organización de emprendimientos y clúster, encaminados a la prestación de los diferentes tipos y servicios turísticos en el municipio de El Rosal; fortaleciendo los procesos de prestadores turísticos ya existentes.</li>
+            <li class="item-li text-section">Gestionar y desarrollar el proyecto de atractivo turístico Parque Temático Jardín de La Sabana.</li>
+            <li class="item-li text-section">Potenciar el “Parque de la Familia” para que sea un sitio de esparcimiento y recreación comunitario y familiar, con espacios de quioscos con cocina y mesones, parques infantiles y zonas deportivas en buen estado y programación de eventos artísticos los fines de semana para el esparcimiento familiar.</li>
+            <li class="item-li text-section">Generar y desarrollar el programa “El Rosal Coqueto” con la creación de una política pública de embellecimiento de las vías de ingreso al municipio, vías principales del casco urbano, parque principal,</li>
+            <li class="item-li text-section">Crear y promover la señalización y promoción local, nacional e internacional de la marca turística del municipio de EL Rosal, impulsando el territorio como un destino Turístico natural, ecológico, gastronómico, religioso y de aventura.</li>
+            <li class="item-li text-section">Impulsar el aprovechamiento de la infraestructura pública para el desarrollo de eventos (Ferias, conciertos, exposiciones, campeonatos) que promuevan el turismo y desarrollo económico en el municipio de El Rosal.</li>
+            <li class="item-li text-section">Actualizar, fortalecer e implementar las políticas públicas de turismo como el Consejo municipal de Turismo y el Estatuto Municipal de Turismo.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Emprendimiento</h3>
+          <ul>
+            <li class="item-li text-section">Gestionar la creación del Plan decenal de desarrollo económico y social para El Rosal “El Rosal Sembrando Futuro desde el Presente”, una política pública que de identidad y vocación empresarial al municipio de El Rosal, y que impacte favorablemente en el sector social.</li>
+            <li class="item-li text-section">Apoyar la generación de proyectos productivos familiares, asociativos y de pequeña empresa en el municipio de El Rosal, así como la promoción del emprendimiento social y sostenible, estimulando el desarrollo de ideas y proyectos con impacto social y medioambiental positivo, brindando incentivos y apoyo específico a aquellos proyectos que aborden problemáticas sociales o promuevan la sostenibilidad en la comunidad.</li>
+            <li class="item-li text-section">Establecer, adecuar, dotar e implementar el centro de tecnología, innovación, creatividad y proyectos, CENTRO DE EMPRENDIMIENTO denominado (CER) Centro Emprendimiento Rosaluno; donde los emprendedores puedan acceder a recursos y servicios clave, como capacitación empresarial, asesoramiento, mentoría, espacios de trabajo compartidos, acceso a bases de datos de posibles clientes y acompañamientos en la ejecución de proyectos productivos en cualquier eje temático.</li>
+            <li class="item-li text-section">Desarrollar el programa “Siembra Jardín” que buscará la articulación de proyectos innovadores, con entidades nacionales e internacionales interesadas en aportar capital semilla para su implementación y ejecución.</li>
+            <li class="item-li text-section">Creación del programa de “emprendimiento rural” en el municipio que tenga por objetivo brindar los recursos e incentivos necesarios para dinamizar y fortalecer la economía popular planteada en el PND 2022-2026, esto implicaría fomentar por medio de la administración municipal el apoyo en cuanto insumos, usos del suelo, mejoramiento vial, transporte de carga y la integración de los productores individuales y asociados rurales al centro de emprendimiento.</li>
+            <li class="item-li text-section">Concertar con el sector empresarial y comercial del municipio la legalización y formalización comercial, así como la asociatividad comercial para lograr proyectos que beneficien la promoción y desarrollo económico y comercial del municipio.</li>
+            <li class="item-li text-section">Lograr un acercamiento con la industria del sector floricultor y otras industrias que desarrollan sus actividades económicas dentro del municipio, con el objetivo de lograr acuerdos de colaboración y trabajo mancomunado para el mejoramiento de aspectos relacionados con el bienestar laboral, aporte de su cuota de responsabilidad social y la ejecución de proyecto que busque el desarrollo económico del municipio.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Agricultura y Desarrollo Rural</h3>
+          <ul>
+            <li class="item-li text-section">Fortalecer la producción agropecuaria local a través de compras públicas locales y el fortalecimiento de los mercados campesinos a nivel municipal y regional, teniendo en cuenta y articulando estrategias con el gobierno nacional y la política de seguridad y soberanía alimentaria.</li>
+            <li class="item-li text-section">Potencializar en El Rosal, el acuerdo del Gobierno nacional en materia de Agricultura Familiar, gestionando e invirtiendo recursos que favorezcan este tipo de agricultura y que sea vinculante con mujeres rurales y jóvenes.</li>
+            <li class="item-li text-section">Promover la Agroecología en El Rosal, fortaleciendo la producción de alimentos con bajo impacto ambiental.</li>
+            <li class="item-li text-section">Articular programas para la reducción de emisiones de gases de efecto invernadero a través de la implementación de tecnologías a nivel finca para reducir el impacto ambiental de actividades agropecuarias y promover pilotos de energías alternativas.</li>
+            <li class="item-li text-section">Construcción e implementación del Centro de atención animal, para la protección y albergue de animales en condición de abandono y en situaciones apremiantes.</li>
+            <li class="item-li text-section">Fomentar el desarrollo de una feria ganadera y comercial de impacto regional y nacional. Que potencie en El Rosal la ganadería y la producción lechera de calidad.</li>
+          </ul>
+        </section>
+
+        <section id="section5">
+          <h2 class="title-section">EJE DESARROLLO TERRITORIAL</h2>
+
+          <h3 class="sub-title">Programa Medio Ambiente</h3>
+          <ul>
+            <li class="item-li text-section">Proyectar a El Rosal como un municipio que garantice un futuro sostenible para sus habitantes, que se aleje de modelos ampliamente urbanizados y desordenados que únicamente pretenden satisfacer las necesidades de la capital y los intereses económicos de algunos políticos, destruyendo nuestra identidad como municipio y sacrificando nuestra calidad de vida.</li>
+            <li class="item-li text-section">Protección de espacios sanos de esparcimiento, lugares naturales para hacer deporte, lugares para contemplar la naturaleza y respirar aire puro. Es así que proponemos aprovechar la riqueza natural de nuestro municipio, especialmente de la parte alta, ampliando e interconectando las zonas de reserva forestal, incentivando la vivienda amigable con el medio ambiente y el ecoturismo como base sostenible y rentable para las comunidades rurales del municipio previniendo la sobre urbanización.</li>
+            <li class="item-li text-section">Generar la primera granja de energía solar para producción de energías limpias en el municipio de El Rosal</li>
+            <li class="item-li text-section">Gestionar la implementación en un mínimo de 50 casas rurales con energía solar y 2 empresas con renovación de fuente de energías limpias.</li>
+            <li class="item-li text-section">Regular y controlar los polígonos mineros que actualmente operan en el municipio y que utilizan nuestra agua sin contar con los permisos correspondientes. En concordancia con las sentencias que ordenan proteger las cuencas hídricas que se conectan con el rio Bogotá y poniendo por encima de los intereses empresariales siempre los derechos de los habitantes del municipio al recurso hídrico de calidad y en cantidad suficiente.</li>
+            <li class="item-li text-section">Fortalecer las asociaciones de recicladores del municipio del municipio, formalizando su labor y brindando apoyo para el desarrollo y mejoramiento de calidad de vida.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Vivienda y hábitat</h3>
+          <ul>
+            <li class="item-li text-section">Construir e implementar una política pública de hábitat y vivienda que reglamente principalmente la actividad de arrendamientos para vivienda en el municipio de El Rosal, dado que es una de los factores detonantes de varias de las problemáticas sociales y de seguridad que acosan al municipio de El Rosal.</li>
+            <li class="item-li text-section">Fomentar un programa de embellecimiento y mejoramiento de fachadas, para dar un cambio visual a sectores del municipio especialmente de entradas y vías principales, acorde al programa de hacer de El Rosal un municipio Coquero, atractivo a locales y externos.</li>
+            <li class="item-li text-section">Desarrollar programas de acceso a vivienda digna en lugares seguros, así como subsidios para mejoramiento y construcción de vivienda urbana y rural acorde a las necesidades actuales y garantía de prestación efectiva de servicios públicos en el municipio.</li>
+            <li class="item-li text-section">Desarrollar dentro del programa “El Rosal Coqueto” el plan concertado con la comunidad de mejoramiento y embellecimiento de fachadas, buscando una identidad, embellecimiento y uniformidad urbana, especialmente en las fachadas de las edificaciones de la calle 10 (vía principal) y fachadas de las zonas de acceso al casco urbano municipal.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Vías y Transporte Público</h3>
+          <ul>
+            <li class="item-li text-section">Construir en concertación con la comunidad y actores viales del municipio el plan de movilidad municipal, como carta de navegación y reorganización de la movilidad en temas primordiales como zonas de parqueo, paraderos, demarcación y señalización dentro del municipio de El Rosal.</li>
+            <li class="item-li text-section">Priorizar el mantenimiento y adecuación de las vías terciarias como estrategia de fortalecimiento de la economía rural y campesina.</li>
+            <li class="item-li text-section">Trabajar conjuntamente con las comunidades y juntas de acción comunal para el mejoramiento y mantenimiento de la infraestructura vial de la ruralidad.</li>
+            <li class="item-li text-section">Fortalecer y reglamentar planes, tarifas y acciones que beneficien a la población rural en materia de transporte público para el acceso a las zonas rurales y desplazamiento a zona urbana del municipio.</li>
+            <li class="item-li text-section">Generar un plan de mantenimiento y recuperación de la maya vial principal de las vías de acceso y vías urbanas del municipio de El Rosal.</li>
+            <li class="item-li text-section">Construcción y mantenimiento de ciclorutas y andenes que mejoren la seguridad vial de ciclistas y peatones.</li>
+            <li class="item-li text-section">Crear el programa de “Bici Transporte público” para impacto de movilidad local y turístico.</li>
+            <li class="item-li text-section">Gestionar rutas de transporte de pasajeros al portal 80, con salida desde el municipio de El Rosal en las horas pico, especialmente en la mañana, esto para mejorar la calidad de vida y desplazamiento de los Rosalunos que deben desplazarse a la ciudad a trabajar y/o estudiar.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Planeación y Atención del Riesgo</h3>
+          <ul>
+            <li class="item-li text-section">Revisar y trabajar en conjunto con la comunidad un esquema de ordenamiento territorial para El Rosal que se ajuste a la vocación de desarrollo económico, turístico, agrícola y ambiental del municipio. Propiciando principalmente saldar el actual déficit en infraestructura, servicios y espacios públicos en diferentes sectores de salud, educación, agua potable, recreación, cultura y mejoramiento de maya vial, entre otros.</li>
+            <li class="item-li text-section">Brindar el apoyo administrativo y presupuestal a las entidades de socorro y atención de emergencias presentes en el municipio de El Rosal (Bomberos, Defensa Civil), fortaleciendo sus servicios a la comunidad.</li>
+            <li class="item-li text-section">Gestionar los procesos de funcionamiento, administrativos y legales de la PTAR de El Municipio de El Rosal.</li>
+            <li class="item-li text-section">Desarrollar e implementar el plan maestro de acueducto y alcantarillado, dando prioridad a las veredas.</li>
+            <li class="item-li text-section">Vigilar y gestionar ante las empresas prestadoras de servicios la calidad, tarifas, cobertura y las garantías de la prestación de los servicios públicos en el municipio de El Rosal.</li>
+          </ul>
+        </section>
+
+        <section id="section6">
+          <h2 class="title-section">EJE TRANSPARENCIA Y PARTICIPACION CIUDADANA</h2>
+
+          <h3 class="sub-title">Programa de Transparencia</h3>
+          <ul>
+            <li class="item-li text-section">Fortalecer los canales de quejas, reclamos y denuncia ciudadana hacia los diferentes procesos, funcionarios y/o contratistas de la administración municipal.</li>
+            <li class="item-li text-section">Apoyar y fomentar la creación y participación de las veedurías ciudadanas.</li>
+            <li class="item-li text-section">Fomentar en la administración municipal las buenas prácticas de gestión y administración pública.</li>
+            <li class="item-li text-section">Crear y desarrollar el programa de “Presupuesto y Contratación Participativa” donde la ciudadanía pueda participar y conocer los procesos de contratación desde la elaboración de los procesos y el presupuesto asignado, hasta su ejecución y liquidación final.</li>
+            <li class="item-li text-section">Promover la participación de las Mipymes del Municipio de El Rosal, en la actividad contractual, para que las convocatorias que por ley deban ser dirigidas a estas.</li>
+            <li class="item-li text-section">Adoptar y fortalecer la política anti trámites.</li>
+          </ul>
+
+          <h3 class="sub-title">Programa Participación Ciudadana</h3>
+          <ul>
+            <li class="item-li text-section">Fomentar de manera activa y dinámica la participación ciudadana en la gobernanza del municipio de El Rosal, esta participación desde un empoderamiento social y comunitario en el que se transversalizan los diferentes sectores y actores municipales.</li>
+            <li class="item-li text-section">Desarrollar el programa de “Gobernabilidad desde la Comunidad” un proyecto encaminado a la pedagogía y acercamiento con la comunidad, del quehacer de la Administración municipal, descentralizando las dependencias a los barrios, veredas e instituciones educativas.</li>
+            <li class="item-li text-section">Realizar un programa dinámico, didáctico y participativo en el desarrollo de la rendición de cuentas de gestión administrativa de la Alcaldía municipal.</li>
+            <li class="item-li text-section">Capacitación y reestructuración de la gestión social de las JAC</li>
+            <li class="item-li text-section">Mantenimiento y Dotación de los salones comunales urbanos y rurales, para que sean sedes multipropósito de uso común para diferentes tipos de actividades.</li>
+            <li class="item-li text-section">robustecer la relación e integración con las juntas de acción comunal, las cuales serán partícipes en la gestión de la Alcaldía y para ello se promoverá la suscripción de convenios solidarios para que ellas mismas ejecuten obras en sus ámbitos territoriales y con participación de la comunidad.</li>
+          </ul>
+        </section>
+         -->
+        <embed class="visor-pdf" src="{{ url_for('static', filename = 'pdf/plan_edison_beltran.pdf') }}" type="application/pdf" />
+      </article>
+
+      <aside class="publicidad">
+        <!-- Espacio para la publicidad -->
+        <img src="ruta_de_la_publicidad.jpg" alt="Publicidad" />
+      </aside>
+    </main>
+
+    <!-- El pie de página (footer) irá aquí -->
+
+    <script src="{{ url_for('static', filename = 'js/scripts_govert_plan.js') }}"></script>
+  </body>
+</html>

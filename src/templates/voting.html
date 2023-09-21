@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Elección Municipal</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" href="/static/favicon.png" />
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles_voting.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header id="header-page">
+    <section id="section-header">
+      <img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" />
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="/" class="li-hover">Salir</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+  <main id="section-voting">
+    <div class="fg-voting">
+      <div id="voting-card" class="voting-card">
+        <section class="container-title">
+          <h1>Encuesta candidatos a la alcaldía</h1>
+          <h1>El Rosal - Cundinamarca</h1>
+          <h2>Seleccione el candidato por el cual quiere votar</h2>
+        </section>
+        <section class="container-candidates">
+          <button class="vote-button card-candidate" data-candidate-id="1" data-candidate-name="Edison Beltran">
+            <div class="overlay"></div>
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}" alt="Foto del candidato Edison Beltran" />
+            <figcaption class="name-candidate">Edison</figcaption>
+            <figcaption class="sub-name-candidate">Beltran Sarmiento</figcaption>
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/pacto_historico.png') }}" alt="Foto del partido candidato Edison Beltran" />
+          </button>
+          <button class="vote-button card-candidate" data-candidate-id="2" data-candidate-name="Juan Andrés">
+            <div class="overlay"></div>
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_juan_andres_.png') }}" alt="Foto del candidato Juan Andres Campos" />
+            <figcaption class="name-candidate">Juan</figcaption>
+            <figcaption class="sub-name-candidate">Andrés Campos</figcaption>
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/cambio_radical.png') }}" alt="Foto del partido candidato Juan Andres Campos" />
+          </button>
+          <button class="vote-button card-candidate" data-candidate-id="3" data-candidate-name="Genaldo Hernández">
+            <div class="overlay"></div>
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_genaldo_.png') }}" alt="Foto del candidato Genaldo Hernández" />
+            <figcaption class="name-candidate">Genaldo</figcaption>
+            <figcaption class="sub-name-candidate">Hernández Bello</figcaption>
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/partido_liberal.png') }}" alt="Foto del partido candidato Genaldo Hernández" />
+          </button>
+          <button class="vote-button card-candidate" data-candidate-id="4" data-candidate-name="Jorge Mikan ">
+            <div class="overlay"></div>
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_mikan_.png') }}" alt="Foto del candidato Jorge Mikan" />
+            <figcaption class="name-candidate">Jorge</figcaption>
+            <figcaption class="sub-name-candidate">Mikan Salgado</figcaption>
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/partido_u.png') }}" alt="Foto del partido candidato Jorge Mikan" />
+          </button>
+          <button class="vote-button card-candidate" data-candidate-id="5" data-candidate-name="Blanca Lilia Gonzales">
+            <div class="overlay"></div>
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" alt="Foto del candidato Blanca Lilia Gonzales" />
+            <figcaption class="name-candidate">Blanca</figcaption>
+            <figcaption class="sub-name-candidate">Lilia Gonzales</figcaption>
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/partido_conservador.png') }}" alt="Foto del partido candidato Blanca Lilia Gonzales" />
+          </button>
+          <button class="vote-button card-candidate blank-vote" data-candidate-id="6" data-candidate-name="Voto en blanco">
+            <div class="overlay"></div>
+            <p>VOTO EN BLANCO</p>
+          </button>
+          <!--   
+            <div id="candidate-5" class="card-candidate">
+            </div>
+            <div id="candidate-6" class="card-candidate blank-vote">
+            </div>
+             -->
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer-page"></footer>
+
+  <script type="text/javascript">
+    document.addEventListener('click', function (event) {
+      const x = event.clientX / window.innerWidth
+      const y = event.clientY / window.innerHeight
+      confetti({
+        origin: { x, y }
+      })
+    })
+    confetti()
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename = 'js/scripts_voting.js') }}"></script>
+</body>
