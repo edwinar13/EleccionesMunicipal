@@ -525,7 +525,7 @@ a {
 }
 
 .card-candidate p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 100;
     margin: 15px;
     color: antiquewhite;
@@ -1364,7 +1364,7 @@ a {
     }
 
     .logo-header {
-        margin: 5px 0;
+        margin: 20px 0;
     }
 
 }

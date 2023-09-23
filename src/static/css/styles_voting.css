@@ -89,7 +89,7 @@ body {
 /*------------------------------------------------------------              >>>>>          section-home           <<<<<<*/
 #section-voting {
 
-    max-height: 100vh;
+    min-height: 100vh;
     /*parallax - color fondo  - que se quede fija - para quen no se repita  - posicion posicion */
     background: rgba(218, 218, 218, 0.2) fixed no-repeat 50% 50%;
     background-size: cover;
@@ -100,7 +100,8 @@ body {
 
 .fg-voting {
     background-color: #1b0b05e8;
-    height: 100%;
+    height:100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
