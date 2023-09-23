@@ -1,3 +1,20 @@
+/*
+Pregunta	Respuesta
+ tamaño adecuado para la raíz (root)  16px o entre 14-18
+Elemento	Tamaño de Texto Sugerido
+Título Principal (H1)	                            2.5rem - 3rem
+Títulos Secundarios (H2)	                        2rem
+Títulos de Sección (H3, H4, etc.)	                1.5rem - 1.2rem
+Subtítulos	                                        1.1rem - 1.3rem
+Párrafos	                                        1rem - 1.2rem
+Enlaces (Links)	                                    1rem - 1.2rem con estilo y subrayado
+Texto Pequeño (Pie de Página)	                    0.9rem - 0.8rem
+Texto Destacado o Énfasis	                        Estilo diferente como negrita o cursiva
+Formularios	                                        Similar al texto de párrafo con ajustes para campos de error o confirmación
+Encabezados de Tabla	                            Un poco más grandes que el texto del cuerpo
+Botones                                             
+*/
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,8 +22,27 @@
     scroll-behavior: smooth;
 }
 
+html {
+    font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+
+
+
+
 body {
     font-family: 'Nunito Sans', sans-serif;
+
+}
+
+a {
+    font-size: 0;
 }
 
 #main-page {
@@ -37,6 +73,7 @@ body {
 
 #section-header {
     width: 100%;
+    height: 100%;
     padding-left: 5%;
     padding-right: 5%;
     display: flex;
@@ -44,8 +81,8 @@ body {
 }
 
 .logo-header {
-    margin-top: 20px;
-    height: 50px;
+    margin: 18px 0;
+    height: 44px;
 }
 
 .nav-menu ul {
@@ -53,7 +90,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    margin-top: 27px;
+    margin-top: 28px;
 }
 
 .nav-menu li {
@@ -64,7 +101,7 @@ body {
 .nav-menu a {
     text-decoration: none;
     color: antiquewhite;
-    font-size: 22px;
+    font-size: 1rem;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -127,6 +164,11 @@ body {
         visibility: hidden;
         width: 0;
     }
+    
+#section-header {
+    justify-content: center;
+    padding: 0;
+}
 }
 
 
@@ -145,8 +187,9 @@ body {
 }
 
 .animated-text {
-    font-size: 30px;
+    font-size: 1.5rem;
     font-weight: 600;
+    width: 100%;
 }
 
 .animated-text span {
@@ -176,8 +219,8 @@ body {
     height: 70%;
     display: flex;
     flex-wrap: wrap;
-    padding-left: 5%;
-    padding-right: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .container-contend .information {
@@ -186,40 +229,54 @@ body {
     justify-content: center;
     align-items: start;
     flex: 1;
+    text-align: center;
+    width: 100%;
 }
 
 .container-contend .information h1 {
     color: antiquewhite;
-    font-size: 70px;
+    font-size: 3rem;
     font-weight: 900;
+    width: 100%;
 }
 
 .container-contend .information h2 {
-    font-size: 50px;
+    font-size: 2rem;
     color: #998f82;
+    width: 100%;
 }
 
 .container-contend .information p {
-    font-size: 25px;
+    font-size: 1.2rem;
     color: #998f82;
     margin-bottom: 10px;
 }
 
 .container-contend .shield {
-    perspective: 1000px;
+    perspective: 10px;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container-contend .shield img {
-    width: 400px;
-    height: 400px;
-    transition: transform 0.2s;
+#shield-container {
+    perspective: 500px;
+    /*
     transform-style: preserve-3d;
-    filter: grayscale(60%);
+    */
+
 }
+
+
+.container-contend .shield .shield-rosal-style {
+    width: 250px;
+    height: 250px;
+    transition: transform 0.8s;
+    filter: grayscale(60%);
+    transform: rotateX(0deg) rotateY(0deg);
+}
+
 
 .container-photos {
     height: 30%;
@@ -265,7 +322,7 @@ body {
 .container-photos figcaption {
     color: #0e0252;
     font-weight: 600;
-    font-size: 25px;
+    font-size: 1.2rem;
     text-align: center;
 }
 
@@ -297,11 +354,18 @@ body {
 
 .title-section {
     color: #2b3c4e;
-    font-size: 70px;
+    font-size: 2rem;
     font-weight: 900;
     text-align: center;
 }
 
+.description-section {
+    color: #2b3c4e;
+    font-size: 1.2rem;
+    font-weight: 200;
+    text-align: center;
+
+}
 
 
 @media (max-width: 1500px) {
@@ -316,10 +380,12 @@ body {
     .container-contend .shield {
         margin-top: 30px;
         margin-bottom: 30px;
+        width: 100%;
     }
 
     .container-photos {
         background-image: none;
+        gap: 15px;
     }
 
     .container-photos figcaption {
@@ -333,7 +399,7 @@ body {
     }
 
     .container-photos figure {
-        margin-bottom: 50px;
+        margin-bottom: 70px;
     }
 }
 
@@ -342,18 +408,9 @@ body {
         flex-direction: column;
     }
 
-    .container-contend .information h1 {
-        font-size: 45px;
-    }
-
-    .container-contend .information h2 {
-        font-size: 30px;
-    }
-
-    .container-contend .information p {
-        font-size: 20px;
-        ;
-    }
+   
+    
+    
 
     .container-contend .shield img {
         width: 100%;
@@ -361,8 +418,8 @@ body {
     }
 
     .container-photos figure {
-        max-width: 300px;
-        max-height: 300px;
+        max-width: 180px;
+        max-height: 180px;
     }
 
     .candidate-img {
@@ -379,7 +436,7 @@ body {
 #section-candidates {
     display: flex;
     background-color: #fffaf4;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .publicidad {
@@ -394,17 +451,15 @@ body {
 }
 
 .card-candidate {
-    margin-top: 100px;
+    margin-top: 30px;
 }
 
 .about_genaldo_hernandez .card-candidate {
     background-image: url("../images/bg-candidates/bg_genaldo_hernandez.jpg");
-    margin-top: 90px;
 }
 
 .about_edison_beltran .card-candidate {
     background-image: url("../images/bg-candidates/bg_jedison_beltran.jpg");
-    margin-top: 90px;
 }
 
 .about_blanca_lilia .card-candidate {
@@ -443,7 +498,7 @@ body {
 }
 
 .card-candidate h1 {
-    font-size: 28px;
+    font-size: 1.5rem;
     font-weight: 900;
     background-image: linear-gradient(111deg, rgb(215 141 21) 0%, rgb(192 13 77) 100%);
     -webkit-background-clip: text;
@@ -453,13 +508,13 @@ body {
 }
 
 .card-candidate h2 {
-    font-size: 23px;
+    font-size: 1.2rem;
     font-weight: 300;
     margin-bottom: 5px;
 }
 
 .card-candidate span {
-    font-size: 23px;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 20px;
     margin-right: 10px;
@@ -470,9 +525,10 @@ body {
 }
 
 .card-candidate p {
-    font-size: 23px;
+    font-size: 1rem;
     font-weight: 100;
     margin: 15px;
+    color: antiquewhite;
 }
 
 .link-plan {
@@ -485,13 +541,13 @@ body {
     width: auto;
     text-align: end;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.2rem;
     font-weight: 900;
     padding: 15px;
     border-radius: 5px;
     transition: color 0.8s ease, background-color 0.8s ease;
     background-color: #5f9ac2;
-    color: #4b505c;
+    color: #ffffff;
 
 }
 
@@ -563,6 +619,8 @@ body {
 
     #section-candidates {
         flex-direction: column;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     .candidates {
@@ -570,7 +628,7 @@ body {
     }
 
     .card-candidate {
-        margin: 15px;
+        margin:0 15px 0 15px;
     }
 
     .fg-card {
@@ -599,10 +657,10 @@ body {
         background-image: url("../images/bg-candidates/bg_juan_andres_h.jpg");
     }
 
-    .title-section {
-        font-size: 45px;
+    .title-section, .description-section {
+        margin-left: 15px;
+        margin-right: 15px;
     }
-
 }
 
 @media (max-width: 800px) {
@@ -613,8 +671,7 @@ body {
         padding-bottom: 35px;
     }
 
-    .card-candidate p {
-        font-size: 20px;
+    .card-candidate p {        
         font-weight: 100;
         margin: 15px;
     }
@@ -648,10 +705,21 @@ body {
 
 }
 
+
+.description-section3 {
+    color: antiquewhite;
+    font-size: 1.2rem;
+    font-weight: 200;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+
 .container-poll {
     display: flex;
     padding-bottom: 200px;
-    padding-top: 10px;
+    padding-top: 60px;
     gap: 10px;
 }
 
@@ -677,15 +745,6 @@ body {
     max-width: 700px;
 }
 
-#countdown-timer {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-#countdown {
-    font-size: 24px;
-    font-weight: bold;
-}
 
 #poll-form {
     margin-top: 20px;
@@ -701,11 +760,11 @@ body {
 
 #email-user {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 25px;
+    font-size: 1.0rem;
 }
 
 #poll-form button {
@@ -716,11 +775,11 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 1.2rem;
     font-weight: 900;
     transition: color 0.8s ease, background-color 0.8s ease;
     background-color: #5f9ac2;
-    color: #4b505c;
+    color: #ffffff;
 }
 
 
@@ -753,23 +812,24 @@ body {
 .title-poll {
     padding-top: 80px;
     color: antiquewhite;
-    font-size: 80px;
+    font-size: 2rem;
     font-weight: 900;
     text-align: center;
-    margin: 0 5% 80px 5%;
+    margin: 0 5% 30px 5%;
 }
 
 .subtitle-poll {
 
-    font-size: 40px;
+    font-size: 1.5rem;
     color: #998f82;
     margin: 20px;
 }
 
 .text-poll {
-    font-size: 25px;
-    color: #998f82;
+    font-size: 1rem;
+    color: antiquewhite;
     margin: 20px;
+    font-weight: 100;
 }
 
 #countdown-timer {
@@ -795,14 +855,14 @@ body {
 }
 
 .countdown-number {
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: bold;
     padding: 10px 10px 0 10px;
     color: #83a1c7;
 }
 
 .countdown-label {
-    font-size: 12px;
+    font-size: 0.6rem;
     text-transform: uppercase;
     margin-bottom: 10px;
     color: antiquewhite;
@@ -811,21 +871,22 @@ body {
 #countdown-timer p {
     color: antiquewhite;
     font-weight: 300;
-    font-size: 40px;
+    font-size: 2rem;
 }
 
 
 .timer-text {
-    font-weight: 300;
-    font-size: 40px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #998f82;
     color: antiquewhite;
-    margin: 20px;
+    margin: 0 20px 20px 20px;
 }
 
 
 #alert-message {
     padding: 10px;
-    font-size: 18px;
+    font-size: 1rem;
     text-align: center;
     font-weight: bold;
     border-radius: 5px;
@@ -876,7 +937,8 @@ body {
     .container-poll {
         flex-wrap: wrap;
         justify-content: center;
-        padding-bottom: 30px;
+        padding-bottom: 0px;
+        padding-top: 20px;
     }
 
     .poll-form {
@@ -890,7 +952,6 @@ body {
     }
 
     .timer-text {
-        text-align: center;
     }
 
     #poll-form {
@@ -911,15 +972,15 @@ body {
 
 @media (max-width: 800px) {
     .title-poll {
-        font-size: 45px;
+        padding-top: 30px;
     }
 
     .subtitle-poll {
-        font-size: 30px;
+        text-align: center;
     }
 
     .text-poll {
-        font-size: 20px;
+        text-align: center;
     }
 
     .countdown-card {
@@ -929,11 +990,14 @@ body {
     .poll-form {
         padding: 0px;
     }
+
     .fg-poll {
         padding-right: 15px;
         padding-left: 15px;
-    
+        padding-bottom: 60px;
+
     }
+
     .poll-results {
         padding: 30px 0 0 0;
     }
@@ -951,15 +1015,18 @@ body {
 
 .title-section-dark {
     color: antiquewhite;
-    font-size: 80px;
+    font-size: 2rem;
     font-weight: 900;
     text-align: center;
-    margin: 0 5% 100px 5%;
+    margin: 0 5% 30px 5%;
 }
+
+
+
+
 
 @media (max-width: 800px) {
     .title-section-dark {
-        font-size: 45px;
     }
 }
 
@@ -970,6 +1037,7 @@ body {
     justify-content: center;
     gap: 15px;
     padding: 0 5%;
+    margin-top: 60px;
 }
 
 
@@ -1065,8 +1133,8 @@ body {
 
 .councilor-name {
     text-align: center;
-    font-size: 25px;
-    color: gray;
+    font-size: 1rem;
+    color: antiquewhite;
 
 }
 
@@ -1086,27 +1154,29 @@ body {
 
 .councilor-data div figcaption {
     color: antiquewhite;
-    font-size: 50px;
+    font-size: 2.2rem;
     font-weight: 900;
 }
 
 
 @media (max-width: 800px) {
     #section-concejales {
-        padding: 0 15px 80px 15px;
+        padding: 0 15px 60px 15px;
     }
-    
+
     .container-councilors {
-        padding: 0 ;
+        padding: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
         justify-content: center;
-  align-items: center;
+        align-items: center;
+        margin-top: 30px;
     }
-    .container-councilors li{
+
+    .container-councilors li {
         margin: auto;
     }
-    
+
 
 }
 
@@ -1116,24 +1186,24 @@ body {
         height: auto;
         padding: 10px;
     }
+
     .councilor-img {
         width: 100%;
         height: 100%;
     }
+
     .councilor-data div {
 
         min-height: 40px;
     }
-    .councilor-data div figcaption {
-        font-size: 30px;
-    }
+
+   
+
     .councilor-data img {
-        height:30px;
+        height: 30px;
     }
-    .councilor-name {
-        white-space: nowrap; 
-        font-size: 2vh;
-    }
+
+
 }
 
 /*====================================================*/
@@ -1151,7 +1221,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
 
 }
 
@@ -1167,7 +1236,7 @@ body {
 .name {
     margin: 0;
     text-align: center;
-    font-size: 25px;
+    font-size: 1rem;
     font-weight: 400;
     color: #f1c77d;
 }
@@ -1179,7 +1248,7 @@ body {
     justify-content: center;
     padding: 0;
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 0.8rem;
     width: 100%;
 }
 
@@ -1202,6 +1271,7 @@ body {
     color: #fff;
     text-decoration: none;
     white-space: nowrap;
+    font-size: 1rem;
 }
 
 .menu li a:hover {
@@ -1211,7 +1281,7 @@ body {
 
 .copyright {
     margin: 0;
-    font-size: 13px;
+    font-size: 0.8rem;
     text-align: center;
     color: rgba(255, 255, 255, 0.356);
 }
@@ -1225,7 +1295,7 @@ body {
 
 /*   contenedor derecho  */
 .contact {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     letter-spacing: 3px;
     margin: 4px;
@@ -1235,12 +1305,12 @@ body {
 .social-icons-footer {
     display: flex;
     gap: 10px;
-    font-size: 30px;
 }
 
 .social-icons-footer a {
     color: #fff;
     text-decoration: none;
+    font-size: 1.5rem;
 }
 
 .social-icons-footer a:hover {
@@ -1273,7 +1343,6 @@ body {
 
     /*   contenedor central  */
     .menu {
-        font-size: 10px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -1285,22 +1354,17 @@ body {
         flex: 1;
     }
 
-    .copyright {
-        font-size: 10px;
 
-    }
 
     /*   contenedor derecho  */
-    .contact {
-        font-size: 10px;
-    }
+ 
 
     .social-icons-footer {
-        font-size: 20px;
+        margin-bottom: 20px;
     }
 
-    .footer-section {
-        padding: 10px;
+    .logo-header {
+        margin: 5px 0;
     }
 
 }

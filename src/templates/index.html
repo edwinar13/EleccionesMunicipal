@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles.css') }}" />
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 
 <body>
@@ -49,13 +49,16 @@
             <div class="animated-text">
               <h1>Candidatos <span>El Rosal</span></h1>
             </div>
+
             <h2>Votando por un Futuro Mejor</h2>
             <p>Explora las visiones, propuestas y compromisos de nuestros candidatos políticos que trabajarán incansablemente por un Rosal mejor y más próspero. Conoce sus perfiles, valores y proyectos que marcarán el rumbo de nuestra comunidad.</p>
-            <p> Tu voto es una voz poderosa, ¡infórmate y participa en la construcción de un futuro brillante para El Rosal!</p>
+            <p>Tu voto es una voz poderosa, ¡infórmate y participa en la construcción de un futuro brillante para El Rosal!</p>
           </div>
 
           <figure id="shield" class="shield">
-            <img id="escudo_rosal" src="{{ url_for('static', filename = 'images/escudo_rosal.png') }}" alt="Escudo El Rosal" class="" />
+            <div id="shield-container">
+              <img id="shield-rosal" src="{{ url_for('static', filename = 'images/escudo_rosal.png') }}" alt="Escudo El Rosal" class="shield-rosal-style" />
+            </div>
           </figure>
         </div>
         <div class="container-photos">
@@ -88,7 +91,7 @@
       <aside class="publicidad"></aside>
       <main class="candidates">
         <h1 class="title-section">CONOCE MÁS SOBRE LOS CANDIDATOS</h1>
-
+        <p class="description-section">Te invitamos a explorar a fondo la información sobre los candidatos que participan en las próximas elecciones. Obtendrás un resumen completo de quiénes son, sus antecedentes y su experiencia laborar. Además, podrás acceder a los planes de gobierno detallados de cada candidato para tomar una decisión informada sobre tu voto. Descubre quiénes están postulándose y cómo planean abordar los desafíos clave que enfrenta nuestra comunidad</p>
         <article id="about_genaldo_hernandez" class="article-card about_genaldo_hernandez">
           <div class="card-candidate card-in-izq card-in-der">
             <div class="fg-card">
@@ -101,7 +104,7 @@
             </div>
           </div>
         </article>
-
+        
         <article id="about_edison_beltran" class="article-card about_edison_beltran">
           <div class="card-candidate card-in-izq card-in-der">
             <div class="fg-card">
@@ -114,7 +117,7 @@
             </div>
           </div>
         </article>
-
+        
         <article id="about_blanca_lilia" class="article-card about_blanca_lilia">
           <div class="card-candidate card-in-izq card-in-der">
             <div class="fg-card">
@@ -127,7 +130,7 @@
             </div>
           </div>
         </article>
-
+        
         <article id="about_jorge_mikan" class="article-card about_jorge_mikan">
           <div class="card-candidate card-in-izq card-in-der">
             <div class="fg-card">
@@ -156,17 +159,17 @@
       </main>
       <aside class="publicidad"></aside>
     </section>
-
+    
     <section id="section-poll">
       <div class="fg-poll">
-        <h1 class="title-poll">RESULTADOS DE LA ENCUESTA </h1>
+        <h1 class="title-poll">RESULTADOS DE LA ENCUESTA</h1>
+        <p class="description-section3">Pronto, publicaremos los resultados de la encuesta. Estamos trabajando arduamente para recopilar y analizar todos los votos y opiniones de la comunidad. Los resultados reflejarán la voz de quienes participaron en la encuesta. Además, si aún no has tenido la oportunidad de votar, te invitamos a hacerlo y contribuir a la toma de decisiones en nuestra comunidad. ¡Tu voz es importante!</p>
         
         <div class="container-poll">
           <div class="poll-results">
             <img id="img-poll-0" src="{{ url_for('static', filename = 'images/polls/poll-2023-12-09.png') }}" alt="Resultados encuesta El Rosal" class="" />
           </div>
           <div class="poll-form">
-            
             <p class="timer-text">Primer resultado en:</p>
             <div id="countdown-timer">
               <div class="countdown-card" id="days-card">
@@ -203,6 +206,7 @@
     </section>
     <section id="section-concejales">
       <h2 class="title-section-dark">CONOCE LOS CANDIDATOS AL CONCEJO</h2>
+      <p class="description-section3">Te presentamos a los candidatos que se postulan para el Concejo de nuestra comunidad. Queremos que conozcas a quienes buscan representarnos y participar en la toma de decisiones locales. A continuación, encontrarás tarjetas informativas de cada candidato, que incluyen su foto, nombre, número de tarjetón y un enlace directo a sus perfiles en redes sociales, como Facebook. Explora sus perfiles para obtener más información sobre sus propuestas y visiones para nuestra comunidad. Tu voto es importante, y conocer a los candidatos te ayudará a tomar una decisión informada en las próximas elecciones.</p>
       <ul class="container-councilors">
         <!--  -->
         <li>
@@ -296,16 +300,7 @@
               <div class="councilor-img">
                 <a href="" target="_blank"></a>
               </div>
-              <!--     
-                <img src="{{ url_for('static', filename = 'images/councilors/foto_arley_rocha.png') }}" alt="Foto del candidato al concejo" />
-              <div class="councilor-data">
-                <figcaption class="councilor-name">Arley Rocha</figcaption>
-                <div>
-                  <img src="{{ url_for('static', filename = 'images/councilors/partido_democrata.png') }}" alt="Foto del partido politico" />
-                  <figcaption>06</figcaption>
-                </div>
-              </div>
-                 -->
+
             </div>
           </div>
         </li>
@@ -315,72 +310,10 @@
         <li>
           <div class="card-councilor"></div>
         </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
+
+
+
+
       </ul>
     </section>
   </main>
@@ -392,32 +325,28 @@
       </div>
       <div class="footer-section footer-section-lines">
         <ul class="menu">
-
-
           <li>
-            <a href="#section-home" >Inicio</a>
+            <a href="#section-home">Inicio</a>
           </li>
           <li>
-            <a href="#section-candidates">Candidatos </a>
+            <a href="#section-candidates">Candidatos</a>
           </li>
           <li>
-            <a href="#section-poll" >Encuesta</a>
+            <a href="#section-poll">Encuesta</a>
           </li>
           <li>
-            <a href="#section-concejales" >Concejales</a>
+            <a href="#section-concejales">Concejales</a>
           </li>
         </ul>
-        <a class="copyright" href="politica-de-privacidad" >Política de Privacidad y Tratamiento de Datos</a>
-        <p class="copyright">&copy; 2023 Mi Candidato. Todos los derechos reservados.
-        </p>
-
+        <a class="copyright" href="politica-de-privacidad">Política de Privacidad y Tratamiento de Datos</a>
+        <p class="copyright">&copy; 2023 Mi Candidato. Todos los derechos reservados.</p>
       </div>
       <div class="footer-section">
         <p class="contact">Contáctanos</p>
         <div class="social-icons-footer">
           <a href="https://www.linkedin.com/in/edwin-j-arevalo" target="_blank"><i class="fab fa-linkedin"></i></a>
           <a href="https://api.whatsapp.com/send?phone=573118994279&amp;text=Hola%20Edwin, " target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="mailto:edwinarevalo88@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+          <a href="mailto:soporte@micandidato.org"><i class="fa fa-envelope" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>

@@ -89,7 +89,7 @@ body {
 /*------------------------------------------------------------              >>>>>          section-home           <<<<<<*/
 #section-voting {
 
-    height: 100vh;
+    max-height: 100vh;
     /*parallax - color fondo  - que se quede fija - para quen no se repita  - posicion posicion */
     background: rgba(218, 218, 218, 0.2) fixed no-repeat 50% 50%;
     background-size: cover;
@@ -168,6 +168,7 @@ body {
     height: 100%;
     background-color: #09134100;
     transition: background-color 1s ease, clip-path 1s ease;
+    
     z-index: 1;
     clip-path: polygon(50% 45%, 45% 50%,    45% 50%,       45% 50%, 50% 55%,   50% 55%,    50% 55%, 55% 50%,     55% 50%,     55% 50%, 50% 45%,      50% 45%);
     
@@ -182,6 +183,13 @@ body {
     clip-path: polygon(4% 2%, 0 4%,    45% 50%,       0 96%, 4% 98%,   50% 55%,    96% 98%, 100% 96%,     55% 50%,     100% 4%, 96% 2%,      50% 45%);
     background-color: #091341;
 }
+/*
+.checked-card{
+    clip-path: polygon(4% 2%, 0 4%,    45% 50%,       0 96%, 4% 98%,   50% 55%,    96% 98%, 100% 96%,     55% 50%,     100% 4%, 96% 2%,      50% 45%);
+    background-color: #0913418a;
+}
+*/
+
 
 
 .candidate-img {

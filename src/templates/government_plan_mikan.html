@@ -49,41 +49,15 @@
     <!-- El contenido del plan de gobierno irá aquí -->
 
     <main>
-      <aside class="menu-navegacion">
-        <ul class="menu">
-          <li class="init">
-            <a href="/">Inicio</a>
-          </li>
-          <li class="link-plan">
-            <a href="government_plan_genaldo">Genaldo Hernández</a>
-          </li>
-          <li class="link-plan">
-            <a href="government_plan_edison">Edison Beltran</a>
-          </li>
-          <li class="link-plan">
-            <a href="government_plan_blanca_lilia">Blanca Lilia</a>
-          </li>
-          <!--
-            <li class="link-plan">
-              <a href="government_plan_mikan">Jorge Mikan</a>
-            </li>
-          -->
-          <li class="link-plan">
-            <a href="government_plan_juan_andres">Juan Andres</a>
-          </li>
-        </ul>
+      <aside class="publicidad">
+        <!-- Espacio para la publicidad -->
+        <img src="ruta_de_la_publicidad.jpg" alt="Publicidad" />
       </aside>
-
       <article class="informacion">
-
-
-
-
-        
         <!-- Contenido de la sección -->
         <h1 class="title-page">PLAN DE GOBIERNO <span>JORGE MIKAN</span></h1>
-        
-        <!-- 
+
+        <!--  
 
           <div class="card-ia">
             <p class="text-card-icon">🚀</p>
@@ -100,14 +74,32 @@
               En todos estos ejes, se enfatiza la importancia de la transparencia en la gestión pública y se promueve activamente la participación ciudadana como un pilar fundamental para el desarrollo de El Rosal.
             </p>
           </div>
-        -->
+         -->
         <embed class="visor-pdf" src="{{ url_for('static', filename = 'pdf/plan_jorge_mikan.pdf') }}" type="application/pdf" />
-
       </article>
-
-      <aside class="publicidad">
-        <!-- Espacio para la publicidad -->
-        <img src="ruta_de_la_publicidad.jpg" alt="Publicidad" />
+      <aside class="menu-navegacion">
+        <ul class="menu">
+          <li class="init">
+            <a href="/">Inicio</a>
+          </li>
+          <li class="link-plan">
+            <a href="government_plan_genaldo">Genaldo Hernández</a>
+          </li>
+          <li class="link-plan">
+            <a href="government_plan_edison">Edison Beltran</a>
+          </li>
+          <li class="link-plan">
+            <a href="government_plan_blanca_lilia">Blanca Lilia</a>
+          </li>
+          <!-- 
+            <li class="link-plan">
+              <a href="government_plan_mikan">Jorge Mikan</a>
+            </li>
+           -->
+          <li class="link-plan">
+            <a href="government_plan_juan_andres">Juan Andres</a>
+          </li>
+        </ul>
       </aside>
     </main>
 
