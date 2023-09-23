@@ -15,7 +15,7 @@ body {
 
 /*------------------------------------------------------------              >>>>>          header           <<<<<<*/
 #header-page {
-    background-color: rgba(250, 250, 250, 0.116);
+    background-color: #031547b4;
     height: 80px;
     width: 100%;
     position: fixed;
@@ -24,7 +24,7 @@ body {
     z-index: 15;
     animation: adjust-header linear both;
     animation-timeline: scroll();
-    animation-range: 0 500px;
+    animation-range: 0 5px;
 }
 
 @keyframes adjust-header {

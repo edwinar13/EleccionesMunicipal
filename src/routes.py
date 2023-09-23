@@ -318,4 +318,7 @@ lo que sigue
 4) desplegar a produccion
 5) ajustar lo de consejales
 6) ajustar ip para que funcione con api web en los caso que no se encueuntre en la db
+
+
+AJUASTA MENU EN NLOS PLANES DE GOBIERNO
 """
