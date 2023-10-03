@@ -1,12 +1,17 @@
-from flask import render_template, request, jsonify,flash
+from flask import render_template, request, jsonify,flash,Response,redirect, url_for
 from flask_mail import Mail, Message
 from flask import make_response
 from datetime import datetime
+from sqlalchemy.exc import OperationalError
 from src import app, db
 import secrets
 import json
 from decouple import config
 import geoip2.database
+import jinja2
+import pdfkit
+
+
 
 
 app.config['SECRET_KEY'] = config('SECRET_KEY')
@@ -40,76 +45,136 @@ class Voto(db.Model):
 
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route("/")
+def index():   
+
+
+    '''
+    with open('src/static/json/council_candidates.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    for grupo in data:
+        for candidato in data[grupo]:            
+            #pasar el nombre candidato['nombre']  de LUIS GERMAN JIMENEZ ESPINEL a Luis German Jimenez Espinel
+            candidato['nombre'] = candidato['nombre'].title()
+            candidato['apellido'] = candidato['apellido'].title()  
+            
+    councils_genaldo = data['grupo_genaldo']
+    councils_edison = data['grupo_edison']
+    councils_blanca_lilia = data['grupo_blanca']
+    councils_mikan = data['grupo_mikan']
+    councils_juan_andres =  data['grupo_juan']
+
+    return render_template("index.html", 
+                           councils_genaldo=councils_genaldo,
+                           councils_edison=councils_edison,
+                           councils_blanca_lilia=councils_blanca_lilia,
+                           councils_mikan=councils_mikan,
+                            councils_juan_andres=councils_juan_andres,)
+    
+    '''
+    with open('src/static/json/council_candidates_v1.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+
+    for candidato in data['candidatos']:            
+        candidato['nombre'] = candidato['nombre'].title()
+        candidato['apellido'] = candidato['apellido'].title()  
+        print(candidato['partido'])
+            
+    councils= data['candidatos']
+
+    return render_template("index.html", 
+                           councils=councils)
+    
+
+
 
 @app.route('/government_plan_genaldo')
 def government_plan_1():
-    return render_template('government_plan_genaldo.html')
+    plan = 1
+    return render_template('government_plan.html', plan = plan)
 
 @app.route('/government_plan_edison')
 def government_plan_2():
-    return render_template('government_plan_edison.html')
-
+    plan = 2
+    return render_template('government_plan.html', plan = plan)
 
 @app.route('/government_plan_blanca_lilia')
 def government_plan_3():
-    return render_template('government_plan_blanca_lilia.html')
-
-
+    plan = 3
+    return render_template('government_plan.html', plan = plan)
 
 @app.route('/government_plan_mikan')
 def government_plan_4():
-    return render_template('government_plan_mikan.html')
+    plan = 4
+    return render_template('government_plan.html', plan = plan)
 
 @app.route('/government_plan_juan_andres')
 def government_plan_5():
-    return render_template('government_plan_juan_andres.html')
+    plan = 5
+    return render_template('government_plan.html', plan = plan)
 
 
 
 @app.route('/enviar_correo', methods=['POST'])
 def enviar_correo():
-    if request.method == 'POST':
-        email = request.form.get('correo')
-        email_correct = validateEmail(email=email)
-        if email_correct:
-            existing_user = Usuario.query.filter_by(email=email).first()
-            if existing_user:          
-                if existing_user.has_voted:
-                    return jsonify({"message": "El correo electrónico proporcionado ya ha sido utilizado para emitir un voto"}), 400
+    try:
+        if request.method == 'POST':
+            email = request.form.get('correo')
+            email_correct = validateEmail(email=email)
+            if email_correct:
+                existing_user = Usuario.query.filter_by(email=email).first()
+                if existing_user:          
+                    if existing_user.has_voted:
+                        return jsonify({"message": "El correo electrónico proporcionado ya ha sido utilizado para emitir un voto"}), 400
+                    else:
+                        # Si el usuario ya está registrado pero no ha votado
+                        # reenviar el token existente
+                        existing_token = existing_user.token
+                        sendEmail(email, existing_token)
+                        return jsonify({"message": "Correo ya está registrado, se reenviará el link de votación"}), 200
                 else:
-                    # Si el usuario ya está registrado pero no ha votado
-                    # reenviar el token existente
-                    existing_token = existing_user.token
-                    sendEmail(email, existing_token)
-                    return jsonify({"message": "Correo ya está registrado, se reenviará el link de votación"}), 200
+                    # Si el usuario no está registrado
+                    # Generar un nuevo token y enviar correo
+                    # almacenarlo en el nuevo usuario
+                    token = secrets.token_hex(16)
+                    sent = sendEmail(email, token) 
+                    if sent:
+                        # Crear un nuevo usuario en la base de datos
+                        new_user = Usuario(email=email, token=token)
+                        db.session.add(new_user)
+                        db.session.commit()
+                        # Devolver una respuesta JSON para indicar que el correo se recibió correctamente.
+                        return jsonify({"message": "Correo enviado con éxito. ¡Revisa tu bandeja de entrada para ver el enlace de votación!"}), 200
+                    else:
+                        return jsonify({"message": "Error al enviar el correo con el link de votación, inténtalo de nuevo"}), 500
             else:
-                # Si el usuario no está registrado
-                # Generar un nuevo token y enviar correo
-                # almacenarlo en el nuevo usuario
-                token = secrets.token_hex(16)
-                sent = sendEmail(email, token) 
-                if sent:
-                    # Crear un nuevo usuario en la base de datos
-                    new_user = Usuario(email=email, token=token)
-                    db.session.add(new_user)
-                    db.session.commit()
-                    # Devolver una respuesta JSON para indicar que el correo se recibió correctamente.
-                    return jsonify({"message": "Correo enviado con éxito. ¡Revisa tu bandeja de entrada para el enlace de votación!"}), 200
-                else:
-                    return jsonify({"message": "Error al enviar el correo con el link de votación, inténtalo de nuevo"}), 500
-        else:
-            return jsonify({"message": "Correo electrónico inválido."}), 400
-
+                return jsonify({"message": "Correo electrónico inválido."}), 400
+    
+    except OperationalError as e:
+        # Manejar el error de conexión a la base de datos
+        #imprimir mesaje
+        print("--->\nError de conexión a la base de datos{}\n--->".format(str(e)))
+        return jsonify({'message': 'Error de conexión a la base de datos, vuelve a intentarlo '}), 500
                
+    
+@app.route('/comprobante', methods=['GET'])
+def comprobante():
+    token = request.args.get('token')
+    if tokenHasVoted(token=token):       
+        existing_user = Usuario.query.filter_by(token=token).first()
+        print("[{}] El token para comprobante es: {}".format(existing_user.user_id, token))  
+        return render_template('coprobant.html', user_id=existing_user.user_id)    
+    else:        
+        return render_template('404.html'), 404
     
 @app.route('/votacion', methods=['GET'])
 def votacion():
     token = request.args.get('token')
     print("El token es {}".format(token))
     if tokenValid(token):
+        
         # El token es válido, el usuario puede votar
         # Configurar las cabeceras de la respuesta para evitar el almacenamiento en caché
         response = make_response(render_template('voting.html'))
@@ -122,42 +187,45 @@ def votacion():
 
 @app.route('/votar', methods=['POST'])
 def votar():
-    try:
-        # Obtener el ID del candidato, el nombre y el token desde la solicitud
-        candidate_id = request.form.get('candidateId')
-        candidate_name = request.form.get('candidateName')
-        token = request.form.get('token')
+    #try:
+    # Obtener el ID del candidato, el nombre y el token desde la solicitud
+    candidate_id = request.form.get('candidateId')
+    candidate_name = request.form.get('candidateName')
+    token = request.form.get('token')
 
-        # Realizar las validaciones necesarias, como verificar el token y registrar el voto
-        # Primero, verifica si el token es válido y si el usuario aún no ha votado
-        existing_user = Usuario.query.filter_by(token=token, has_voted=False).first()
+    # Realizar las validaciones necesarias, como verificar el token y registrar el voto
+    # Primero, verifica si el token es válido y si el usuario aún no ha votado
+    existing_user = Usuario.query.filter_by(token=token, has_voted=False).first()
+    
+    if existing_user:
+        # Actualiza el estado del usuario para indicar que ha votado
+        existing_user.has_voted = True
         
-        if existing_user:
-            # Actualiza el estado del usuario para indicar que ha votado
-            existing_user.has_voted = True
-            
-            ip_address = request.remote_addr
-            ip_address = "181.78.15.119"
-            data_loc= obtener_info_geolocalizacion(ip_address)
+        ip_address = request.remote_addr
+        ip_address = "181.78.15.119"
+        data_loc= obtener_info_geolocalizacion(ip_address)
 
 
-            # Convierte el diccionario en una cadena JSON
-            #data_loc_json = "{}".format(data_loc)
-            data_loc_json = json.dumps(data_loc)
+        # Convierte el diccionario en una cadena JSON
+        #data_loc_json = "{}".format(data_loc)
+        data_loc_json = json.dumps(data_loc)
 
-            # Crea una instancia de Voto y regístrala en la base de datos
-            new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
-            db.session.add(new_vote)
-            db.session.commit()
+        # Crea una instancia de Voto y regístrala en la base de datos
+        new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
+        db.session.add(new_vote)
+        db.session.commit()
 
-            # Devolver una respuesta de éxito
-            return jsonify({'success': True, 'message': 'Voto registrado exitosamente.'})
-        else:
-            # El token no es válido o el usuario ya ha votado
-            return jsonify({'success': False, 'message': 'Link inválido o usuario ya ha votado.'})
+        # Devolver una respuesta de éxito
+        sent = sendEmailVoucher(existing_user.email, token) 
+        return jsonify({'success': True, 'message': 'Voto registrado exitosamente.'})
+    else:
+        # El token no es válido o el usuario ya ha votado
+        return jsonify({'success': False, 'message': 'Link inválido o usuario ya ha votado.'})
+    '''
     except Exception as e:
         # Manejar cualquier error que pueda ocurrir
         return jsonify({'success': False, 'error': str(e)})
+    '''
 
 
 
@@ -173,6 +241,14 @@ def politica_de_privacidad():
 
 
 
+
+
+def tokenHasVoted(token):
+    existing_user = Usuario.query.filter_by(token=token).first()
+    if existing_user:
+        if existing_user.has_voted:
+            return True
+    return False
 
 
 def tokenValid(token):
@@ -202,8 +278,8 @@ def validateEmail(email):
 
 def sendEmail(email_destination, token):
     # Crear el mensaje de correo  
-    msg = Message('🤵MI CANDIDATO: Link de votación, encuesta alcaldía de El Rosal ',
-                  sender='edwinarevalo88@gmail.com',
+    msg = Message('🤵MI CANDIDATO: Link de votación, encuesta a la alcaldía de El Rosal ',
+                  sender='micandidato.org@gmail.com',
                   recipients=[email_destination])
     
     
@@ -220,6 +296,36 @@ def sendEmail(email_destination, token):
         f'🗳️ {enlace_votacion}\n\n'
         f'Tu privacidad es importante para nosotros. Queremos asegurarte que solo publicaremos la intención de voto de los candidatos, y no revelaremos tu información personal ni a quién votaste.\n\n'
         f'¡Gracias por tu participación y contribución!\n\n'
+        f'Atentamente,\n'
+        f'MiCandidato.org '
+    )
+
+    msg.body = correo_contenido
+    
+    try:
+        mail.send(msg)
+        flash('Correo enviado exitosamente', 'success')
+        return True
+    except Exception as e:
+        flash('Error al enviar el correo: ' + str(e), 'error')
+        return False
+
+def sendEmailVoucher(email_destination, token):
+    # Crear el mensaje de correo  
+    msg = Message('🤵MI CANDIDATO: Link de comprobante, encuesta a la alcaldía de El Rosal ',
+                  sender='micandidato.org@gmail.com',
+                  recipients=[email_destination])
+    
+    
+    enlace_comprobante = f'http://127.0.0.1:5000/comprobante?token={token}'
+    correo_contenido = (
+        f'¡Estimado votante!,\n\n'
+        f'En nombre de MiCandidato.org, queremos agradecerte sinceramente por tu participación en nuestra encuesta de votación electrónica. Tu voz es importante y tu voto cuenta.\n\n'
+        f'Esperamos que tu experiencia de votación haya sido satisfactoria. Tu comprobante de votación se encuentra disponible para tu referencia. Puedes verlo haciendo clic en el siguiente enlace:\n\n'
+        f'📄 {enlace_comprobante}\n\n'
+        f'Gracias por ser parte de nuestro proceso democrático y ayudarnos a tomar decisiones informadas. Tu privacidad es esencial para nosotros, y queremos asegurarte que tus datos y elecciones son confidenciales.\n\n'
+        f'Si tienes alguna pregunta o comentario sobre el proceso de votación o cualquier otro asunto relacionado, no dudes en ponerte en contacto con nosotros.\n\n'
+        f'Una vez más, gracias por tu participación y tu contribución a nuestra comunidad.\n\n'
         f'Atentamente,\n'
         f'MiCandidato.org '
     )
@@ -280,7 +386,23 @@ def obtener_info_geolocalizacion(ip):
         print(f"Error al obtener información de geolocalización para la IP {ip}: {str(e)}")
         return None
 
+import os
+def createdPdf(path_template, data, path_css=""):
+  
+    name_template = path_template.split('/')[-1]
+    path_template = path_template.replace(name_template,'')
+    print(name_template)
+    print(path_template)
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(path_template))
+    template = env.get_template(name_template)
+    html = template.render(data)
+    print(html)
+    
+#createdPdf('../src/templates/coprobant.html', {"noComprobante":'00055'})
 
+
+
+# funcion para sumar los votos de los candidatos
 
 
 

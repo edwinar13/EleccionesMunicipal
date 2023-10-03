@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Mi Candiadto | Comprobante</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" href="/static/favicon.png" />
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles_coprobant.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header id="header-page">
+    <section id="section-header">
+      <img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" />
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="/" class="li-hover">Salir</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+  <main id="section-coprobant">
+    <div class="fg-section">
+      <div id="container-card" class="container-card">
+        <div id="coprobant-card" class="coprobant-card">
+          <article class="border-box">
+            <header class="coprobant-header">
+              <div>
+                <img id="shield-rosal" src="{{ url_for('static', filename = 'images/escudo_rosal.png') }}" alt="Escudo El Rosal" class="shield-rosal-style" />
+                <h5>El Rosal</h5>
+              </div>
+              <div class="number-coprobant">
+                <h4>#{{ "%07d"|format(user_id) }}</h4>
+              </div>
+            </header>
+            <main class="coprobant-main">
+              <img id="coprobant-logo" src="{{ url_for('static', filename = 'images/logo.svg') }}" alt="logo mi candidato" class="logo-style" />
+              <div>
+                <h3>Mi Candidato</h3>
+                <h4>Comprobante de participación</h4>
+                <h5>Encuesta 2023</h5>
+              </div>
+            </main>
+            <footer class="coprobant-footer">
+              <h6>developed by www.tucandidato.org</h6>
+            </footer>
+          </article>
+        </div>        
+      </div>
+    </div>
+  </main>
+
+  <script type="text/javascript">
+    document.addEventListener('click', function (event) {
+      const x = event.clientX / window.innerWidth
+      const y = event.clientY / window.innerHeight
+      confetti({
+        origin: { x, y }
+      })
+    })
+    confetti()
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename = 'js/scripts_coprobant.js') }}"></script>
+</body>

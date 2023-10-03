@@ -24,7 +24,7 @@
             <a href="javascript:void(0);">Candidatos &#9660;</a>
             <div class="dropdown-content">
               <a href="#about_genaldo_hernandez">Genaldo Hernández</a>
-              <a href="#about_edison_beltran">Edison Beltran</a>
+              <a href="#about_edison_beltran">Edison Beltrán</a>
               <a href="#about_blanca_lilia">Blanca Lilia</a>
               <a href="#about_jorge_mikan">Jorge Mikan</a>
               <a href="#about_juan_andres">Juan Andrés</a>
@@ -69,11 +69,11 @@
 
           <figure>
             <a href="#about_edison_beltran"><img src="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}" alt="Foto del candidato Edison Beltran" class="candidate-img cand-img-2" /></a>
-            <figcaption>Edison Beltran</figcaption>
+            <figcaption>Edison Beltrán</figcaption>
           </figure>
           <figure>
-            <a href="#about_blanca_lilia"><img src="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" alt="Foto de la candidata Blanca Lilia Gonzales" class="candidate-img cand-img-3" /></a>
-            <figcaption>Blanca Lilia Gonzales</figcaption>
+            <a href="#about_blanca_lilia"><img src="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" alt="Foto de la candidata Blanca Lilia Gonzalez" class="candidate-img cand-img-3" /></a>
+            <figcaption>Blanca Lilia González</figcaption>
           </figure>
           <figure>
             <a href="#about_jorge_mikan"><img src="{{ url_for('static', filename = 'images/photos/foto_mikan_.png') }}" alt="Foto del candidato Jorge Mikan" class="candidate-img cand-img-2" /></a>
@@ -104,7 +104,7 @@
             </div>
           </div>
         </article>
-        
+
         <article id="about_edison_beltran" class="article-card about_edison_beltran">
           <div class="card-candidate card-in-izq card-in-der">
             <div class="fg-card">
@@ -117,7 +117,7 @@
             </div>
           </div>
         </article>
-        
+
         <article id="about_blanca_lilia" class="article-card about_blanca_lilia">
           <div class="card-candidate card-in-izq card-in-der">
             <div class="fg-card">
@@ -130,7 +130,7 @@
             </div>
           </div>
         </article>
-        
+
         <article id="about_jorge_mikan" class="article-card about_jorge_mikan">
           <div class="card-candidate card-in-izq card-in-der">
             <div class="fg-card">
@@ -159,12 +159,12 @@
       </main>
       <aside class="publicidad"></aside>
     </section>
-    
+
     <section id="section-poll">
       <div class="fg-poll">
         <h1 class="title-poll">RESULTADOS DE LA ENCUESTA</h1>
         <p class="description-section3">Pronto, publicaremos los resultados de la encuesta. Estamos trabajando arduamente para recopilar y analizar todos los votos y opiniones de la comunidad. Los resultados reflejarán la voz de quienes participaron en la encuesta. Además, si aún no has tenido la oportunidad de votar, te invitamos a hacerlo y contribuir a la toma de decisiones en nuestra comunidad. ¡Tu voz es importante!</p>
-        
+
         <div class="container-poll">
           <div class="poll-results">
             <img id="img-poll-0" src="{{ url_for('static', filename = 'images/polls/poll-2023-12-09.png') }}" alt="Resultados encuesta El Rosal" class="" />
@@ -207,113 +207,143 @@
     <section id="section-concejales">
       <h2 class="title-section-dark">CONOCE LOS CANDIDATOS AL CONCEJO</h2>
       <p class="description-section3">Te presentamos a los candidatos que se postulan para el Concejo de nuestra comunidad. Queremos que conozcas a quienes buscan representarnos y participar en la toma de decisiones locales. A continuación, encontrarás tarjetas informativas de cada candidato, que incluyen su foto, nombre, número de tarjetón y un enlace directo a sus perfiles en redes sociales, como Facebook. Explora sus perfiles para obtener más información sobre sus propuestas y visiones para nuestra comunidad. Tu voto es importante, y conocer a los candidatos te ayudará a tomar una decisión informada en las próximas elecciones.</p>
+
+      <p class="nota-aclaratoria">
+       <span> NOTA: </span>
+        Estamos en proceso de actualizar las fotos de los concejales. Agradecemos tu paciencia mientras trabajamos en esta tarea. Si encuentras alguna inconsistencia o tienes alguna pregunta, no dudes en contactarnos en <a href="mailto:micandidato.org@gmail.com">micandidato.org@gmail.com</a>. Tu opinión es importante para nosotros y estamos aquí para ayudarte.
+      </p>
+
+      <!-- el listado con un for de genaldo -->
+      <h3 class="subtitle-section-dark">Candidatos al concejo</h3>
       <ul class="container-councilors">
-        <!--  -->
-        <li>
-          <div class="card-councilor">
-            <div class="card-border-int">
-              <div class="councilor-img">
-                <a href="https://www.facebook.com/arleyr.rocha" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_arley_rocha.png') }}" alt="Foto del candidato al concejo" /></a>
-              </div>
-              <div class="councilor-data">
-                <figcaption class="councilor-name">Arley Rocha</figcaption>
-                <div>
-                  <img src="{{ url_for('static', filename = 'images/councilors/partido_democrata.png') }}" alt="Foto del partido politico" />
-                  <figcaption>06</figcaption>
+        {% for council in councils %}
+          <li>
+            <div class="card-councilor">
+              <a href="{{ council.facebook }}" target="_blank">
+                <div class="card-border-int">
+                  <div class="councilor-img">
+                    <img src="{{ url_for('static', filename = 'images/councilors/' + council.partido + '/' + council.foto) }}" alt="Foto del council al concejo" />
+                  </div>
+                  <div class="councilor-data">
+                    <figcaption class="councilor-name">{{ council.nombre }}</figcaption>
+                    <figcaption class="councilor-name">{{ council.apellido }}</figcaption>
+                    <div>
+                      <img src="{{ url_for('static', filename = 'images/councilors/' + council.partido + '/' + council.partido + '.svg') }}" alt="Foto del partido politico" />
+                      <figcaption>{{ council.numero }}</figcaption>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </div>
-        </li>
-        <!--  -->
-        <li>
-          <div class="card-councilor">
-            <div class="card-border-int">
-              <div class="councilor-img">
-                <a href="" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_lina_carrascal.png') }}" alt="Foto del candidato al concejo" /></a>
-              </div>
-              <div class="councilor-data">
-                <figcaption class="councilor-name">Lina Carrascal</figcaption>
-                <div>
-                  <img src="{{ url_for('static', filename = 'images/councilors/partido_enmarcha.png') }}" alt="Foto del partido politico" />
-                  <figcaption>06</figcaption>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!--  el listado con un for de Edison 
+        <h3 class="subtitle-section-dark">Equipo de Edison Beltrán</h3>
+       -->
+      <ul class="container-councilors">
+        {% for council_edison in councils_edison %}
+          <li>
+            <div class="card-councilor">
+              <a href="{{ council_edison.facebook }}" target="_blank">
+                <div class="card-border-int">
+                  <div class="councilor-img">
+                    <img src="{{ url_for('static', filename = 'images/councilors/edison/' + council_edison.foto) }}" alt="Foto del candidato al concejo" />
+                  </div>
+                  <div class="councilor-data">
+                    <figcaption class="councilor-name">{{ council_edison.nombre }}</figcaption>
+                    <figcaption class="councilor-name">{{ council_edison.apellido }}</figcaption>
+                    <div>
+                      <img src="{{ url_for('static', filename = 'images/councilors/edison/' + council_edison.partido) }}" alt="Foto del partido politico" />
+                      {% if council_edison.numero != '' %}
+                        <figcaption>{{ council_edison.numero }}</figcaption>
+                      {% endif %}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </div>
-        </li>
-        <!--  -->
-        <li>
-          <div class="card-councilor">
-            <div class="card-border-int">
-              <div class="councilor-img">
-                <a href="https://www.facebook.com/profile.php?id=100006690887854" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_wilson_suaza.png') }}" alt="Foto del candidato al concejo" /></a>
-              </div>
-              <div class="councilor-data">
-                <figcaption class="councilor-name">Wilson Suaza</figcaption>
-                <div>
-                  <img src="{{ url_for('static', filename = 'images/councilors/partido_cambio_radical.png') }}" alt="Foto del partido politico" />
-                  <figcaption>10</figcaption>
+          </li>
+        {% endfor %}
+      </ul>
+      <!--  el listado con un for de Blanca 
+        <h3 class="subtitle-section-dark">Equipo de Blanca Lilia González</h3>
+       -->
+      <ul class="container-councilors">
+        {% for council_blanca in councils_blanca_lilia %}
+          <li>
+            <div class="card-councilor">
+              <a href="{{ council_blanca.facebook }}" target="_blank">
+                <div class="card-border-int">
+                  <div class="councilor-img">
+                    <img src="{{ url_for('static', filename = 'images/councilors/' + council_blanca.foto) }}" alt="Foto del candidato al concejo" />
+                  </div>
+                  <div class="councilor-data">
+                    <figcaption class="councilor-name">{{ council_blanca.nombre }}</figcaption>
+                    <figcaption class="councilor-name">{{ council_blanca.apellido }}</figcaption>
+                    <div>
+                      <img src="{{ url_for('static', filename = 'images/councilors/' + council_blanca.partido) }}" alt="Foto del partido politico" />
+                      <figcaption>{{ council_blanca.numero }}</figcaption>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </div>
-        </li>
-        <!--  -->
-        <li>
-          <div class="card-councilor">
-            <div class="card-border-int">
-              <div class="councilor-img">
-                <a href="https://www.facebook.com/johnwilson.cortes" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_wilson_cortes.png') }}" alt="Foto del candidato al concejo" /></a>
-              </div>
-              <div class="councilor-data">
-                <figcaption class="councilor-name">Wilson Cortés</figcaption>
-                <div>
-                  <img src="{{ url_for('static', filename = 'images/councilors/partido_pacto_historico.png') }}" alt="Foto del partido politico" />
-                  <figcaption></figcaption>
+          </li>
+        {% endfor %}
+      </ul>
+      <!--  el listado con un for de Jorge
+        <h3 class="subtitle-section-dark">Equipo de Jorge Mikan Salgado</h3>
+       -->
+      <ul class="container-councilors">
+        {% for council_mikan in councils_mikan %}
+          <li>
+            <div class="card-councilor">
+              <a href="{{ council_mikan.facebook }}" target="_blank">
+                <div class="card-border-int">
+                  <div class="councilor-img">
+                    <img src="{{ url_for('static', filename = 'images/councilors/' + council_mikan.foto) }}" alt="Foto del candidato al concejo" />
+                  </div>
+                  <div class="councilor-data">
+                    <figcaption class="councilor-name">{{ council_mikan.nombre }}</figcaption>
+                    <figcaption class="councilor-name">{{ council_mikan.apellido }}</figcaption>
+                    <div>
+                      <img src="{{ url_for('static', filename = 'images/councilors/' + council_mikan.partido) }}" alt="Foto del partido politico" />
+                      <figcaption>{{ council_mikan.numero }}</figcaption>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </div>
-        </li>
-        <!--  -->
-        <li>
-          <div class="card-councilor">
-            <div class="card-border-int">
-              <div class="councilor-img">
-                <a href="https://www.facebook.com/wilson.baron.9" target="_blank"><img src="{{ url_for('static', filename = 'images/councilors/foto_wilson_baron.png') }}" alt="Foto del candidato al concejo" /></a>
-              </div>
-              <div class="councilor-data">
-                <figcaption class="councilor-name">Wilson Baron</figcaption>
-                <div>
-                  <img src="{{ url_for('static', filename = 'images/councilors/partido_u.png') }}" alt="Foto del partido politico" />
-                  <figcaption>01</figcaption>
+          </li>
+        {% endfor %}
+      </ul>
+      <!--  el listado con un for de Juan Andres 
+        <h3 class="subtitle-section-dark">Equipo de Juan Andrés Campos</h3>
+       -->
+      <ul class="container-councilors">
+        {% for council_juan in councils_juan %}
+          <li>
+            <div class="card-councilor">
+              <a href="{{ council_juan.facebook }}" target="_blank">
+                <div class="card-border-int">
+                  <div class="councilor-img">
+                    <img src="{{ url_for('static', filename = 'images/councilors/' + council_juan.foto) }}" alt="Foto del candidato al concejo" />
+                  </div>
+                  <div class="councilor-data">
+                    <figcaption class="councilor-name">{{ council_juan.nombre }}</figcaption>
+                    <figcaption class="councilor-name">{{ council_juan.apellido }}</figcaption>
+                    <div>
+                      <img src="{{ url_for('static', filename = 'images/councilors/' + council_juan.partido) }}" alt="Foto del partido politico" />
+                      <figcaption>{{ council_juan.numero }}</figcaption>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
-          </div>
-        </li>
-        <!--  -->
-        <li>
-          <div class="card-councilor">
-            <div class="card-border-int">
-              <div class="councilor-img">
-                <a href="" target="_blank"></a>
-              </div>
-
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-        <li>
-          <div class="card-councilor"></div>
-        </li>
-
-
-
-
+          </li>
+        {% endfor %}
       </ul>
     </section>
   </main>

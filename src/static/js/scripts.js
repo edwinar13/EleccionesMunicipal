@@ -45,13 +45,13 @@ function animate() {
         const rotation = rotations[currentIndex];
         shieldRosal.style.transform = `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
         currentIndex = (currentIndex + 1) % rotations.length;
-        shieldRosal.style.transition = `transform ${3}.0s`;
+        shieldRosal.style.transition = `transform ${1}.0s`;
     } else {
         shieldRosal.style.transition = `transform ${0}.8s`;
     }
 }
 
-setInterval(animate, 1000);
+setInterval(animate, 500);
 
 
 
@@ -61,7 +61,7 @@ setInterval(animate, 1000);
 
 function updateCountdown() {
     const now = new Date().getTime();
-    const targetDate = new Date("2023-09-30T12:00:00").getTime(); // Fecha objetivo
+    const targetDate = new Date("2023-10-10T12:00:00").getTime(); // Fecha objetivo
     const timeRemaining = targetDate - now;
 
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
@@ -105,6 +105,12 @@ $(document).ready(function () {
         event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
         $("#poll-form button").prop("disabled", true);
         $(".loader").show();
+
+        // Agregar temporizador para desactivar el loader y habilitar el botón después de un minuto
+        setTimeout(function() {
+            $("#poll-form button").prop("disabled", false);
+            $(".loader").hide();
+        }, 10000);
 
         $.ajax({
             url: "/enviar_correo", // URL a la que se envía la solicitud

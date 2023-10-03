@@ -12,7 +12,7 @@
 <body>
   <header id="header-page">
     <section id="section-header">
-      <img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" />
+      <a href="/"><img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" /></a>
 
       <nav class="nav-menu">
         <ul>
@@ -24,68 +24,93 @@
     </section>
   </header>
 
-  <main id="section-voting">
+  <main id="main-voting">
     <div class="fg-voting">
-      <!--      -->  
-      
-      
+      <!--  -->
       <div id="voting-card" class="voting-card">
+        <header class="container-header">
+          <p>www.micandidato.com</p>
+          <div class="date">
+            <h4>29</h4>
+            <div>
+              <h5>OCTUBRE</h5>
+              <h6>•2023•</h6>
+            </div>
+          </div>
+        </header>
+
         <section class="container-title">
-          <h1>Encuesta candidatos a la alcaldía</h1>
-          <h1>El Rosal - Cundinamarca</h1>
-          <h2>Seleccione el candidato por el cual quiere votar</h2>
+          <h1>Encuesta a la alcaldía</h1>
+          <h2>El Rosal - Cundinamarca</h2>
+          <h3>Seleccione un candidato</h3>
         </section>
         <section class="container-candidates">
-          <button class="vote-button card-candidate" data-candidate-id="1" data-candidate-name="Edison Beltran">
-            <div class="overlay"></div>
-            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}" alt="Foto del candidato Edison Beltran" />
+          <div class="card-candidate">
+            
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos-voting/foto_edison_.png') }}" alt="Foto del candidato Edison Beltran" />
             <figcaption class="name-candidate">Edison</figcaption>
-            <figcaption class="sub-name-candidate">Beltran Sarmiento</figcaption>
-            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/pacto_historico.png') }}" alt="Foto del partido candidato Edison Beltran" />
-          </button>
-          <button class="vote-button card-candidate" data-candidate-id="2" data-candidate-name="Juan Andrés">
-            <div class="overlay"></div>
-            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_juan_andres_.png') }}" alt="Foto del candidato Juan Andres Campos" />
+            <figcaption class="sub-name-candidate">Beltrán Sarmiento</figcaption>
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos-voting/pacto_historico.png') }}" alt="Foto del partido candidato Edison Beltran" />
+            <div class="btns">
+              <button class="cancel-button">Cancelar</button>
+              <button class="vote-button" data-candidate-id="1" data-candidate-name="Edison Beltran">Votar</button>
+            </div>
+            <!--         
+              <div class="overlay"></div>
+                 -->
+          </div>
+          <div class="card-candidate">
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos-voting/foto_juan_andres_.png') }}" alt="Foto del candidato Juan Andres Campos" />
             <figcaption class="name-candidate">Juan</figcaption>
             <figcaption class="sub-name-candidate">Andrés Campos</figcaption>
-            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/cambio_radical.png') }}" alt="Foto del partido candidato Juan Andres Campos" />
-          </button>
-          <button class="vote-button card-candidate" data-candidate-id="3" data-candidate-name="Genaldo Hernández">
-            <div class="overlay"></div>
-            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_genaldo_.png') }}" alt="Foto del candidato Genaldo Hernández" />
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos-voting/cambio_radical.png') }}" alt="Foto del partido candidato Juan Andres Campos" />
+            <div class="btns">
+              <button class="cancel-button">Cancelar</button>
+              <button class="vote-button" data-candidate-id="2" data-candidate-name="Juan Andrés">Votar</button>
+            </div>
+          </div>
+
+          <div class="card-candidate">
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos-voting/foto_genaldo_.png') }}" alt="Foto del candidato Genaldo Hernández" />
             <figcaption class="name-candidate">Genaldo</figcaption>
             <figcaption class="sub-name-candidate">Hernández Bello</figcaption>
-            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/partido_liberal.png') }}" alt="Foto del partido candidato Genaldo Hernández" />
-          </button>
-          <button class="vote-button card-candidate" data-candidate-id="4" data-candidate-name="Jorge Mikan ">
-            <div class="overlay"></div>
-            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_mikan_.png') }}" alt="Foto del candidato Jorge Mikan" />
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos-voting/partido_liberal.png') }}" alt="Foto del partido candidato Genaldo Hernández" />
+            <div class="btns">
+              <button class="cancel-button">Cancelar</button>
+              <button class="vote-button" data-candidate-id="3" data-candidate-name="Genaldo Hernández">Votar </button>
+            </div>
+          </div>
+          <div class="card-candidate">
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos-voting/foto_mikan_.png') }}" alt="Foto del candidato Jorge Mikan" />
             <figcaption class="name-candidate">Jorge</figcaption>
             <figcaption class="sub-name-candidate">Mikan Salgado</figcaption>
-            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/partido_u.png') }}" alt="Foto del partido candidato Jorge Mikan" />
-          </button>
-          <button class="vote-button card-candidate" data-candidate-id="5" data-candidate-name="Blanca Lilia Gonzales">
-            <div class="overlay"></div>
-            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" alt="Foto del candidato Blanca Lilia Gonzales" />
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos-voting/partido_u.png') }}" alt="Foto del partido candidato Jorge Mikan" />
+            <div class="btns">
+              <button class="cancel-button">Cancelar</button>
+              <button class="vote-button" data-candidate-id="4" data-candidate-name="Jorge Mikan">Votar</button>
+            </div>
+          </div>
+          <div class="card-candidate">
+            <img class="candidate-img" src="{{ url_for('static', filename = 'images/photos-voting/foto_blanca_lilia_.png') }}" alt="Foto del candidato Blanca Lilia Gonzalez" />
             <figcaption class="name-candidate">Blanca</figcaption>
-            <figcaption class="sub-name-candidate">Lilia Gonzales</figcaption>
-            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos/partido_conservador.png') }}" alt="Foto del partido candidato Blanca Lilia Gonzales" />
-          </button>
-          <button class="vote-button card-candidate blank-vote" data-candidate-id="6" data-candidate-name="Voto en blanco">
-            <div class="overlay"></div>
+            <figcaption class="sub-name-candidate">Lilia González</figcaption>
+            <img class="politic-party-img" src="{{ url_for('static', filename = 'images/photos-voting/partido_conservador.png') }}" alt="Foto del partido candidato Blanca Lilia Gonzalez" />
+            <div class="btns">
+              <button class="cancel-button">Cancelar</button>
+              <button class="vote-button" data-candidate-id="5" data-candidate-name="Blanca Lilia Gonzalez">Votar</button>
+            </div>
+          </div>
+          <div class="card-candidate blank-vote">
             <p>VOTO EN BLANCO</p>
-          </button>
-
+            <div class="btns">
+              <button class="cancel-button">Cancelar</button>
+              <button class="vote-button" data-candidate-id="6" data-candidate-name="Voto en blanco">Votar</button>
+            </div>
+          </div>
         </section>
       </div>
-
-                 
-      
-             
     </div>
   </main>
-
-  <footer id="footer-page"></footer>
 
   <script type="text/javascript">
     document.addEventListener('click', function (event) {

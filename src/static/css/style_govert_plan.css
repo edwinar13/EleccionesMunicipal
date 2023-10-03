@@ -1,23 +1,202 @@
-/* Estilos generales */
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    font-family: 'Nunito Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
-/******************************************************************************************/
-/*                                 HEADER                                                */
+html{
+    font-size: 20px;
+}
 
-/* Estilo general */
-main {
+body {
+    font-family: Arial, sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #323639;
+    /*animacion del background */
+    background-image: linear-gradient(111deg, #4d5053 0%, #323639 50%, #25292c 100%);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.government_plan {
     display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/*******************************************************************/
+.informacion {
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
     width: 100%;
 }
 
+.visor-pdf {
+    width: 100%;
+    height: 0%;
+    transition: height 0.0s;
+}
+
+.visor-pdf.mostrado {
+    height: 100%; 
+}
+/*******************************************************************/
+.menu-navegacion {
+    width: 300px;
+    padding: 15px;
+    padding-top: 30px;
+    margin: 0;
+    background-color: #323639;
+}
 
 
-/* Estilos para el banner */
+.menu-navegacion header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.logo-header {
+    height: 44px;
+    cursor: pointer;
+}
+
+.candidato-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 20%;
+    object-fit: cover;
+    border: 1px solid #9999994b;
+}
+.candidato-image::before {
+    background-color: #147032;
+}
+
+
+
+.title-page {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: antiquewhite;
+    background-image: linear-gradient(111deg, #000 0%, #fff 50%, #000 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 30px;
+
+}
+
+
+.menu, .sub-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sub-menu {
+    margin-left: 10px;
+    border-left: 2px solid #6f4545;
+    padding-left: 5px;
+    display: none;
+}
+
+
+
+.link-plan svg{
+    width: 20px;
+    height: 20px;
+}
+
+.link-plan {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #9c9c9c;
+    border-radius: 5px; 
+    padding: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.link-plan a {
+    color: #9c9c9c;
+    text-decoration: none;
+}
+.link-plan a:hover, .link-plan:hover {    
+    color: #ad8b8b; 
+    background-color: #2e2e2e;
+    cursor: pointer;
+}
+.selected-plan{
+    color: #ffffff;
+    font-weight: 300;
+    background-color: #8d3b3e;
+    
+}
+
+
+
+
+
+
+.link-eje {
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-style: italic;
+    color: #9c9c9c;
+    border-radius: 5px; 
+    padding: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    /*
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    */
+}
+.link-eje a {
+    color: #9c9c9c;
+    text-decoration: none;
+}
+.link-eje a:hover, .link-eje:hover {    
+    color: #619271; 
+    background-color: #2e2e2e;
+    box-shadow: 4 4 15px #888888b0;
+    cursor: pointer;
+}
+.selected-eje{
+    color: #ffffff;
+    font-weight: 300;
+    background-color: #3f775e;    
+
+}
+
+
+.menu a{
+    text-decoration: none;
+}
+
+
+/*
 .banner-container {
     position: relative;
     overflow: hidden;
@@ -28,7 +207,6 @@ main {
     width: 100%;
     height: 100%;
     filter: blur(0px);
-    /* Efecto blur al fondo del banner */
     object-fit: cover;
 }
 
@@ -48,33 +226,19 @@ main {
     width: 100%;
     height: 100%;
     background-color: rgba(6, 23, 68, 0.6);
-    /* Fondo negro con transparencia */
 }
 
-/* Estilos para la foto circular del candidato */
 .candidato-container {
     position: relative;
     margin-top: -200px;
-    /* Ajusta según sea necesario */
     text-align: center;
 }
 
-.candidato-image {
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    border: 1px solid #5e5e5e67;
-    box-shadow: 1px 1px 20px rgb(83, 80, 80);
-    background-color: #060e25;
-    object-fit: cover;
 
-}
 
-/* Estilos para los enlaces a redes sociales */
 .redes-sociales {
     text-align: center;
     margin-top: 20px;
-    /* Espacio entre la foto y los iconos */
 }
 
 .redes-ext {
@@ -85,24 +249,19 @@ main {
 .redes-sociales a {
     display: inline-block;
     margin: 0 1%;
-    /* Espacio entre los iconos */
 }
 
 .redes-sociales svg {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    /* Hace que los iconos sean circulares */
     color: rgb(0, 0, 0);
 }
 
 
 
 
-/******************************************************************************************/
-/*                                 NAVEGATION                                                */
 
-/* Estilo para el menú de navegación */
 .menu-navegacion {
     width: 15%;
     padding: 20px;
@@ -164,22 +323,6 @@ main {
     top: 10%;
 }
 
-.link-plan a {
-
-    font-size: 20px;
-    font-weight: bold;
-    font-style: italic;
-    color: #060e25;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    margin-left: 5px;
-    padding: 10px;
-    width: fit-content;
-
-}
-
-
-
 
 
 .sets-projects img {
@@ -221,38 +364,11 @@ main {
 
 
 
-/******************************************************************************************/
-/*                                 MAIN                                                */
-
-
-/* Estilo para la sección de información */
-.informacion {
-    float: left;
-    width: calc(70% - 120px);
-    padding: 30px 30px 0 30px;
-    box-shadow: 1px 1px 20px rgba(131, 131, 131, 0.1);
-}
 
 
 
 
 
-
-
-
-.title-page {
-    text-align: center;
-    font-size: 60px;
-    font-weight: bold;
-    color: rgb(13, 216, 206);
-    background-image: linear-gradient(111deg, #094161 0%, #0d7ec0 100%);
-    -webkit-background-clip: text;
-    color: transparent;
-    text-transform: uppercase;
-    padding: 0 20px;
-    font-weight: 900;
-
-}
 
 
 .card-ia {
@@ -286,16 +402,6 @@ main {
     line-height: 1.5;
 }
 
-
-/*
-<div class="card-ia">
-<p class="text-card-icon">🚀</p>
-<p class="text-card-description text-section">
-  <span class="text-Highlight-style">¡Resumen generado con inteligencia artificial!</span>
-  El plan de gobierno propuesto para El Rosal, Cundinamarca, se centra en diversos ejes temáticos que abarcan el desarrollo social, económico, territorial, de vivienda, vías y transporte, planeación y atención del riesgo, así como la promoción de la transparencia y la participación ciudadana. Entre las principales propuestas se incluyen el impulso a la agricultura familiar, la promoción de la agroecología, la creación de una granja de energía solar, la regulación de arrendamientos, el fomento del transporte público y la mejora de la infraestructura vial, todo ello con el objetivo de lograr un municipio más inclusivo, sostenible y participativo que mejore la calidad de vida de sus habitantes y promueva el desarrollo integral de la comunidad.
-</p>
-</div>
-*/
 
 
 
@@ -406,21 +512,12 @@ main {
 
 
 
-
-/******************************************************************************************/
-/*                                 FIRMA                                                */
-
-
 .plan-gobierno {
     background-color: #b4ddcc;
-    /* Color de fondo del pie de página */
     border-radius: 30px;
     color: rgb(73, 73, 73);
-    /* Color del texto */
     text-align: center;
-    /* Centra el texto */
     padding: 15px;
-    /* Espaciado interno */
     width: fit-content;
     margin: auto;
     margin-top: 70px;
@@ -430,7 +527,6 @@ main {
 
 .plan-gobierno p {
     margin: 5px;
-    /* Espacio entre las líneas de texto */
     font-size: 25px;
     font-weight: 900;
 }
@@ -438,11 +534,6 @@ main {
 
 
 
-
-/******************************************************************************************/
-/*                                 PUBLICIDAD                                                */
-
-/* Estilo para la sección de publicidad */
 .publicidad {
     float: left;
     width: 15%;
@@ -451,10 +542,7 @@ main {
 
 
 
-.visor-pdf {
-    width: 100%;
-    height: 100vh;
-}
+
 @media (max-width: 1000px) {
 
     main {
@@ -519,3 +607,18 @@ main {
 
 }
 
+*/
+@media (max-width: 500px) {
+
+    .government_plan {
+        flex-direction: column;
+    }
+    
+    .menu-navegacion {
+        width: 100%;
+        padding: 15px;
+        padding-top: 30px;
+        margin: 0;
+        background-color: #323639;
+    }
+}

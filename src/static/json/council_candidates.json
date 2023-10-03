@@ -1,0 +1,938 @@
+{
+  "grupo_genaldo": [
+    {
+      "nombre": "MARIA PATRICIA",
+      "apellido": "AGUILAR TELLEZ",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "CLAUDIA PATRICIA",
+      "apellido": "CHACON RODRIGUEZ",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "ROSA MILENA",
+      "apellido": "CHICUASUQUE CARO",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "LEIDY JOHANA",
+      "apellido": "GARZON SABOYA",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "JAIME ESTEBAN",
+      "apellido": "CAMPOS MILLAN",
+      "foto": "foto_jaime_campos.png",
+      "partido": "partido_liberal.png",
+      "numero": "05",
+      "facebook": "https://www.facebook.com/jaescaeventos",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "URIEL",
+      "apellido": "SANCHEZ MONTAÑO",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "GERMAN ENRIQUE",
+      "apellido": "GONZALEZ BELLO",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "ALEXANDER",
+      "apellido": "MONTES MUÑOZ",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "JOSE DUMAR",
+      "apellido": "OVIEDO SOGAMOSO",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "EDY RICARDO",
+      "apellido": "NOMELY RUBIO",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "WILLIAM HERNAN",
+      "apellido": "RICO SANDOVAL",
+      "foto": "",
+      "partido": "partido_liberal.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "JOHN EDISSON",
+      "apellido": "SUAREZ FORERO",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "JOHN FREDY",
+      "apellido": "LONDOÑO",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "ODILIA",
+      "apellido": "CACERES USECHE",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "IDALY",
+      "apellido": "HERRERA AGUDELO",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "HIGUEY JOSE",
+      "apellido": "BERNAL CARO",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "ARLEY",
+      "apellido": "ROCHA OCHOA",
+      "foto": "foto_arley_rocha.png",
+      "partido": "partido_democrata.png",
+      "numero": "06",
+      "facebook": "https://www.facebook.com/arleyr.rocha",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "EFRAIN",
+      "apellido": "VICTORIA MARIN",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "NICOLLE YERALDINE",
+      "apellido": "SALCEDO BARACALDO",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "LINA MARIA",
+      "apellido": "FERRUCHO PEREZ",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "LUIS EDUAR",
+      "apellido": "NIÑO CORREDOR",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "YEISON ENRIQUE",
+      "apellido": "JIMENEZ FUENTES",
+      "foto": "",
+      "partido": "partido_democrata.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "ROSA INES",
+      "apellido": "FANDIÑO AGUILAR",
+      "foto": "",
+      "partido": "partido_ecologista_col.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "JHOAN ARMANDO",
+      "apellido": "MOLANO GONZALEZ",
+      "foto": "",
+      "partido": "partido_ecologista_col.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "NATALIA",
+      "apellido": "ABELLO MUÑOZ",
+      "foto": "",
+      "partido": "partido_ecologista_col.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "JUAN PABLO",
+      "apellido": "MORA CONTRERAS",
+      "foto": "",
+      "partido": "partido_ecologista_col.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "ANGELICA MARIA",
+      "apellido": "ARDILA OCHOA",
+      "foto": "",
+      "partido": "partido_ecologista_col.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "LUIS GERMAN",
+      "apellido": "JIMENEZ ESPINEL",
+      "foto": "",
+      "partido": "partido_ecologista_col.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "DARWIN ADONAY",
+      "apellido": "JIMENEZ SANTANA",
+      "foto": "",
+      "partido": "partido_ecologista_col.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "JHEINER JOSE",
+      "apellido": "CONEO RODGER",
+      "foto": "",
+      "partido": "partido_ecologista_col.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "DUVAN ANDRES",
+      "apellido": "SANCHEZ MUÑOZ",
+      "foto": "foto_andres_sanchez.png",
+      "partido": "partido_ecologista_col.png",
+      "numero": "09",
+      "facebook": "https://www.facebook.com/AndresSanchez1999",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "CARLOS HUMBERTO",
+      "apellido": "AREVALO AREVALO",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "LUCELLY",
+      "apellido": "ESCOBAR GIRALDO",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "LUIS ALFONSO",
+      "apellido": "MENDEZ SALGADO",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "OSCAR DAVID",
+      "apellido": "CAMPOS CAMPOS",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "MANUEL ANTONIO",
+      "apellido": "MARTINEZ CHAVARRO",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "CRISTINA",
+      "apellido": "LOPEZ CARDENAS",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "NUBIA TERESA",
+      "apellido": "MARTINEZ LEON",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "YESENIA",
+      "apellido": "ZABALA AGUDELO",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "EDUARDO JULIAN",
+      "apellido": "SANTOS NEUQUE",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "OMAR GIOVANNI",
+      "apellido": "HERNANDEZ CLAVIJO",
+      "foto": "",
+      "partido": "movimiento_mais.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    }
+  ],
+  "grupo_edison": [
+    {
+      "nombre": "JUAN CAMILO",
+      "apellido": "SANCHEZ FORERO",
+      "foto": "foto_juan_camilo.png",
+      "partido": "partido_pacto_historico.png",
+      "numero": "",
+      "facebook": "https://www.facebook.com/juanksff",
+      "grupo": "grupo_edison"
+    },
+    {
+      "nombre": "BRITYI KATERIN",
+      "apellido": "PACHECO BOCAREJO",
+      "foto": "foto_katerin_pacheco.png",
+      "partido": "partido_pacto_historico.png",
+      "numero": "",
+      "facebook": "https://www.facebook.com/BKPB1999",
+      "grupo": "grupo_edison"
+    },
+    {
+      "nombre": "CRISTIAN CAMILO",
+      "apellido": "IBAÑEZ CHAPARRO",
+      "foto": "foto_cristian_ibanez.png",
+      "partido": "partido_pacto_historico.png",
+      "numero": "",
+      "facebook": "https://www.facebook.com/KristianIbanez",
+      "grupo": "grupo_edison"
+    },
+    {
+      "nombre": "LAURA TATIANA",
+      "apellido": "OLAYA RINCON",
+      "foto": "foto_laura_olaya.png",
+      "partido": "partido_pacto_historico.png",
+      "numero": "",
+      "facebook": "https://www.facebook.com/tata.olaya.3",
+      "grupo": "grupo_edison"
+    },
+    {
+      "nombre": "SEBASTIAN",
+      "apellido": "ZABALA BOHORQUEZ",
+      "foto": "foto_sebastian_zabala.png",
+      "partido": "partido_pacto_historico.png",
+      "numero": "",
+      "facebook": "https://www.facebook.com/AkaSz1998",
+      "grupo": "grupo_edison"
+    },
+    {
+      "nombre": "JOHN WILSON",
+      "apellido": "CORTES SIERRA",
+      "foto": "foto_wilson_cortes.png",
+      "partido": "partido_pacto_historico.png",
+      "numero": "",
+      "facebook": "https://www.facebook.com/johnwilson.cortes",
+      "grupo": "grupo_edison"
+    }
+  ],
+  "grupo_blanca": [
+    {
+      "nombre": "LUZ MARINA",
+      "apellido": "CARO ALONSO",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "MARTHA CECILIA",
+      "apellido": "GIRALDO LOPEZ",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "MARIA ELENA",
+      "apellido": "LUQUE PULIDO",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "JOSE VICENTE",
+      "apellido": "LOPEZ RODRIGUEZ",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "JUDITH DAYANNA",
+      "apellido": "PINEDA VELASCO",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "LAURA ALEJANDRA",
+      "apellido": "CHAVEZ CARDENAS",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "ANA RUTH MARINA",
+      "apellido": "RICO CORREA",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "JOSE ADELMO",
+      "apellido": "QUINTERO SALAZAR",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "JOHN ALEXANDER",
+      "apellido": "LOZANO PUENTES",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "YEFERZON",
+      "apellido": "FUENTES JAIMES",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "VICTOR MAURICIO",
+      "apellido": "PINEDA GACHARNA",
+      "foto": "",
+      "partido": "partido_conservador.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "LUZ ALBA",
+      "apellido": "BOHORQUEZ LESMES",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "JHON HENRY",
+      "apellido": "LOPEZ CRUZ",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "YAMID AICARDO",
+      "apellido": "CHACON CASTAÑEDA",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "YULY MARCELA",
+      "apellido": "AMAYA MONCADA",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "MEYBI JOHANNA",
+      "apellido": "DUARTE SALGADO",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "LINA XIOMARA",
+      "apellido": "CARRASCAL",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "LUIS ALFREDO",
+      "apellido": "PINTO SANCHEZ",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "LUZ MARINA",
+      "apellido": "ANGEL PENAGOS",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "ALEXANDER",
+      "apellido": "NIETO CASTILLO",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "LUIS ENRIQUE",
+      "apellido": "ROMERO GONZALEZ",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    },
+    {
+      "nombre": "JUAN MANUEL",
+      "apellido": "REVORA SILVA",
+      "foto": "",
+      "partido": "partido_enmarcha.png",
+      "numero": "",
+      "facebook": "",
+      "grupo": "grupo_blanca"
+    }
+  ],
+  "grupo_mikan": [  
+      {
+    "nombre": "WILSON DARIO",
+    "apellido": "BARON SEPULVEDA",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "JOHN JAIRO",
+    "apellido": "RODRIGUEZ GONZALEZ",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "OSCAR JAVIER",
+    "apellido": "HIDALGO MESA",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "LUZAIRA",
+    "apellido": "HENAO NEIRA",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "RICARDO",
+    "apellido": "MAYORGA SANDOVAL",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "SYRLEY ANDREA",
+    "apellido": "NIÑO BRICEÑO",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "ARMANDO",
+    "apellido": "SOLER RUEDA",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "DERLY JAZMIN",
+    "apellido": "DIAZ GAITAN",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "EFREN",
+    "apellido": "BARRERA LOPEZ",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "ESMERALDA",
+    "apellido": "RINCON VELANDIA",
+    "foto": "",
+    "partido": "partido_u.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "DEMETRIO",
+    "apellido": "AGUDELO TURRIAGO",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "MARIO HELI",
+    "apellido": "ACOSTA ACOSTA",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "JORGE IVAN",
+    "apellido": "PEÑA DIAZ",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "MARIA TERESA",
+    "apellido": "CASTAÑO VASQUEZ",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "JOSE ALEXANDER",
+    "apellido": "MARTINEZ COTRINA",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "YURY MARITZA",
+    "apellido": "ROZO MOLINA",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "CHRISTIAN ALEXANDER",
+    "apellido": "GARZON HERNANDEZ",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "MARIA MARCELA",
+    "apellido": "VARGAS CAMACHO",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "WALTER",
+    "apellido": "ZAPATA OSORIO",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "GLORIA ESTEPHANY",
+    "apellido": "CATAÑO RENGIFO",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "FREDY",
+    "apellido": "MORENO",
+    "foto": "",
+    "partido": "alianza_verde.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "JAIME ORLANDO",
+    "apellido": "BULLA LUQUE",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "RAUL",
+    "apellido": "SANCHEZ CASTIBLANCO",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "PEDRO JUAN",
+    "apellido": "PEREZ PEREZ",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "SINDY PATRICIA",
+    "apellido": "APONTE PALACIO",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "MIGUEL ANGEL",
+    "apellido": "ALGARRA AMAYA",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "INGRID NATHALIA",
+    "apellido": "VILLALBA CORTES",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "DEIBY ORLANDO",
+    "apellido": "ACOSTA ZAMBRANO",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "GRACIELA",
+    "apellido": "LOZANO",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "OSCAR ORLANDO",
+    "apellido": "GUTIERREZ WILCHES",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  },
+  {
+    "nombre": "MARIA PAULA",
+    "apellido": "LANCHEROS QUINTERO",
+    "foto": "",
+    "partido": "asi.png",
+    "numero": "",
+    "facebook": "",
+    "grupo": "grupo_mikan"
+  }],
+  "grupo_juan": [
+    {
+      "nombre": "Wilson",
+      "apellido": "Baron",
+      "foto": "foto_wilson_baron.png",
+      "partido": "partido_u.png",
+      "numero": "01",
+      "facebook": "https://www.facebook.com/wilson.baron.9",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "Lina",
+      "apellido": "Carrascal",
+      "foto": "foto_lina_carrascal.png",
+      "partido": "partido_enmarcha.png",
+      "numero": "06",
+      "facebook": "",
+      "grupo": "grupo_edison"
+    },
+    {
+      "nombre": "Wilson",
+      "apellido": "Suaza",
+      "foto": "foto_wilson_suaza.png",
+      "partido": "partido_cambio_radical.png",
+      "numero": "10",
+      "facebook": "https://www.facebook.com/profile.php?id=100006690887854",
+      "grupo": "grupo_edison"
+    }
+  ]
+}

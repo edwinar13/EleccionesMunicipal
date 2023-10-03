@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan - Genaldo</title>
+    <link rel="icon" href="{{ url_for('static', filename = 'favicon.png') }}" type="image/png" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style_govert_plan.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="government_plan">
+      <aside class="menu-navegacion">
+        <header>
+          <div class="logo">
+            <a href="/"><img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="Logo" /></a>
+          </div>
+          <figure class="candidato-container">
+            <img class="candidato-image" src="{{ url_for('static', filename = 'images/photos/foto_empty.png') }}" alt="Foto del candidato" />
+          </figure>
+        </header>
+        <h1 class="title-page">PLANES DE <br /> GOBIERNO</h1>
+
+        <ul class="menu">
+          <a href="/"><li class="link-plan">Home</li></a>
+
+          <li class="link-plan plan_1" data-pdf-path="pdf-genaldo" data-img-path="{{ url_for('static', filename = 'images/photos/foto_genaldo_.png') }}" data-color-bg="#ff00ff" 
+          onclick="selectedCandidate(1)">
+            Genaldo Hernández<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M9 6l6 6l-6 6"></path>
+            </svg>
+          </li>
+          <ul class="sub-menu">
+            <li class="link-eje">Introducción</li>
+            <li class="link-eje">El Rosal Saludable</li>
+            <li class="link-eje">El Rosal con Identidad y servicio al ciudadano seguro</li>
+            <li class="link-eje">El Rosal competitivo</li>
+            <li class="link-eje">El Rosal Ordenado Territorialmente Alrededor – El Agua</li>
+            <li class="link-eje">El Rosal proyectado</li>
+
+            <a href="https://www.facebook.com/genaldo.hernandez" target="_blank"><li class="link-eje">Redes sociales →</li></a>
+          </ul>
+
+          <li class="link-plan plan_2"
+          data-pdf-path="pdf-edison"
+          data-img-path="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}"
+          data-color-bg="#0000ff" 
+          onclick="selectedCandidate(2)">
+            Edison Beltrán<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M9 6l6 6l-6 6"></path>
+            </svg>
+          </li>
+          <ul class="sub-menu">
+            <li class="link-eje">Introducción</li>
+            <li class="link-eje">Eje de seguridad y convivencia ciudadana</li>
+            <li class="link-eje">Eje de bienestar social</li>
+            <li class="link-eje">Eje desarrollo económico</li>
+            <li class="link-eje">Eje desarrollo territorial</li>
+            <li class="link-eje">Eje transparencia y participación ciudadana</li>
+            <a href="https://www.facebook.com/edison.beltrans" target="_blank"><li class="link-eje">Redes sociales →</li></a>
+          </ul>
+
+          <li class="link-plan plan_3"
+          data-pdf-path="pdf-blanca" 
+          data-img-path="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" data-color-bg="#ff0000"
+          onclick="selectedCandidate(3)">
+            Blanca Lilia<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M9 6l6 6l-6 6"></path>
+            </svg>
+          </li>
+          <ul class="sub-menu">
+            <li class="link-eje">Introducción</li>
+            <li class="link-eje">El Rosal, municipio social y promotor de desarrollo</li>
+            <li class="link-eje">El Rosal le apuesta a la gobernabilidad y a la seguridad</li>
+            <li class="link-eje">El Rosal, fortalece la ciudad y el territorio</li>
+
+            <a href="https://www.facebook.com/profile.php?id=100009193286295&sk=about" target="_blank"><li class="link-eje">Redes sociales →</li></a>
+          </ul>
+
+          <li class="link-plan plan_4" data-pdf-path="pdf-mikan" data-img-path="{{ url_for('static', filename = 'images/photos/foto_mikan_.png') }}" data-color-bg="#000000"
+          onclick="selectedCandidate(4)">
+            Jorge Mikan<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M9 6l6 6l-6 6"></path>
+            </svg>
+          </li>
+          <ul class="sub-menu">
+            <li class="link-eje">Introducción</li>
+            <li class="link-eje">Eje bienestar social</li>
+            <li class="link-eje">Eje desarrollo económico</li>
+            <li class="link-eje">Eje desarrollo territorial</li>
+            <li class="link-eje">Eje de seguridad y convivencia ciudadana</li>
+            <li class="link-eje">Eje de trasparencia y participación</li>
+            <li class="link-eje">Eje medio ambiente</li>
+            <a href="https://www.facebook.com/Jorgemikanrosal" target="_blank"><li class="link-eje">Redes sociales →</li></a>
+          </ul>
+          <li class="link-plan plan_5" data-pdf-path="pdf-andres" data-img-path="{{ url_for('static', filename = 'images/photos/foto_juan_andres_.png') }}" data-color-bg="#ffffff"
+          onclick="selectedCandidate(5)">
+            Juan Andres<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M9 6l6 6l-6 6"></path>
+            </svg>
+          </li>
+          <ul class="sub-menu">
+            <li class="link-eje">Introducción</li>
+            <li class="link-eje" onclick="irAPagina(20)">Eje de protección e inclusión social</li>
+            <li class="link-eje">Eje de ordenamiento y desarrollo territorial, ambientalmente sostenible con recurso hídrico</li>
+            <li class="link-eje">Eje fortalecimiento y desarrollo de servicios públicos e infraestructura municipal</li>
+            <li class="link-eje">Eje de seguridad y participación ciudadana</li>
+            <a href="https://www.facebook.com/profile.php?id=100091859247202" target="_blank"><li class="link-eje">Redes sociales →</li></a>
+          </ul>
+        </ul>
+      </aside>
+      <article class="informacion">
+        <embed id="pdf-genaldo" class="visor-pdf" src="{{ url_for('static', filename = 'pdf/plan_genaldo_hernandez.pdf') }}" type="application/pdf" />
+        <embed id="pdf-edison" class="visor-pdf" src="{{ url_for('static', filename = 'pdf/plan_edison_beltran.pdf') }}" type="application/pdf" />
+        <embed id="pdf-blanca" class="visor-pdf" src="{{ url_for('static', filename = 'pdf/plan_blanca_lilia.pdf') }}" type="application/pdf" />
+        <embed id="pdf-mikan" class="visor-pdf" src="{{ url_for('static', filename = 'pdf/plan_jorge_mikan.pdf') }}" type="application/pdf" />
+        <embed id="pdf-andres" class="visor-pdf" src="{{ url_for('static', filename = 'pdf/plan_juan_andres.pdf') }}" type="application/pdf" />
+      </article>
+    </main>
+    <!--      
+
+        <a href="https://www.facebook.com/genaldo.hernandez" target="_blank">
+          <svg class="icon icon-tabler icon-tabler-brand-facebook-filled" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 2a1 1 0 0 1 .993 .883l.007 .117v4a1 1 0 0 1 -.883 .993l-.117 .007h-3v1h3a1 1 0 0 1 .991 1.131l-.02 .112l-1 4a1 1 0 0 1 -.858 .75l-.113 .007h-2v6a1 1 0 0 1 -.883 .993l-.117 .007h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-6h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-4a1 1 0 0 1 .883 -.993l.117 -.007h2v-1a6 6 0 0 1 5.775 -5.996l.225 -.004h3z" stroke-width="0" fill="currentColor"></path>
+          </svg>
+        </a>
+
+             -->
+    <!--        
+
+          <div class="card-ia">
+            <p class="text-card-icon">🚀</p>
+            <p class="text-card-description">
+              <span class="text-Highlight-style">¡Resumen generado con inteligencia artificial!</span>
+              Edison Beltrán Sarmiento presenta un ambicioso plan de desarrollo para el municipio de El Rosal, dividido en tres ejes fundamentales: Desarrollo Social, Desarrollo Económico y Desarrollo Territorial, con un enfoque clave en la transparencia y la participación ciudadana.
+              
+              En el ámbito del Desarrollo Social, su propuesta se enfoca en mejorar la calidad de vida de los habitantes de El Rosal. Esto incluye programas para el fortalecimiento de la identidad cultural, el fomento de actividades artísticas y culturales, la atención a la tercera edad y la promoción de programas de juventud. También se destacan iniciativas para apoyar a personas con discapacidad y promover la equidad de género en la comunidad.
+              
+              En el eje del Desarrollo Económico, se busca impulsar la actividad empresarial y emprendedora en El Rosal. Se propone la creación de un centro de emprendimiento, así como el fomento de proyectos productivos y la asociatividad comercial. También se busca fortalecer la agricultura local y el turismo como fuentes de ingresos.
+              
+              Por último, en el Desarrollo Territorial, el plan se enfoca en la sostenibilidad y la preservación de la identidad del municipio. Se promueve la protección de espacios naturales, la generación de energías limpias y la regulación de actividades mineras que afecten los recursos hídricos. También se aborda la vivienda, la movilidad y la planificación territorial.
+              
+              En todos estos ejes, se enfatiza la importancia de la transparencia en la gestión pública y se promueve activamente la participación ciudadana como un pilar fundamental para el desarrollo de El Rosal.
+            </p>
+          </div>
+          
+                -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      var planValue = {{ plan|tojson }};
+  </script>
+    <script src="{{ url_for('static', filename = 'js/scripts_govert_plan.js') }}"></script>
+  </body>
+</html>
