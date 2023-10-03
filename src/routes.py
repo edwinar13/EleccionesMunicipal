@@ -202,7 +202,7 @@ def votar():
         existing_user.has_voted = True
         
         ip_address = request.remote_addr
-        ip_address = "181.78.15.119"
+        #ip_address = "181.78.15.119"
         data_loc= obtener_info_geolocalizacion(ip_address)
 
 
@@ -283,7 +283,7 @@ def sendEmail(email_destination, token):
                   recipients=[email_destination])
     
     
-    enlace_votacion = f'http://127.0.0.1:5000/votacion?token={token}'
+    enlace_votacion = f'https://www.micandidato.org//votacion?token={token}'
     correo_contenido = (
         f'¡Hola!\n\n'
         f'Gracias por participar en nuestra encuesta de votación electrónica. '
@@ -317,7 +317,7 @@ def sendEmailVoucher(email_destination, token):
                   recipients=[email_destination])
     
     
-    enlace_comprobante = f'http://127.0.0.1:5000/comprobante?token={token}'
+    enlace_comprobante = f'https://www.micandidato.org/comprobante?token={token}'
     correo_contenido = (
         f'¡Estimado votante!,\n\n'
         f'En nombre de MiCandidato.org, queremos agradecerte sinceramente por tu participación en nuestra encuesta de votación electrónica. Tu voz es importante y tu voto cuenta.\n\n'

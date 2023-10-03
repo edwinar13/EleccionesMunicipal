@@ -61,7 +61,7 @@ setInterval(animate, 500);
 
 function updateCountdown() {
     const now = new Date().getTime();
-    const targetDate = new Date("2023-10-10T12:00:00").getTime(); // Fecha objetivo
+    const targetDate = new Date("2023-10-14T12:00:00").getTime(); // Fecha objetivo
     const timeRemaining = targetDate - now;
 
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));

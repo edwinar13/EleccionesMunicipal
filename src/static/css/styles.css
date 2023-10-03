@@ -1409,3 +1409,65 @@ a {
     font-size: 1.2rem;
     font-weight: 200;
 }
+
+
+
+
+
+#section-about-vote{
+
+    background-color: #2f3e4f;
+    padding: 0 5% 80px 5%;
+    background-image: url(../images/bg-councilor.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.description-section4 {
+    color: antiquewhite;
+    font-size: 1.2rem;
+    font-weight: 200;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    
+}
+.description-section4 span{
+    font-weight: 500;
+    color: #f1c77d;
+    text-decoration: underline;
+}
+
+
+.subtitle {
+
+
+    margin: 25px 5%;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: antiquewhite;
+
+
+
+}
+
+.voting-cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+}
+.voting-cards img{
+    width: 400px;
+    object-fit: fill;
+    min-width: unset;
+    border-radius: 5px;
+    
+}
+.symmetrical{
+    height: 580px;
+
+}

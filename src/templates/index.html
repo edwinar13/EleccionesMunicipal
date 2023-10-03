@@ -36,6 +36,9 @@
           <li>
             <a href="#section-concejales" class="li-hover">Concejales</a>
           </li>
+          <li>
+            <a href="#section-about-vote" class="li-hover">Como votar</a>
+          </li>
         </ul>
       </nav>
     </section>
@@ -209,7 +212,7 @@
       <p class="description-section3">Te presentamos a los candidatos que se postulan para el Concejo de nuestra comunidad. Queremos que conozcas a quienes buscan representarnos y participar en la toma de decisiones locales. A continuación, encontrarás tarjetas informativas de cada candidato, que incluyen su foto, nombre, número de tarjetón y un enlace directo a sus perfiles en redes sociales, como Facebook. Explora sus perfiles para obtener más información sobre sus propuestas y visiones para nuestra comunidad. Tu voto es importante, y conocer a los candidatos te ayudará a tomar una decisión informada en las próximas elecciones.</p>
 
       <p class="nota-aclaratoria">
-       <span> NOTA: </span>
+        <span>NOTA:</span>
         Estamos en proceso de actualizar las fotos de los concejales. Agradecemos tu paciencia mientras trabajamos en esta tarea. Si encuentras alguna inconsistencia o tienes alguna pregunta, no dudes en contactarnos en <a href="mailto:micandidato.org@gmail.com">micandidato.org@gmail.com</a>. Tu opinión es importante para nosotros y estamos aquí para ayudarte.
       </p>
 
@@ -239,9 +242,9 @@
         {% endfor %}
       </ul>
 
-      <!--  el listado con un for de Edison 
+      <!--      el listado con un for de Edison 
         <h3 class="subtitle-section-dark">Equipo de Edison Beltrán</h3>
-       -->
+           -->
       <ul class="container-councilors">
         {% for council_edison in councils_edison %}
           <li>
@@ -267,9 +270,9 @@
           </li>
         {% endfor %}
       </ul>
-      <!--  el listado con un for de Blanca 
+      <!--      el listado con un for de Blanca 
         <h3 class="subtitle-section-dark">Equipo de Blanca Lilia González</h3>
-       -->
+           -->
       <ul class="container-councilors">
         {% for council_blanca in councils_blanca_lilia %}
           <li>
@@ -293,9 +296,9 @@
           </li>
         {% endfor %}
       </ul>
-      <!--  el listado con un for de Jorge
+      <!--      el listado con un for de Jorge
         <h3 class="subtitle-section-dark">Equipo de Jorge Mikan Salgado</h3>
-       -->
+           -->
       <ul class="container-councilors">
         {% for council_mikan in councils_mikan %}
           <li>
@@ -319,9 +322,9 @@
           </li>
         {% endfor %}
       </ul>
-      <!--  el listado con un for de Juan Andres 
+      <!--      el listado con un for de Juan Andres 
         <h3 class="subtitle-section-dark">Equipo de Juan Andrés Campos</h3>
-       -->
+           -->
       <ul class="container-councilors">
         {% for council_juan in councils_juan %}
           <li>
@@ -345,6 +348,35 @@
           </li>
         {% endfor %}
       </ul>
+    </section>
+
+    <section id="section-about-vote">
+      <h2 class="title-section-dark">CÓMO VOTAR EN LAS ELECCIONES 2023</h2>
+      <p class="description-section4">
+        Te guiaremos a través del proceso de votación en las elecciones para que puedas ejercer tu derecho cívico de manera efectiva. Las imágenes y las instrucciones que proporcionamos son las directrices proporcionadas por la <span>Registraduría Nacional del Estado Civil de Colombia</span>, la entidad encargada de organizar y supervisar las elecciones en nuestro país. Asegúrate de seguir estos pasos para que tu voto cuente y contribuya al futuro de nuestra comunidad.
+      </p>
+
+      <h3 class="subtitle">Identifica los tarjetones por colores, de la siguiente manera:</h3>
+      <div class="voting-cards">
+        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen1.png') }}" alt="Indicación de votación" />
+        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen2.png') }}" alt="Indicación de votación" />
+        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen3.png') }}" alt="Indicación de votación" />
+        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen4.png') }}" alt="Indicación de votación" />
+        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen5.png') }}" alt="Indicación de votación" />
+      </div>
+      <h3 class="subtitle">Para marcar correctamente las tarjetas electorales de gobernador y alcalde, sigue estos pasos:</h3>
+      <div class="voting-cards ">
+        <img src="{{ url_for('static', filename = 'images/RNEC/imagen6.png') }}" alt="Indicación de votación" />
+        <img src="{{ url_for('static', filename = 'images/RNEC/imagen7.png') }}" alt="Indicación de votación" />
+        <img src="{{ url_for('static', filename = 'images/RNEC/imagen8.png') }}" alt="Indicación de votación" />
+      </div>
+      <h3 class="subtitle">Para marcar correctamente las tarjetas electorales
+        de las corporaciones de asamblea, concejo o JAL, sigue estos pasos:</h3>
+      <div class="voting-cards">
+        <img src="{{ url_for('static', filename = 'images/RNEC/imagen9.png') }}" alt="Indicación de votación" />
+        <img src="{{ url_for('static', filename = 'images/RNEC/imagen10.png') }}" alt="Indicación de votación" />
+        <img src="{{ url_for('static', filename = 'images/RNEC/imagen11.png') }}" alt="Indicación de votación" />
+      </div>
     </section>
   </main>
 
@@ -376,7 +408,7 @@
         <div class="social-icons-footer">
           <a href="https://www.linkedin.com/in/edwin-j-arevalo" target="_blank"><i class="fab fa-linkedin"></i></a>
           <a href="https://api.whatsapp.com/send?phone=573118994279&amp;text=Hola%20Edwin, " target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="mailto:soporte@micandidato.org"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+          <a href="mailto:micandidato.org@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>

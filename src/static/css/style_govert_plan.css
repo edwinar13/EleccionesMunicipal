@@ -166,7 +166,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    transition: all 0.5s ease;
+    transition: all 0.2s ease;
     /*
     white-space: nowrap;
     overflow: hidden;
@@ -608,6 +608,12 @@ body {
 }
 
 */
+
+.link-social{
+    color: #ffffff;    
+    text-decoration: underline;
+    
+}
 @media (max-width: 500px) {
 
     .government_plan {
@@ -617,8 +623,12 @@ body {
     .menu-navegacion {
         width: 100%;
         padding: 15px;
-        padding-top: 30px;
-        margin: 0;
-        background-color: #323639;
+    }
+    .menu-navegacion header{
+        margin-bottom: 15px;
+    }
+    .title-page {
+
+        margin-bottom: 15px;
     }
 }
