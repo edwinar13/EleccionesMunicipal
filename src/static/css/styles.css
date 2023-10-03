@@ -1469,5 +1469,18 @@ a {
 }
 .symmetrical{
     height: 580px;
+}
+
+
+/* Media query para el diseño responsivo */
+@media (max-width: 500px) {
+    .voting-cards img{
+        margin: 5px;
+        width: 100%;        
+    }
+    .symmetrical{
+        height: auto;
+    }
+    
 
 }
