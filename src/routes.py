@@ -164,15 +164,14 @@ def votar():
         #ip_address = request.remote_addr
         ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
         data_loc= obtener_info_geolocalizacion(ip_address)
-        print("ip_address_request (X-Forwarded-For): ", ip_address)
-        print("ip_address_type: ", type(ip_address))
 
 
         # Convierte el diccionario en una cadena JSON
         #data_loc_json = "{}".format(data_loc)
         data_loc_json = json.dumps(data_loc)
-        data_loc_json = "nada"
-        ip_address = str(ip_address)
+     
+        data_loc_json = str("{}##{}".format(ip_address, data_loc_json))
+        ip_address = "190.60.35.25"
         
         
 
