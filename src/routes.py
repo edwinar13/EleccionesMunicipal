@@ -153,47 +153,48 @@ def votacion():
 
 @app.route('/votar', methods=['POST'])
 def votar():
-    try:
-        # Obtener el ID del candidato, el nombre y el token desde la solicitud
-        candidate_id = request.form.get('candidateId')
-        candidate_name = request.form.get('candidateName')
-        token = request.form.get('token')
+    #try:
+    # Obtener el ID del candidato, el nombre y el token desde la solicitud
+    candidate_id = request.form.get('candidateId')
+    candidate_name = request.form.get('candidateName')
+    token = request.form.get('token')
 
-        # Realizar las validaciones necesarias, como verificar el token y registrar el voto
-        # Primero, verifica si el token es válido y si el usuario aún no ha votado
-        existing_user = Usuario.query.filter_by(token=token, has_voted=False).first()
-        
-        if existing_user:
-            # Actualiza el estado del usuario para indicar que ha votado
-            existing_user.has_voted = True
-            
-            #ip_address = request.remote_addr
-            ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
-            print("ip_address_request (X-Forwarded-For): ", ip_address)
-            #ip_address = "181.78.15.119"
-            #ip_address = "172.31.25.114"
-            data_loc= obtener_info_geolocalizacion(ip_address)
-
-
-            # Convierte el diccionario en una cadena JSON
-            #data_loc_json = "{}".format(data_loc)
-            data_loc_json = json.dumps(data_loc)
-
-            # Crea una instancia de Voto y regístrarlo en la base de datos
-            new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
-            db.session.add(new_vote)
-            db.session.commit()
-
-            # Devolver una respuesta de éxito
-            sent = sendEmailVoucher(existing_user.email, token) 
-            return jsonify({'success': True, 'message': 'Voto registrado exitosamente.'})
-        else:
-            # El token no es válido o el usuario ya ha votado
-            return jsonify({'success': False, 'message': 'Link inválido o usuario ya ha votado.'})
+    # Realizar las validaciones necesarias, como verificar el token y registrar el voto
+    # Primero, verifica si el token es válido y si el usuario aún no ha votado
+    existing_user = Usuario.query.filter_by(token=token, has_voted=False).first()
     
+    if existing_user:
+        # Actualiza el estado del usuario para indicar que ha votado
+        existing_user.has_voted = True
+        
+        #ip_address = request.remote_addr
+        ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+        print("ip_address_request (X-Forwarded-For): ", ip_address)
+        #ip_address = "181.78.15.119"
+        #ip_address = "172.31.25.114"
+        data_loc= obtener_info_geolocalizacion(ip_address)
+
+
+        # Convierte el diccionario en una cadena JSON
+        #data_loc_json = "{}".format(data_loc)
+        data_loc_json = json.dumps(data_loc)
+
+        # Crea una instancia de Voto y regístrarlo en la base de datos
+        new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
+        db.session.add(new_vote)
+        db.session.commit()
+
+        # Devolver una respuesta de éxito
+        sent = sendEmailVoucher(existing_user.email, token) 
+        return jsonify({'success': True, 'message': 'Voto registrado exitosamente.'})
+    else:
+        # El token no es válido o el usuario ya ha votado
+        return jsonify({'success': False, 'message': 'Link inválido o usuario ya ha votado.'})
+    '''
     except Exception as e:
         # Manejar cualquier error que pueda ocurrir
         return jsonify({'success': False, 'error': str(e)})
+    '''
     
 
 
