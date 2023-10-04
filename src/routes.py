@@ -47,47 +47,17 @@ class Voto(db.Model):
 
 @app.route("/")
 def index():   
-
-
-    '''
-    with open('src/static/json/council_candidates.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    
-    for grupo in data:
-        for candidato in data[grupo]:            
-            #pasar el nombre candidato['nombre']  de LUIS GERMAN JIMENEZ ESPINEL a Luis German Jimenez Espinel
-            candidato['nombre'] = candidato['nombre'].title()
-            candidato['apellido'] = candidato['apellido'].title()  
-            
-    councils_genaldo = data['grupo_genaldo']
-    councils_edison = data['grupo_edison']
-    councils_blanca_lilia = data['grupo_blanca']
-    councils_mikan = data['grupo_mikan']
-    councils_juan_andres =  data['grupo_juan']
-
-    return render_template("index.html", 
-                           councils_genaldo=councils_genaldo,
-                           councils_edison=councils_edison,
-                           councils_blanca_lilia=councils_blanca_lilia,
-                           councils_mikan=councils_mikan,
-                            councils_juan_andres=councils_juan_andres,)
-    
-    '''
     with open('src/static/json/council_candidates_v1.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    
+        data = json.load(f)    
 
     for candidato in data['candidatos']:            
         candidato['nombre'] = candidato['nombre'].title()
-        candidato['apellido'] = candidato['apellido'].title()  
-        print(candidato['partido'])
+        candidato['apellido'] = candidato['apellido'].title()
             
     councils= data['candidatos']
-
     return render_template("index.html", 
                            councils=councils)
     
-
 
 
 @app.route('/government_plan_genaldo')
@@ -159,22 +129,17 @@ def enviar_correo():
         return jsonify({'message': 'Error de conexión a la base de datos, vuelve a intentarlo '}), 500
                
     
-@app.route('/comprobante', methods=['GET'])
-def comprobante():
-    token = request.args.get('token')
-    if tokenHasVoted(token=token):       
-        existing_user = Usuario.query.filter_by(token=token).first()
-        print("[{}] El token para comprobante es: {}".format(existing_user.user_id, token))  
-        return render_template('coprobant.html', user_id=existing_user.user_id)    
-    else:        
-        return render_template('404.html'), 404
+
     
 @app.route('/votacion', methods=['GET'])
 def votacion():
     token = request.args.get('token')
-    print("El token es {}".format(token))
-    if tokenValid(token):
-        
+    ip_address_request = request.headers.get('X-Forwarded-For', request.remote_addr)
+    print("ip_address_request: ", ip_address_request)
+    informacion = obtener_informacion_geolocalizacion(ip_address_request)
+    print("informacion: ", informacion)
+
+    if tokenValid(token):        
         # El token es válido, el usuario puede votar
         # Configurar las cabeceras de la respuesta para evitar el almacenamiento en caché
         response = make_response(render_template('voting.html'))
@@ -184,49 +149,63 @@ def votacion():
     else:
         # El token no es válido, redirige al error 404
         return render_template('404.html'), 404
+    
 
 @app.route('/votar', methods=['POST'])
 def votar():
-    #try:
-    # Obtener el ID del candidato, el nombre y el token desde la solicitud
-    candidate_id = request.form.get('candidateId')
-    candidate_name = request.form.get('candidateName')
-    token = request.form.get('token')
+    try:
+        # Obtener el ID del candidato, el nombre y el token desde la solicitud
+        candidate_id = request.form.get('candidateId')
+        candidate_name = request.form.get('candidateName')
+        token = request.form.get('token')
 
-    # Realizar las validaciones necesarias, como verificar el token y registrar el voto
-    # Primero, verifica si el token es válido y si el usuario aún no ha votado
-    existing_user = Usuario.query.filter_by(token=token, has_voted=False).first()
-    
-    if existing_user:
-        # Actualiza el estado del usuario para indicar que ha votado
-        existing_user.has_voted = True
+        # Realizar las validaciones necesarias, como verificar el token y registrar el voto
+        # Primero, verifica si el token es válido y si el usuario aún no ha votado
+        existing_user = Usuario.query.filter_by(token=token, has_voted=False).first()
         
-        ip_address = request.remote_addr
-        #ip_address = "181.78.15.119"
-        data_loc= obtener_info_geolocalizacion(ip_address)
+        if existing_user:
+            # Actualiza el estado del usuario para indicar que ha votado
+            existing_user.has_voted = True
+            
+            #ip_address = request.remote_addr
+            ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+            print("ip_address_request (X-Forwarded-For): ", ip_address)
+            #ip_address = "181.78.15.119"
+            #ip_address = "172.31.25.114"
+            data_loc= obtener_info_geolocalizacion(ip_address)
 
 
-        # Convierte el diccionario en una cadena JSON
-        #data_loc_json = "{}".format(data_loc)
-        data_loc_json = json.dumps(data_loc)
+            # Convierte el diccionario en una cadena JSON
+            #data_loc_json = "{}".format(data_loc)
+            data_loc_json = json.dumps(data_loc)
 
-        # Crea una instancia de Voto y regístrala en la base de datos
-        new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
-        db.session.add(new_vote)
-        db.session.commit()
+            # Crea una instancia de Voto y regístrarlo en la base de datos
+            new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
+            db.session.add(new_vote)
+            db.session.commit()
 
-        # Devolver una respuesta de éxito
-        sent = sendEmailVoucher(existing_user.email, token) 
-        return jsonify({'success': True, 'message': 'Voto registrado exitosamente.'})
-    else:
-        # El token no es válido o el usuario ya ha votado
-        return jsonify({'success': False, 'message': 'Link inválido o usuario ya ha votado.'})
-    '''
+            # Devolver una respuesta de éxito
+            sent = sendEmailVoucher(existing_user.email, token) 
+            return jsonify({'success': True, 'message': 'Voto registrado exitosamente.'})
+        else:
+            # El token no es válido o el usuario ya ha votado
+            return jsonify({'success': False, 'message': 'Link inválido o usuario ya ha votado.'})
+    
     except Exception as e:
         # Manejar cualquier error que pueda ocurrir
         return jsonify({'success': False, 'error': str(e)})
-    '''
+    
 
+
+@app.route('/comprobante', methods=['GET'])
+def comprobante():
+    token = request.args.get('token')
+    if tokenHasVoted(token=token):       
+        existing_user = Usuario.query.filter_by(token=token).first()
+        print("[{}] El token para comprobante es: {}".format(existing_user.user_id, token))  
+        return render_template('coprobant.html', user_id=existing_user.user_id)    
+    else:        
+        return render_template('404.html'), 404
 
 
 # Manejador de error 404
@@ -346,7 +325,44 @@ import requests
 
 
 
-def obtener_info_geolocalizacion(ip):
+def obtener_informacion_geolocalizacion(ip_address):
+    try:
+        # Llama a la API de ip-api.com con la dirección IP
+        api_url = f"http://ip-api.com/json/{ip_address}"
+        response = requests.get(api_url)
+        
+        # Verifica si la respuesta fue exitosa
+        if response.status_code == 200:
+            data = response.json()
+            if data['status'] == 'success':
+                return "{}".format(data)
+            else:
+                return "No se pudo obtener información de geolocalización."
+        else:
+            return "No se pudo conectar a la API de geolocalización."
+    except Exception as e:
+        return str(e)
+
+
+
+
+
+
+def obtener_info_geolocalizacion1(ip):
+    try:
+        # Llamada a la API para obtener coordenadas
+        response = requests.get(f"https://ipinfo.io/{ip}/json")
+        info_geolocalizacion = response.json()
+        print("ipinfo "*5)
+        print(info_geolocalizacion)
+        print("ipinfo "*5)
+        return info_geolocalizacion
+    except Exception as e:
+        # Manejar cualquier error que pueda ocurrir
+        print(f"Error al obtener información de geolocalización para la IP {ip}: {str(e)}")
+        return None
+
+def obtener_info_geolocalizacion2(ip):
     # Ruta a tu base de datos de MaxMind
     db_path = 'src/static/db/GeoLite2-City_20230919/GeoLite2-City.mmdb'
 
@@ -444,3 +460,4 @@ lo que sigue
 
 AJUASTA MENU EN NLOS PLANES DE GOBIERNO
 """
+

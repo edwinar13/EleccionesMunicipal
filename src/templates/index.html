@@ -216,8 +216,8 @@
         Estamos en proceso de actualizar las fotos de los concejales. Agradecemos tu paciencia mientras trabajamos en esta tarea. Si encuentras alguna inconsistencia o tienes alguna pregunta, no dudes en contactarnos en <a href="mailto:micandidato.org@gmail.com">micandidato.org@gmail.com</a>. Tu opinión es importante para nosotros y estamos aquí para ayudarte.
       </p>
 
-      <!-- el listado con un for de genaldo -->
       <h3 class="subtitle-section-dark">Candidatos al concejo</h3>
+
       <ul class="container-councilors">
         {% for council in councils %}
           <li>
@@ -241,113 +241,6 @@
           </li>
         {% endfor %}
       </ul>
-
-      <!--      el listado con un for de Edison 
-        <h3 class="subtitle-section-dark">Equipo de Edison Beltrán</h3>
-           -->
-      <ul class="container-councilors">
-        {% for council_edison in councils_edison %}
-          <li>
-            <div class="card-councilor">
-              <a href="{{ council_edison.facebook }}" target="_blank">
-                <div class="card-border-int">
-                  <div class="councilor-img">
-                    <img src="{{ url_for('static', filename = 'images/councilors/edison/' + council_edison.foto) }}" alt="Foto del candidato al concejo" />
-                  </div>
-                  <div class="councilor-data">
-                    <figcaption class="councilor-name">{{ council_edison.nombre }}</figcaption>
-                    <figcaption class="councilor-name">{{ council_edison.apellido }}</figcaption>
-                    <div>
-                      <img src="{{ url_for('static', filename = 'images/councilors/edison/' + council_edison.partido) }}" alt="Foto del partido politico" />
-                      {% if council_edison.numero != '' %}
-                        <figcaption>{{ council_edison.numero }}</figcaption>
-                      {% endif %}
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-      <!--      el listado con un for de Blanca 
-        <h3 class="subtitle-section-dark">Equipo de Blanca Lilia González</h3>
-           -->
-      <ul class="container-councilors">
-        {% for council_blanca in councils_blanca_lilia %}
-          <li>
-            <div class="card-councilor">
-              <a href="{{ council_blanca.facebook }}" target="_blank">
-                <div class="card-border-int">
-                  <div class="councilor-img">
-                    <img src="{{ url_for('static', filename = 'images/councilors/' + council_blanca.foto) }}" alt="Foto del candidato al concejo" />
-                  </div>
-                  <div class="councilor-data">
-                    <figcaption class="councilor-name">{{ council_blanca.nombre }}</figcaption>
-                    <figcaption class="councilor-name">{{ council_blanca.apellido }}</figcaption>
-                    <div>
-                      <img src="{{ url_for('static', filename = 'images/councilors/' + council_blanca.partido) }}" alt="Foto del partido politico" />
-                      <figcaption>{{ council_blanca.numero }}</figcaption>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-      <!--      el listado con un for de Jorge
-        <h3 class="subtitle-section-dark">Equipo de Jorge Mikan Salgado</h3>
-           -->
-      <ul class="container-councilors">
-        {% for council_mikan in councils_mikan %}
-          <li>
-            <div class="card-councilor">
-              <a href="{{ council_mikan.facebook }}" target="_blank">
-                <div class="card-border-int">
-                  <div class="councilor-img">
-                    <img src="{{ url_for('static', filename = 'images/councilors/' + council_mikan.foto) }}" alt="Foto del candidato al concejo" />
-                  </div>
-                  <div class="councilor-data">
-                    <figcaption class="councilor-name">{{ council_mikan.nombre }}</figcaption>
-                    <figcaption class="councilor-name">{{ council_mikan.apellido }}</figcaption>
-                    <div>
-                      <img src="{{ url_for('static', filename = 'images/councilors/' + council_mikan.partido) }}" alt="Foto del partido politico" />
-                      <figcaption>{{ council_mikan.numero }}</figcaption>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-      <!--      el listado con un for de Juan Andres 
-        <h3 class="subtitle-section-dark">Equipo de Juan Andrés Campos</h3>
-           -->
-      <ul class="container-councilors">
-        {% for council_juan in councils_juan %}
-          <li>
-            <div class="card-councilor">
-              <a href="{{ council_juan.facebook }}" target="_blank">
-                <div class="card-border-int">
-                  <div class="councilor-img">
-                    <img src="{{ url_for('static', filename = 'images/councilors/' + council_juan.foto) }}" alt="Foto del candidato al concejo" />
-                  </div>
-                  <div class="councilor-data">
-                    <figcaption class="councilor-name">{{ council_juan.nombre }}</figcaption>
-                    <figcaption class="councilor-name">{{ council_juan.apellido }}</figcaption>
-                    <div>
-                      <img src="{{ url_for('static', filename = 'images/councilors/' + council_juan.partido) }}" alt="Foto del partido politico" />
-                      <figcaption>{{ council_juan.numero }}</figcaption>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
     </section>
 
     <section id="section-about-vote">
@@ -358,20 +251,46 @@
 
       <h3 class="subtitle">Identifica los tarjetones por colores, de la siguiente manera:</h3>
       <div class="voting-cards">
-        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen1.png') }}" alt="Indicación de votación" />
-        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen2.png') }}" alt="Indicación de votación" />
-        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen3.png') }}" alt="Indicación de votación" />
-        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen4.png') }}" alt="Indicación de votación" />
-        <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen5.png') }}" alt="Indicación de votación" />
+        <div class="voting-card">
+          <h3 class="bg-gobernador">Gobernador</h3>
+          <figure>
+            <img src="{{ url_for('static', filename = 'images/RNEC/imagen1.png') }}" alt="Indicación de votación" />
+          </figure>
+        </div>
+        <div class="voting-card">
+          <h3 class="bg-alcaldes">Gobernador</h3>
+          <figure>
+            <img src="{{ url_for('static', filename = 'images/RNEC/imagen2.png') }}" alt="Indicación de votación" />
+          </figure>
+        </div>
+      </div>
+      <div class="voting-cards">
+        <div class="voting-card">
+          <h3 class="bg-diputados">Diputados</h3>
+          <figure>
+            <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen3.png') }}" alt="Indicación de votación" />
+          </figure>
+        </div>
+        <div class="voting-card">
+          <h3 class="bg-concejales">Concejales</h3>
+          <figure>
+            <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen4.png') }}" alt="Indicación de votación" />
+          </figure>
+        </div>
+        <div class="voting-card">
+          <h3 class="bg-ediles">Ediles</h3>
+          <figure>
+            <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen5.png') }}" alt="Indicación de votación" />
+          </figure>
+        </div>
       </div>
       <h3 class="subtitle">Para marcar correctamente las tarjetas electorales de gobernador y alcalde, sigue estos pasos:</h3>
-      <div class="voting-cards ">
+      <div class="voting-cards">
         <img src="{{ url_for('static', filename = 'images/RNEC/imagen6.png') }}" alt="Indicación de votación" />
         <img src="{{ url_for('static', filename = 'images/RNEC/imagen7.png') }}" alt="Indicación de votación" />
         <img src="{{ url_for('static', filename = 'images/RNEC/imagen8.png') }}" alt="Indicación de votación" />
       </div>
-      <h3 class="subtitle">Para marcar correctamente las tarjetas electorales
-        de las corporaciones de asamblea, concejo o JAL, sigue estos pasos:</h3>
+      <h3 class="subtitle">Para marcar correctamente las tarjetas electorales de las corporaciones de asamblea, concejo o JAL, sigue estos pasos:</h3>
       <div class="voting-cards">
         <img src="{{ url_for('static', filename = 'images/RNEC/imagen9.png') }}" alt="Indicación de votación" />
         <img src="{{ url_for('static', filename = 'images/RNEC/imagen10.png') }}" alt="Indicación de votación" />

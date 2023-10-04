@@ -1457,30 +1457,87 @@ a {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 30px;
     margin-top: 30px;
 }
-.voting-cards img{
+.voting-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 400px;
-    object-fit: fill;
-    min-width: unset;
+    height: 600px;
     border-radius: 5px;
+    background-color: #d3d8e4;
     
 }
-.symmetrical{
-    height: 580px;
+
+.voting-card:hover{
+    cursor: pointer;
+    & h3{
+        box-shadow: none;
+        
+    }
 }
+.voting-card h3{
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: antiquewhite;
+    width: 100%;
+    padding: 5px;    
+    border-radius: 0 25px 25px 0;
+    margin: 15px 0 0 0;
+    transform: translateX(-10px);
+    box-shadow: 4px 4px 4px 0px #454141b6;
+    transition: box-shadow 0.5s ease;
+}
+.bg-gobernador{
+    background-color: #f37406;
+}
+.bg-alcaldes{
+    background-color: #ae89a2;  
+}
+.bg-diputados{
+    background-color: #036a46;  
+}
+.bg-concejales{
+    background-color: #023766;  
+}
+.bg-ediles{
+    background-color: #7c3622;  
+}
+
+.voting-card figure{
+    flex-grow: 1;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    
+}
+
+
+.voting-cards img{    
+    object-fit: fill;
+    box-shadow: 4px 4px 13px 5px #797979b6;   
+}
+
 
 
 /* Media query para el diseño responsivo */
 @media (max-width: 500px) {
-    .voting-cards img{
-        margin: 5px;
-        width: 100%;        
+    .voting-card{
+        height: auto;      
     }
+    .voting-cards img{
+        margin: 30px;
+        width: 80%;        
+    }
+    /*
     .symmetrical{
         height: auto;
     }
+    */
     
 
 }

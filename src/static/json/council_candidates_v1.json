@@ -491,7 +491,7 @@
       "apellido": "RODRIGUEZ GALINDO",
       "foto": "foto_jorge_eduardo_rodriguez.png",
       "numero": "10",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=61550105250289",
       "partido": "partido_cambio_radical",
       "grupo": "grupo_andres"
     },
@@ -500,7 +500,7 @@
       "apellido": "FORERO CAMPOS",
       "foto": "foto_reinaldo_forero.png",
       "numero": "11",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/reinaldo.forero.10",
       "partido": "partido_cambio_radical",
       "grupo": "grupo_andres"
     },
@@ -708,7 +708,7 @@
       "foto": "foto_william_ernesto_medina.png",
       "partido": "movimiento_aico",
       "numero": "01",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100095247948555",
       "grupo": "grupo_andres"
     },
     {
@@ -726,7 +726,7 @@
       "foto": "foto_mariano_aquileo_sarmiento.png",
       "partido": "movimiento_aico",
       "numero": "03",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/mariano.sarmiento.102",
       "grupo": "grupo_andres"
     },
     {
@@ -985,7 +985,7 @@
       "nombre": "WILSON DARIO",
       "apellido": "BARON SEPULVEDA",
       "foto": "foto_wilson_dario_baron.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "01",
       "facebook": "https://www.facebook.com/wilson.baron.9",
       "grupo": "grupo_mikan"
@@ -994,7 +994,7 @@
       "nombre": "JOHN JAIRO",
       "apellido": "RODRIGUEZ GONZALEZ",
       "foto": "foto_john_jairo_rodriguez.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "02",
       "facebook": "",
       "grupo": "grupo_mikan"
@@ -1003,16 +1003,16 @@
       "nombre": "OSCAR JAVIER",
       "apellido": "HIDALGO MESA",
       "foto": "foto_oscar_javier_hidalgo.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "03",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/oscar.hidalgo.3701",
       "grupo": "grupo_mikan"
     },
     {
       "nombre": "LUZAIRA",
       "apellido": "HENAO NEIRA",
       "foto": "foto_luzaira_henao.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "04",
       "facebook": "",
       "grupo": "grupo_mikan"
@@ -1021,7 +1021,7 @@
       "nombre": "RICARDO",
       "apellido": "MAYORGA SANDOVAL",
       "foto": "foto_ricardo_mayorga.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "05",
       "facebook": "",
       "grupo": "grupo_mikan"
@@ -1030,7 +1030,7 @@
       "nombre": "SYRLEY ANDREA",
       "apellido": "NIÑO BRICEÑO",
       "foto": "foto_syrley_andrea_nino.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "06",
       "facebook": "",
       "grupo": "grupo_mikan"
@@ -1039,7 +1039,7 @@
       "nombre": "ARMANDO",
       "apellido": "SOLER RUEDA",
       "foto": "foto_armando_soler.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "07",
       "facebook": "",
       "grupo": "grupo_mikan"
@@ -1048,7 +1048,7 @@
       "nombre": "DERLY JAZMIN",
       "apellido": "DIAZ GAITAN",
       "foto": "foto_derly_jazmin_diaz.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "08",
       "facebook": "",
       "grupo": "grupo_mikan"
@@ -1057,7 +1057,7 @@
       "nombre": "EFREN",
       "apellido": "BARRERA LOPEZ",
       "foto": "foto_efren_barrera.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "09",
       "facebook": "",
       "grupo": "grupo_mikan"
@@ -1066,7 +1066,7 @@
       "nombre": "ESMERALDA",
       "apellido": "RINCON VELANDIA",
       "foto": "foto_esmeralda_rincon.png",
-      "partido": "partido_U",
+      "partido": "partido_u",
       "numero": "10",
       "facebook": "",
       "grupo": "grupo_mikan"
@@ -1086,7 +1086,7 @@
       "foto": "foto_lucelly_escobar.png",
       "partido": "partido_MAIS",
       "numero": "02",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/german.bueno.56",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1113,7 +1113,7 @@
       "foto": "foto_manuel_antonio_martinez.png",
       "partido": "partido_MAIS",
       "numero": "05",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100077752467023",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1158,7 +1158,7 @@
       "foto": "foto_omar_giovanni_hernandez.png",
       "partido": "partido_MAIS",
       "numero": "10",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/omargiovanni.hernandezclavijo.5",
       "grupo": "grupo_genaldo"
     },
     {
