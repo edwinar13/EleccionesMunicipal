@@ -165,12 +165,16 @@ def votar():
         ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
         data_loc= obtener_info_geolocalizacion(ip_address)
         print("ip_address_request (X-Forwarded-For): ", ip_address)
+        print("ip_address_type: ", type(ip_address))
 
 
         # Convierte el diccionario en una cadena JSON
         #data_loc_json = "{}".format(data_loc)
         data_loc_json = json.dumps(data_loc)
         data_loc_json = "nada"
+        ip_address = str(ip_address)
+        
+        
 
         # Crea una instancia de Voto y regístrarlo en la base de datos
         new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
