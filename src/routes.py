@@ -161,8 +161,8 @@ def votar():
         # Actualiza el estado del usuario para indicar que ha votado
         existing_user.has_voted = True
         
-        #ip_address = request.remote_addr
-        ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+        ip_address = request.remote_addr
+        #ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
         data_loc= obtener_info_geolocalizacion(ip_address)
 
 
@@ -170,8 +170,9 @@ def votar():
         #data_loc_json = "{}".format(data_loc)
         data_loc_json = json.dumps(data_loc)
      
-        data_loc_json = str("{}##{}".format(ip_address, data_loc_json))
-        ip_address = "190.60.35.25"
+        #data_loc_json = str("{}##{}".format(ip_address, data_loc_json))
+        #print("data_loc_json: ", data_loc_json)
+        #ip_address = "190.60.35.25"
         
         
 
