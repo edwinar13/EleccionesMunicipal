@@ -136,7 +136,7 @@ def votacion():
     token = request.args.get('token')
     ip_address_request = request.headers.get('X-Forwarded-For', request.remote_addr)
     print("ip_address_request: ", ip_address_request)
-    informacion = obtener_informacion_geolocalizacion(ip_address_request)
+    informacion = obtener_info_geolocalizacion(ip_address_request)
     print("informacion: ", informacion)
 
     if tokenValid(token):        
@@ -325,7 +325,7 @@ import requests
 
 
 
-def obtener_informacion_geolocalizacion(ip_address):
+def obtener_info_geolocalizacion(ip_address):
     try:
         # Llama a la API de ip-api.com con la dirección IP
         api_url = f"http://ip-api.com/json/{ip_address}"
