@@ -163,7 +163,6 @@ def votar():
         
         #ip_address = request.remote_addr
         ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
-        ip_address = "190.60.35.25"
         data_loc= obtener_info_geolocalizacion(ip_address)
         print("ip_address_request (X-Forwarded-For): ", ip_address)
 
