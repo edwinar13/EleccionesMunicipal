@@ -125,7 +125,6 @@ def enviar_correo():
     except OperationalError as e:
         # Manejar el error de conexión a la base de datos
         #imprimir mesaje
-        print("--->\nError de conexión a la base de datos{}\n--->".format(str(e)))
         return jsonify({'message': 'Error de conexión a la base de datos, vuelve a intentarlo '}), 500
                
     
@@ -134,11 +133,6 @@ def enviar_correo():
 @app.route('/votacion', methods=['GET'])
 def votacion():
     token = request.args.get('token')
-    ip_address_request = request.headers.get('X-Forwarded-For', request.remote_addr)
-    print("ip_address_request: ", ip_address_request)
-    informacion = obtener_info_geolocalizacion(ip_address_request)
-    print("informacion: ", informacion)
-
     if tokenValid(token):        
         # El token es válido, el usuario puede votar
         # Configurar las cabeceras de la respuesta para evitar el almacenamiento en caché
@@ -169,15 +163,15 @@ def votar():
         
         #ip_address = request.remote_addr
         ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
-        print("ip_address_request (X-Forwarded-For): ", ip_address)
-        #ip_address = "181.78.15.119"
-        #ip_address = "172.31.25.114"
+        ip_address = "190.60.35.25"
         data_loc= obtener_info_geolocalizacion(ip_address)
+        print("ip_address_request (X-Forwarded-For): ", ip_address)
 
 
         # Convierte el diccionario en una cadena JSON
         #data_loc_json = "{}".format(data_loc)
         data_loc_json = json.dumps(data_loc)
+        data_loc_json = "nada"
 
         # Crea una instancia de Voto y regístrarlo en la base de datos
         new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
