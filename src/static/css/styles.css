@@ -1391,12 +1391,12 @@ a {
 
 
 .nota-aclaratoria{
-    color: antiquewhite;
+    color: black;
     font-size: 1.2rem;
     font-weight: 200;
     text-align: center;
     margin: 5%;
-    background-color: #3f5366;
+    background-color: #c4e9cd;
     padding: 20px;
     border-radius: 10px; 
     box-shadow: 0 0 10px #ffffff38;
@@ -1405,7 +1405,7 @@ a {
     font-weight: 900;
 }
 .nota-aclaratoria a{
-    color: antiquewhite;
+    color: black;
     font-size: 1.2rem;
     font-weight: 200;
 }
@@ -1520,6 +1520,20 @@ a {
 .voting-cards img{    
     object-fit: fill;
     box-shadow: 4px 4px 13px 5px #797979b6;   
+}
+.voting-cards-about{    
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.voting-cards-about img{    
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 4px 4px 13px 5px #1b1b1bb6;   
 }
 
 

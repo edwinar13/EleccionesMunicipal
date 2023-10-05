@@ -204,6 +204,45 @@ html{
     align-items: center;
 }
 
+.loanding-text{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #00000000;
+    letter-spacing: 3px;
+    display: none;
+    
+}
+
+.loanding-text.show{
+    display: block;
+    
+}
+
+
+.loanding-text::before{
+    animation: loading 2s linear infinite;
+    position: absolute;
+    content: attr(texto-cargando);
+    overflow: hidden;
+    color: #0b91bb;
+}
+@keyframes loading{
+    0%{
+        content: "Cargando.";
+    }
+    33%{
+        content: "Cargando..";
+    }
+    66%{
+        content: "Cargando...";
+    }
+    100%{
+        content: "Cargando";
+    }
+}
+
+
 .card-candidate {
     border: 2px solid #a1a1a157;
     box-shadow: 0px 0px 5px #8181819f;

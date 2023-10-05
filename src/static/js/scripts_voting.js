@@ -16,15 +16,16 @@ $(document).ready(function () {
   const token = getParameterByName("token");
 
   // Manejar el clic en un candidato
-
   $(".vote-button").click(function () {
 
     const candidateName = $(this).data("candidate-name");
     const candidateId = $(this).data("candidate-id");
+    $(".loanding-text").addClass("show");
 
     // Realizar la solicitud al backend con la información del voto y el token
     $.post("/votar", { candidateId: candidateId, candidateName: candidateName, token: token }, function (data) {
       // Manejar la respuesta del servidor aquí
+      $(".loanding-text").removeClass("show");
       if (data.success) {
         if (window.history.replaceState) {
           window.history.replaceState(null, null, window.location.href);

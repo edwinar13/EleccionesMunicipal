@@ -159,6 +159,7 @@ def votar():
          
         
         x_forwarded_for = request.headers.get('X-Forwarded-For')
+        app.logger.info("→→→ X-Forwarded-For: {}".format(x_forwarded_for))
         if x_forwarded_for:
             ip_with_port = x_forwarded_for.split(',')[0]
             ip_address = ip_with_port.split(':')[0]
@@ -166,8 +167,8 @@ def votar():
             ip_address = request.remote_addr
                 
         data_loc= obtener_info_geolocalizacion(ip_address)
-
-
+        
+        app.logger.info("→→→ IP: {}".format(ip_address))    
         if data_loc["status"]:
             data_loc_json = json.dumps(data_loc["message"])
         else:           

@@ -12,7 +12,10 @@
 <body>
   <header id="header-page">
     <section id="section-header">
-      <img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" />
+      <a href="/">
+        <img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" />
+      </a>
+
 
       <nav class="nav-menu">
         <ul>
@@ -52,6 +55,9 @@
           </article>
         </div>        
       </div>
+      <p class="msn-text">
+        Hemos enviado el enlace a tu bandeja de entrada de correo electrónico para que puedas revisar este comprobante.
+      </p>
     </div>
   </main>
 
