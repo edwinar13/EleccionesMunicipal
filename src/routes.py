@@ -148,40 +148,39 @@ def votacion():
 @app.route('/votar', methods=['POST'])
 def votar():
     #try:
-    # Obtener el ID del candidato, el nombre y el token desde la solicitud
+    # Obtener los datos enviados por el formulario de votación
     candidate_id = request.form.get('candidateId')
-    candidate_name = request.form.get('candidateName')
     token = request.form.get('token')
 
-    # Realizar las validaciones necesarias, como verificar el token y registrar el voto
-    # Primero, verifica si el token es válido y si el usuario aún no ha votado
+
     existing_user = Usuario.query.filter_by(token=token, has_voted=False).first()
     
     if existing_user:
-        # Actualiza el estado del usuario para indicar que ha votado
-        existing_user.has_voted = True
+         
         
-        ip_address = request.remote_addr
-        #ip_address = request.headers.get('X-Forwarded-For', request.remote_addr)
+        x_forwarded_for = request.headers.get('X-Forwarded-For')
+        if x_forwarded_for:
+            ip_with_port = x_forwarded_for.split(',')[0]
+            ip_address = ip_with_port.split(':')[0]
+        else:
+            ip_address = request.remote_addr
+                
         data_loc= obtener_info_geolocalizacion(ip_address)
 
 
-        # Convierte el diccionario en una cadena JSON
-        #data_loc_json = "{}".format(data_loc)
-        data_loc_json = json.dumps(data_loc)
-     
-        #data_loc_json = str("{}##{}".format(ip_address, data_loc_json))
-        #print("data_loc_json: ", data_loc_json)
-        #ip_address = "190.60.35.25"
-        
-        
+        if data_loc["status"]:
+            data_loc_json = json.dumps(data_loc["message"])
+        else:           
+            data_loc_json = str("{}-{}".format(x_forwarded_for, data_loc["message"]))
+            ip_address = ""
 
-        # Crea una instancia de Voto y regístrarlo en la base de datos
+
+        
         new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
         db.session.add(new_vote)
         db.session.commit()
-
-        # Devolver una respuesta de éxito
+        existing_user.has_voted = True       
+        
         sent = sendEmailVoucher(existing_user.email, token) 
         return jsonify({'success': True, 'message': 'Voto registrado exitosamente.'})
     else:
@@ -321,27 +320,47 @@ def sendEmailVoucher(email_destination, token):
 import requests
 
 
-
-
 def obtener_info_geolocalizacion(ip_address):
     try:
         # Llama a la API de ip-api.com con la dirección IP
         api_url = f"http://ip-api.com/json/{ip_address}"
         response = requests.get(api_url)
-        
-        # Verifica si la respuesta fue exitosa
+
         if response.status_code == 200:
             data = response.json()
             if data['status'] == 'success':
-                return "{}".format(data)
+                return {"status": True, "message": "{}".format(data)}
             else:
-                return "No se pudo obtener información de geolocalización."
+                return {"status": False, "message": "Error en la respuesta de la API de geolocalización: {}".format(data.get('message', 'Sin mensaje de error disponible.'))}
         else:
-            return "No se pudo conectar a la API de geolocalización."
+            return {"status": False, "message": "Error al conectarse a la API de geolocalización. Código de estado HTTP: {}".format(response.status_code)}
+
+    except requests.exceptions.RequestException as e:
+        return {"status": False, "message": "Error al realizar la solicitud a la API de geolocalización: {}".format(str(e))}
+    except Exception as e:
+        return {"status": False, "message": "Error inesperado: {}".format(str(e))}
+
+
+def obtener_info_geolocalizacion0(ip_address):
+    try:
+        # Llama a la API de ip-api.com con la dirección IP
+        api_url = f"http://ip-api.com/json/{ip_address}"
+        response = requests.get(api_url)
+        
+
+        if response.status_code == 200:
+            data = response.json()
+            if data['status'] == 'success':
+                return {"status": True, "message": "{}".format(data)}
+            
+            else:
+                return {"status": False, "message": "No se pudo obtener información de geolocalización."}
+
+        else:
+            return {"status": False, "message": "No se pudo conectar a la API de geolocalización."}
+
     except Exception as e:
         return str(e)
-
-
 
 
 
