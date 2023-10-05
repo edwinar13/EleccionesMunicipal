@@ -176,10 +176,10 @@ def votar():
 
 
         
+        existing_user.has_voted = True       
         new_vote = Voto(user_id=existing_user.user_id, candidate_id=candidate_id, ip_address=ip_address, data_loc=data_loc_json)
         db.session.add(new_vote)
         db.session.commit()
-        existing_user.has_voted = True       
         
         sent = sendEmailVoucher(existing_user.email, token) 
         return jsonify({'success': True, 'message': 'Voto registrado exitosamente.'})
