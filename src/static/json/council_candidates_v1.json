@@ -122,7 +122,7 @@
       "apellido": "AGUILAR TELLEZ",
       "foto": "foto_maria_patricia_aguilar.png",
       "numero": "01",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/mairapatricia.aguilar.5",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -131,7 +131,7 @@
       "apellido": "CHACON RODRIGUEZ",
       "foto": "foto_claudia_chacon.png",
       "numero": "02",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/patricia.chacon.71",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -140,7 +140,7 @@
       "apellido": "CHICUASUQUE CARO",
       "foto": "foto_rosa_milena_chicuasuque.png",
       "numero": "03",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/milena.chicuasuque.1",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -167,7 +167,7 @@
       "apellido": "SANCHEZ MONTAÑO",
       "foto": "foto_uriel_sanchez.png",
       "numero": "06",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100094479042601",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -176,7 +176,7 @@
       "apellido": "GONZALEZ BELLO",
       "foto": "foto_german_gonzalez.png",
       "numero": "07",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100083113803877",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -185,7 +185,7 @@
       "apellido": "MONTES MUÑOZ",
       "foto": "foto_alexander_montes.png",
       "numero": "08",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/alexsander.montes.92",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -194,7 +194,7 @@
       "apellido": "OVIEDO SOGAMOSO",
       "foto": "foto_jose_dumar_oviedo.png",
       "numero": "09",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/josedumar.oviedosogamoso",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -212,7 +212,7 @@
       "apellido": "RICO SANDOVAL",
       "foto": "foto_william_hernan_rico.png",
       "numero": "11",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/william.rico.sand",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -874,15 +874,6 @@
       "grupo": "grupo_blanca"
     },
     {
-      "nombre": "ALEXANDER",
-      "apellido": "NIETO CASTILLO",
-      "foto": "foto_alexander_nieto_castillo.png",
-      "partido": "agrupacion_en_marcha",
-      "numero": "09",
-      "facebook": "",
-      "grupo": "grupo_blanca"
-    },
-    {
       "nombre": "LUIS ENRIQUE",
       "apellido": "ROMERO GONZALEZ",
       "foto": "foto_luis_enrique_romero_gonzalez.png",
@@ -909,22 +900,18 @@
       "facebook": "https://www.facebook.com/rosaines.fandinoaguilar",
       "grupo": "grupo_genaldo"
     },
-    {
-      "nombre": "JHOAN ARMANDO",
-      "apellido": "MOLANO GONZALEZ",
-      "foto": "foto_jhoan_armando_molano_gonzalez.png",
-      "partido": "partido_ecologista_colombiano",
-      "numero": "02",
-      "facebook": "",
-      "grupo": "grupo_genaldo"
-    },
+
+
+
+
+
     {
       "nombre": "NATALIA",
       "apellido": "ABELLO MUÑOZ",
       "foto": "foto_natalia_abello_munoz.png",
       "partido": "partido_ecologista_colombiano",
       "numero": "03",
-      "facebook": "",
+      "facebook": "https://web.facebook.com/natalia.abello.524",
       "grupo": "grupo_genaldo"
     },
     {
@@ -933,7 +920,7 @@
       "foto": "foto_juan_pablo_mora_contreras.png",
       "partido": "partido_ecologista_colombiano",
       "numero": "04",
-      "facebook": "",
+      "facebook": "NA",
       "grupo": "grupo_genaldo"
     },
     {
@@ -969,7 +956,7 @@
       "foto": "foto_jheiner_jose_coneo_rodger.png",
       "partido": "partido_ecologista_colombiano",
       "numero": "08",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/jheiner.rodger",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1095,18 +1082,10 @@
       "foto": "foto_luis_alfonso_mendez.png",
       "partido": "partido_MAIS",
       "numero": "03",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/luisalfonso.mendezsalgado.5",
       "grupo": "grupo_genaldo"
     },
-    {
-      "nombre": "OSCAR DAVID",
-      "apellido": "CAMPOS CAMPOS",
-      "foto": "foto_oscar_david_campos.png",
-      "partido": "partido_MAIS",
-      "numero": "04",
-      "facebook": "",
-      "grupo": "grupo_genaldo"
-    },
+
     {
       "nombre": "MANUEL ANTONIO",
       "apellido": "MARTINEZ CHAVARRO",
@@ -1131,25 +1110,17 @@
       "foto": "foto_nubia_teresa_martinez.png",
       "partido": "partido_MAIS",
       "numero": "07",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/nubia.martinez.33886305",
       "grupo": "grupo_genaldo"
     },
-    {
-      "nombre": "YESENIA",
-      "apellido": "ZABALA AGUDELO",
-      "foto": "foto_yesenia_zabala.png",
-      "partido": "partido_MAIS",
-      "numero": "08",
-      "facebook": "",
-      "grupo": "grupo_genaldo"
-    },
+    
     {
       "nombre": "EDUARDO JULIAN",
       "apellido": "SANTOS NEUQUE",
       "foto": "foto_eduardo_julian_santos.png",
       "partido": "partido_MAIS",
       "numero": "09",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100016786572621",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1167,7 +1138,7 @@
       "foto": "foto_john_edisson_suarez.png",
       "partido": "partido_democrata_colombiano",
       "numero": "01",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/johnedisson.suarezforero",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1176,7 +1147,7 @@
       "foto": "foto_john_fredy_londono.png",
       "partido": "partido_democrata_colombiano",
       "numero": "02",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/jhonfredy.londono.56",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1185,7 +1156,7 @@
       "foto": "foto_odilia_caceres.png",
       "partido": "partido_democrata_colombiano",
       "numero": "03",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/odilia.caceres.5",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1194,7 +1165,7 @@
       "foto": "foto_idaly_herrera.png",
       "partido": "partido_democrata_colombiano",
       "numero": "04",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/idalyherreragudelo",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1203,7 +1174,7 @@
       "foto": "foto_higuey_jose_bernal.png",
       "partido": "partido_democrata_colombiano",
       "numero": "05",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/higuey.bernal",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1221,7 +1192,7 @@
       "foto": "foto_efrain_victoria.png",
       "partido": "partido_democrata_colombiano",
       "numero": "07",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100078934430658",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1248,7 +1219,7 @@
       "foto": "foto_luis_eduar_nino.png",
       "partido": "partido_democrata_colombiano",
       "numero": "10",
-      "facebook": "",
+      "facebook": "NA",
       "grupo": "grupo_genaldo"
     },
     {
@@ -1340,6 +1311,46 @@
       "numero": "03",
       "facebook": "",
       "grupo": "grupo_"
+    }
+  ],
+  "noAceptado":[
+    {
+      "nombre": "JHOAN ARMANDO",
+      "apellido": "MOLANO GONZALEZ",
+      "foto": "foto_jhoan_armando_molano_gonzalez.png",
+      "partido": "partido_ecologista_colombiano",
+      "numero": "02",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },   
+     {
+      "nombre": "OSCAR DAVID",
+      "apellido": "CAMPOS CAMPOS",
+      "foto": "foto_oscar_david_campos.png",
+      "partido": "partido_MAIS",
+      "numero": "04",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    },
+    {
+      "nombre": "YESENIA",
+      "apellido": "ZABALA AGUDELO",
+      "foto": "foto_yesenia_zabala.png",
+      "partido": "partido_MAIS",
+      "numero": "08",
+      "facebook": "",
+      "grupo": "grupo_genaldo"
+    }
+  ],
+  "renuncia":[
+    {
+      "nombre": "ALEXANDER",
+      "apellido": "NIETO CASTILLO",
+      "foto": "foto_alexander_nieto_castillo.png",
+      "partido": "agrupacion_en_marcha",
+      "numero": "09",
+      "facebook": "",
+      "grupo": "grupo_blanca"
     }
   ]
 }
