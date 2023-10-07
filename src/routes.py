@@ -12,6 +12,13 @@ import jinja2
 import pdfkit
 
 
+'''
+<!--
+
+            <a href="https://www.linkedin.com/in/edwin-j-arevalo" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=573118994279&amp;text=Hola%20Edwin, " target="_blank"><i class="fab fa-whatsapp"></i></a>
+          -->
+          '''
 
 
 app.config['SECRET_KEY'] = config('SECRET_KEY')
