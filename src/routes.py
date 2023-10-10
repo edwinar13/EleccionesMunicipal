@@ -10,6 +10,10 @@ from decouple import config
 import geoip2.database
 import jinja2
 import pdfkit
+#from read import read_votes
+
+
+
 
 
 '''
@@ -62,8 +66,14 @@ def index():
         candidato['apellido'] = candidato['apellido'].title()
             
     councils= data['candidatos']
+    
     return render_template("index.html", 
                            councils=councils)
+    
+
+
+        
+        
     
 
 
@@ -485,4 +495,12 @@ lo que sigue
 
 AJUASTA MENU EN NLOS PLANES DE GOBIERNO
 """
+
+
+
+
+
+
+
+
 

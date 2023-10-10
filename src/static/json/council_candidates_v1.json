@@ -4,8 +4,8 @@
       "nombre": "LUZ YANETH",
       "apellido": "ARDILA HUERTAS",
       "foto": "foto_luz_yaneth_ardila.png",
-      "numero": "01",
-      "facebook": "",
+      "numero": "",
+      "facebook": "https://www.facebook.com/yaneth.ardila.75",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
     },
@@ -13,8 +13,8 @@
       "nombre": "GILDARDO",
       "apellido": "PARAMO TORRES",
       "foto": "foto_gildardo_paramo.png",
-      "numero": "02",
-      "facebook": "",
+      "numero": "",
+      "facebook": "https://www.facebook.com/gildardo.paramo.3",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
     },
@@ -22,7 +22,7 @@
       "nombre": "ELIANA",
       "apellido": "SANTANA NAVARRO",
       "foto": "foto_eliana_santana.png",
-      "numero": "03",
+      "numero": "",
       "facebook": "",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
@@ -31,8 +31,8 @@
       "nombre": "JESUS ALIRIO",
       "apellido": "PILLIMUE PECHENE",
       "foto": "foto_jesus_alirio_pillimue.png",
-      "numero": "04",
-      "facebook": "",
+      "numero": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100009029849669",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
     },
@@ -40,7 +40,7 @@
       "nombre": "CLAUDIA CECILIA",
       "apellido": "RUEDA",
       "foto": "foto_claudia_cecilia_rueda.png",
-      "numero": "05",
+      "numero": "",
       "facebook": "",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
@@ -49,7 +49,7 @@
       "nombre": "ROMULO",
       "apellido": "RUEDA PRIETO",
       "foto": "foto_romulo_rueda.png",
-      "numero": "06",
+      "numero": "",
       "facebook": "",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
@@ -58,7 +58,7 @@
       "nombre": "HIDALBA",
       "apellido": "PRADA JIMENEZ",
       "foto": "foto_hidalba_prada.png",
-      "numero": "07",
+      "numero": "",
       "facebook": "",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
@@ -67,7 +67,7 @@
       "nombre": "SEGUNDO BELISARIO",
       "apellido": "ORTEGA",
       "foto": "foto_segundo_ortega.png",
-      "numero": "08",
+      "numero": "",
       "facebook": "",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
@@ -76,7 +76,7 @@
       "nombre": "LANIDE",
       "apellido": "VILLALBA BETANCOURT",
       "foto": "foto_lanide_villalba.png",
-      "numero": "09",
+      "numero": "",
       "facebook": "",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
@@ -85,7 +85,7 @@
       "nombre": "SOL ANGEL",
       "apellido": "PALOMINO RIVERA",
       "foto": "foto_sol_angel_palomino.png",
-      "numero": "10",
+      "numero": "",
       "facebook": "",
       "partido": "partido_la_fuerza_de_la_paz",
       "grupo": "grupo_"
@@ -94,7 +94,7 @@
       "nombre": "OMAR DARIO",
       "apellido": "DIAZ GALINDO",
       "foto": "foto_omar_dario_diaz.png",
-      "numero": "01",
+      "numero": "",
       "facebook": "https://www.facebook.com/omar.dario.3910",
       "partido": "partido_centro_democratico",
       "grupo": "grupo_andres"
@@ -103,7 +103,7 @@
       "nombre": "JORGE ARTURO",
       "apellido": "MUÑOZ VELASQUEZ",
       "foto": "foto_jorge_arturo_munoz.png",
-      "numero": "02",
+      "numero": "",
       "facebook": "",
       "partido": "partido_centro_democratico",
       "grupo": "grupo_andres"
@@ -112,7 +112,7 @@
       "nombre": "ALEXANDRA",
       "apellido": "SOTO RODRIGUEZ",
       "foto": "foto_alexandra_soto.png",
-      "numero": "03",
+      "numero": "",
       "facebook": "",
       "partido": "partido_centro_democratico",
       "grupo": "grupo_andres"
@@ -203,7 +203,7 @@
       "apellido": "NOMELY RUBIO",
       "foto": "foto_edy_ricardo_nomely.png",
       "numero": "10",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/edyricardo.nomelyrubio.7",
       "partido": "partido_liberal",
       "grupo": "grupo_genaldo"
     },
@@ -410,7 +410,7 @@
       "apellido": "MELO INFANTE",
       "foto": "foto_carlos_melo.png",
       "numero": "01",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100009214727192",
       "partido": "partido_cambio_radical",
       "grupo": "grupo_andres"
     },
@@ -437,7 +437,7 @@
       "apellido": "MORENO CORREDOR",
       "foto": "foto_francisco_moreno.png",
       "numero": "04",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100078943449025",
       "partido": "partido_cambio_radical",
       "grupo": "grupo_andres"
     },
@@ -536,7 +536,7 @@
       "apellido": "CASTAÑO VASQUEZ",
       "foto": "foto_maria_terza_castaño.png",
       "numero": "04",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100073127756302",
       "partido": "alianza_verde",
       "grupo": "grupo_mikan"
     },
@@ -672,7 +672,7 @@
       "foto": "jose_adelmo_quintero.png",
       "partido": "partido_conservador",
       "numero": "08",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/joseadelmo.quintero",
       "grupo": "grupo_blanca"
     },
     {
@@ -690,7 +690,7 @@
       "foto": "foto_yeferzon_fuentes.png",
       "partido": "partido_conservador",
       "numero": "10",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/yeyo.fuentes.7",
       "grupo": "grupo_blanca"
     },
     {
@@ -798,7 +798,7 @@
       "foto": "foto_edilberto_orjuela.png",
       "partido": "movimiento_aico",
       "numero": "11",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100075445993675",
       "grupo": "grupo_andres"
     },
     {
@@ -807,7 +807,7 @@
       "foto": "foto_luz_alba_bohorquez_lesmes.png",
       "partido": "agrupacion_en_marcha",
       "numero": "01",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/luzalba.bohorquezl",
       "grupo": "grupo_blanca"
     },
     {
@@ -816,7 +816,7 @@
       "foto": "foto_jhon_henry_lopez_cruz.png",
       "partido": "agrupacion_en_marcha",
       "numero": "02",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/jhon.henry.5074",
       "grupo": "grupo_blanca"
     },
     {
@@ -879,7 +879,7 @@
       "foto": "foto_luis_enrique_romero_gonzalez.png",
       "partido": "agrupacion_en_marcha",
       "numero": "10",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/luisenrique.romerogonzalez.58",
       "grupo": "grupo_blanca"
     },
     {
@@ -888,7 +888,7 @@
       "foto": "foto_juan_manuel_revora_silva.png",
       "partido": "agrupacion_en_marcha",
       "numero": "11",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/manuel.revora",
       "grupo": "grupo_blanca"
     },
     {
@@ -983,7 +983,7 @@
       "foto": "foto_john_jairo_rodriguez.png",
       "partido": "partidou",
       "numero": "02",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/friends/requests/?profile_id=100001887979775",
       "grupo": "grupo_mikan"
     },
     {
@@ -1010,7 +1010,7 @@
       "foto": "foto_ricardo_mayorga.png",
       "partido": "partidou",
       "numero": "05",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/ricardoandres.mayorgasandoval",
       "grupo": "grupo_mikan"
     },
     {
@@ -1055,7 +1055,7 @@
       "foto": "foto_esmeralda_rincon.png",
       "partido": "partidou",
       "numero": "10",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/esmeralda.r.velandia",
       "grupo": "grupo_mikan"
     },
     {
@@ -1290,7 +1290,7 @@
       "apellido": "LOZANO GUALTEROS",
       "foto": "foto_liseth_andrea_lozano.png",
       "partido": "partido_colombia_justa_libres",
-      "numero": "01",
+      "numero": "",
       "facebook": "",
       "grupo": "grupo_"
     },
@@ -1299,7 +1299,7 @@
       "apellido": "AGUIRRE GALLEGO",
       "foto": "foto_diego_fernando_aguirre.png",
       "partido": "partido_colombia_justa_libres",
-      "numero": "02",
+      "numero": "",
       "facebook": "https://www.facebook.com/diegofernando.aguirregallego.58",
       "grupo": "grupo_"
     },
@@ -1308,7 +1308,7 @@
       "apellido": "DUARTE DUARTE",
       "foto": "foto_clayder_andrea_duarte.png",
       "partido": "partido_colombia_justa_libres",
-      "numero": "03",
+      "numero": "",
       "facebook": "",
       "grupo": "grupo_"
     }
