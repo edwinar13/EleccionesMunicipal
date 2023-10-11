@@ -221,7 +221,7 @@
       "apellido": "ROMERO MECHAN",
       "foto": "foto_robinson_romero.png",
       "numero": "01",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100077164151806",
       "partido": "independientes",
       "grupo": "grupo_mikan"
     },
@@ -230,7 +230,7 @@
       "apellido": "MENDIVELSO",
       "foto": "foto_sandra_milena_mendivelso.png",
       "numero": "02",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/sandramilena.mendivelso.507",
       "partido": "independientes",
       "grupo": "grupo_mikan"
     },
@@ -239,7 +239,7 @@
       "apellido": "ATENCIO ROJAS",
       "foto": "foto_ermenson_jair_atencio.png",
       "numero": "03",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/emerson.atencio.731",
       "partido": "independientes",
       "grupo": "grupo_mikan"
     },
@@ -248,7 +248,7 @@
       "apellido": "MARRUGO OROZCO",
       "foto": "foto_eduard_david_marrugo.png",
       "numero": "04",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/eduardavid.marrugoorozco.98",
       "partido": "independientes",
       "grupo": "grupo_mikan"
     },
@@ -338,7 +338,7 @@
       "apellido": "PEREZ PEREZ",
       "foto": "foto_pedro_juan_perez.png",
       "numero": "03",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100051196162583",
       "partido": "alianza_asi",
       "grupo": "grupo_mikan"
     },
@@ -372,9 +372,9 @@
     {
       "nombre": "DEIBY ORLANDO",
       "apellido": "ACOSTA ZAMBRANO",
-      "foto": "foto_deiby orlando_acosta.png",
+      "foto": "foto_deiby_orlando_acosta.png",
       "numero": "07",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100077534179788",
       "partido": "alianza_asi",
       "grupo": "grupo_mikan"
     },
@@ -383,7 +383,7 @@
       "apellido": "LOZANO",
       "foto": "foto_graciela_lozano.png",
       "numero": "08",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/graciela.lozano.71",
       "partido": "alianza_asi",
       "grupo": "grupo_mikan"
     },
@@ -509,7 +509,7 @@
       "apellido": "AGUDELO TURRIAGO",
       "foto": "foto_demetrio_agudelo.png",
       "numero": "01",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/demetrio.agudelo.7",
       "partido": "alianza_verde",
       "grupo": "grupo_mikan"
     },
@@ -554,7 +554,7 @@
       "apellido": "ROZO MOLINA",
       "foto": "foto_yury_maritza_rozo.png",
       "numero": "06",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/profile.php?id=100011699800478",
       "partido": "alianza_verde",
       "grupo": "grupo_mikan"
     },
@@ -609,7 +609,7 @@
       "foto": "foto_luz_marina_caro.png",
       "partido": "partido_conservador",
       "numero": "01",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/luz.karo.9",
       "grupo": "grupo_blanca"
     },
     {
@@ -618,7 +618,7 @@
       "foto": "foto_martha_cecilia_giraldo.png",
       "partido": "partido_conservador",
       "numero": "02",
-      "facebook": "",
+      "facebook": "https://www.facebook.com/martha.giraldo.75",
       "grupo": "grupo_blanca"
     },
     {

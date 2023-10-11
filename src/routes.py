@@ -70,6 +70,33 @@ def index():
     return render_template("index.html", 
                            councils=councils)
     
+'''
+@app.route("/results")
+def results(): 
+    # json con los candiatas y porcentajes de votos
+    date_votes = {'genaldo': {'votes': 0, 'percentage': 0.00},
+                'edison': {'votes': 0, 'percentage': 0.00},
+                'blanca_lilia': {'votes': 0, 'percentage': 0.00},
+                'mikan': {'votes': 0, 'percentage': 0.00},
+                'juan_andres': {'votes': 0, 'percentage': 0.00},
+                'voto_blanco': {'votes': 0, 'percentage': 0.00}}
+    #json con los votos por dias y por candidato
+    date_votes_day = {'genaldo': [(0,'10/01'), (1,'10/02'),(5,'10/03')],
+                        'edison': [(0,'10/01'), (5,'10/02'),(20,'10/03')],
+                        'blanca_lilia': [(0,'10/01'), (1,'10/02'),(5,'10/03')],
+                        'mikan': [(0,'10/01'), (4,'10/02'),(5,'10/03')],
+                        'juan_andres': [(0,'10/01'), (0,'10/02'),(2,'10/03')] }
+    
+    date_info = {'total_user_registed': 400,
+                'total_votes': 250,                 
+                 'votes_from_cundinamarca': 100
+                 }
+    
+
+    
+    return render_template("results.html",date_votes=date_votes, date_votes_day=date_votes_day, date_info=date_info)
+    
+'''
 
 
         

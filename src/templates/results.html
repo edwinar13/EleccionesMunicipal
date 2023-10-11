@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Mi Candiadto | Comprobante</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" href="/static/favicon.png" />
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles_results.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header id="header-page">
+    <section id="section-header">
+      <a href="/"><img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" /></a>
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="/" class="li-hover">Salir</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+
+
+  
+  https://www.google.com/search?q=grafica+de+barras+web&tbm=isch&hl=en&sa=X&ved=2ahUKEwiP2beS9-yBAxU1j4kEHWiQDVoQBXoECAEQUg&biw=1903&bih=923#imgrc=ujC27eKfUXu-OM
+  https://www.visme.co/es/grafica-de-barras/
+  https://www.google.com/search?q=intenci%C3%B3n+de+voto+alcald%C3%ADa+de+bogot%C3%A1&sca_esv=572370827&tbm=isch&sxsrf=AM9HkKm1yBCuR2rvwlCqFiWOOhSDKWABhg:1696990440077&source=lnms&sa=X&ved=2ahUKEwjFwPiC9uyBAxVXTjABHYqYDY4Q_AUoAnoECAEQBA&biw=1920&bih=923&dpr=1#imgrc=G4DjVyvVzPUe9M
+  https://www.google.com/search?q=dashboard+modern&sca_esv=572370827&tbm=isch&sxsrf=AM9HkKkQWY3YfTrVtXjE6Hh9pZAOBF8AoA:1696992330101&source=lnms&sa=X&ved=2ahUKEwjVuJaI_eyBAxV0sDEKHepuC1YQ_AUoAXoECAIQAw&biw=1920&bih=923&dpr=1#imgrc=Vez1ZQa6yCJvEM
+  https://co.pinterest.com/pin/48554502226370266/
+  <main id="section-dashboard">
+    <div class="fg-section">
+      <div class="container-chart1">
+        <section class="area1">
+          <h6>Intención de voto</h6>
+        </section>
+        <section class="area2">
+          <div class="bar" style="height: 80%; background-color: #b98e87">
+            <div class="percent">40<span>%</span></div>          
+          </div>
+          <div class="bar" style="height: 60%; background-color: #dfc963">
+              <div class="percent">30<span>%</span></div>
+          </div>
+          <div class="bar" style="height: 44%; background-color: #67b56b">
+            <div class="percent">22<span>%</span></div>
+          </div>
+          <div class="bar" style="height: 36%; background-color: #67bfcb">
+            <div class="percent">18<span>%</span></div>
+          </div>
+          <div class="bar" style="height: 30%; background-color: #67cbb7">
+            <div class="percent">15<span>%</span></div>
+          </div>
+          <div class="bar" style="height: 6%; background-color: #ffffff">
+            <div class="percent">3<span>%</span></div>
+          </div>
+        </section>
+        <section class="area3"></section>
+        <section class="area4">
+          <div class="candadate">
+            <img src="{{ url_for('static', filename = 'images/photos/foto_genaldo_.png') }}" alt="Candidato" />
+            <figcaption>Genaldo Hernández</figcaption> 
+          </div>          
+          <div class="candadate">
+              <img src="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}" alt="Candidato" />
+              <figcaption>Edison Beltrán</figcaption>
+            </div>
+            <div class="candadate">
+              <img src="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" alt="Candidato" />
+              <figcaption>Blanca Lilia</figcaption>
+            </div>
+            <div class="candadate">
+              <img src="{{ url_for('static', filename = 'images/photos/foto_mikan_.png') }}" alt="Candidato" />
+              <figcaption>Jorge Mikan</figcaption>
+            </div>
+            <div class="candadate">
+              <img src="{{ url_for('static', filename = 'images/photos/foto_juan_andres_.png') }}" alt="Candidato" />
+              <figcaption>Juan Andrés</figcaption>
+            </div>
+            <div class="candadate">
+              <figcaption class="text-blank-vote">Voto en blanco</figcaption>
+            </div>
+            <!--
+          -->
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename = 'js/scripts_coprobant.js') }}"></script>
+</body>
