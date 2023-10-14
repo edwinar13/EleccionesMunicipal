@@ -9,8 +9,6 @@ import json
 from decouple import config
 import geoip2.database
 import jinja2
-import pdfkit
-import pytz
 #from read import read_votes
 
 
