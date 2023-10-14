@@ -49,8 +49,6 @@ const renderVotigChart = () => {
                 pointRadius: 5,
                 pointHoverRadius: 10,
                 pointHoverBorderWidth: 2,
-                pointHoverOffset: 2,
-                pointHitRadius: 10,
                 pointStyle: 'circle',
             },
 
@@ -64,8 +62,6 @@ const renderVotigChart = () => {
                 pointRadius: 5,
                 pointHoverRadius: 10,
                 pointHoverBorderWidth: 2,
-                pointHoverOffset: 2,
-                pointHitRadius: 10,
                 pointStyle: 'circle',
             },
             {
@@ -78,8 +74,6 @@ const renderVotigChart = () => {
                 pointRadius: 5,
                 pointHoverRadius: 10,
                 pointHoverBorderWidth: 2,
-                pointHoverOffset: 2,
-                pointHitRadius: 10,
                 pointStyle: 'circle',
             },
 
@@ -93,8 +87,6 @@ const renderVotigChart = () => {
                 pointRadius: 5,
                 pointHoverRadius: 10,
                 pointHoverBorderWidth: 2,
-                pointHoverOffset: 2,
-                pointHitRadius: 10,
                 pointStyle: 'circle',
             },
             {
@@ -107,8 +99,6 @@ const renderVotigChart = () => {
                 pointRadius: 5,
                 pointHoverRadius: 10,
                 pointHoverBorderWidth: 2,
-                pointHoverOffset: 2,
-                pointHitRadius: 10,
                 pointStyle: 'circle',
             },
             {
@@ -121,8 +111,6 @@ const renderVotigChart = () => {
                 pointRadius: 5,
                 pointHoverRadius: 10,
                 pointHoverBorderWidth: 2,
-                pointHoverOffset: 2,
-                pointHitRadius: 10,
                 pointStyle: 'circle',
             },
         ]

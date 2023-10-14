@@ -9,21 +9,14 @@ import json
 from decouple import config
 import geoip2.database
 import jinja2
-#from read import read_votes
-
-
-
-
-
 
 '''
+#from read import read_votes
 <!--
-
-            <a href="https://www.linkedin.com/in/edwin-j-arevalo" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=573118994279&amp;text=Hola%20Edwin, " target="_blank"><i class="fab fa-whatsapp"></i></a>
-          -->
-          '''
-
+<a href="https://www.linkedin.com/in/edwin-j-arevalo" target="_blank"><i class="fab fa-linkedin"></i></a>
+<a href="https://api.whatsapp.com/send?phone=573118994279&amp;text=Hola%20Edwin, " target="_blank"><i class="fab fa-whatsapp"></i></a>
+-->
+'''
 
 app.config['SECRET_KEY'] = config('SECRET_KEY')
 app.config['MAIL_SERVER'] = config('MAIL_SERVER')
