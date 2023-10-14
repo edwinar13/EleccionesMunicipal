@@ -10,7 +10,9 @@ from decouple import config
 import geoip2.database
 import jinja2
 import pdfkit
+import pytz
 #from read import read_votes
+
 
 
 
@@ -66,13 +68,14 @@ def index():
         candidato['apellido'] = candidato['apellido'].title()
             
     councils= data['candidatos']
-    
+    publish = config('PUBLISH', default=False, cast=bool)
     return render_template("index.html", 
-                           councils=councils)
+                           councils=councils, publish=publish)
     
-'''
+
 @app.route("/results")
 def results(): 
+    '''
     # json con los candiatas y porcentajes de votos
     date_votes = {'genaldo': {'votes': 0, 'percentage': 0.00},
                 'edison': {'votes': 0, 'percentage': 0.00},
@@ -85,19 +88,17 @@ def results():
                         'edison': [(0,'10/01'), (5,'10/02'),(20,'10/03')],
                         'blanca_lilia': [(0,'10/01'), (1,'10/02'),(5,'10/03')],
                         'mikan': [(0,'10/01'), (4,'10/02'),(5,'10/03')],
-                        'juan_andres': [(0,'10/01'), (0,'10/02'),(2,'10/03')] }
-    
+                        'juan_andres': [(0,'10/01'), (0,'10/02'),(2,'10/03')] }    
     date_info = {'total_user_registed': 400,
                 'total_votes': 250,                 
                  'votes_from_cundinamarca': 100
-                 }
-    
-
-    
-    return render_template("results.html",date_votes=date_votes, date_votes_day=date_votes_day, date_info=date_info)
-    
-'''
-
+                 }    
+    '''
+    publish = config('PUBLISH', default=False, cast=bool)
+    if publish:
+        return render_template("results.html")
+    else:
+        return render_template('404.html'), 404
 
         
         
@@ -524,10 +525,46 @@ AJUASTA MENU EN NLOS PLANES DE GOBIERNO
 """
 
 
+'''
 
+def readVotes():
 
+    # leer votos
+    read_votes = Voto.query.all()
+    edison = 0 #candidato 1
+    juan_andres = 0 #candidato 2
+    genaldo = 0 #candidato 3
+    mikan = 0 #candidato 4
+    blanca_lilia = 0 #candidato 5
+    voto_blanco = 0 #candidato 6
+    
+    for vote in read_votes:
+        with open('src/static/json/votes.txt', 'a') as f: 
+            db_timestamp = vote.vote_timestamp    
+            f.write(f"{vote.vote_id};{vote.user_id};{vote.candidate_id};{db_timestamp};{vote.ip_address};{vote.data_loc}\n")
 
-
-
-
-
+        if vote.candidate_id == 1:
+            edison += 1
+        elif vote.candidate_id == 2:
+            juan_andres += 1
+        elif vote.candidate_id == 3:
+            genaldo += 1
+        elif vote.candidate_id == 4:
+            mikan += 1
+        elif vote.candidate_id == 5:
+            blanca_lilia += 1
+        elif vote.candidate_id == 6:
+            voto_blanco += 1
+        else:
+            print("no se encontro candidato "*10)
+    print(f"edison {edison} juan_andres {juan_andres} genaldo {genaldo} mikan {mikan} blanca_lilia {blanca_lilia} voto_blanco {voto_blanco}")
+     
+     #leer usuarios
+    read_users = Usuario.query.all()
+    total_user_registed = len(read_users)
+    print(f"total_user_registed {total_user_registed}")
+    for user in read_users:
+        with open('src/static/json/users.txt', 'a') as f:            
+            f.write(f"{user.user_id};{user.email};{user.has_voted};{user.token}\n")
+'''
+           

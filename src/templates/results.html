@@ -13,9 +13,12 @@
   <header id="header-page">
     <section id="section-header">
       <a href="/"><img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" /></a>
-
+      <p class="title">
+        RESULTADOS ENCUESTA
+      </p>
       <nav class="nav-menu">
         <ul>
+  
           <li>
             <a href="/" class="li-hover">Salir</a>
           </li>
@@ -24,72 +27,133 @@
     </section>
   </header>
 
+  <!--      
+    https://www.google.com/search?q=grafica+de+barras+web&tbm=isch&hl=en&sa=X&ved=2ahUKEwiP2beS9-yBAxU1j4kEHWiQDVoQBXoECAEQUg&biw=1903&bih=923#imgrc=ujC27eKfUXu-OM
+    https://www.visme.co/es/grafica-de-barras/
+    https://www.google.com/search?q=intenci%C3%B3n+de+voto+alcald%C3%ADa+de+bogot%C3%A1&sca_esv=572370827&tbm=isch&sxsrf=AM9HkKm1yBCuR2rvwlCqFiWOOhSDKWABhg:1696990440077&source=lnms&sa=X&ved=2ahUKEwjFwPiC9uyBAxVXTjABHYqYDY4Q_AUoAnoECAEQBA&biw=1920&bih=923&dpr=1#imgrc=G4DjVyvVzPUe9M
+    https://www.google.com/search?q=dashboard+modern&sca_esv=572370827&tbm=isch&sxsrf=AM9HkKkQWY3YfTrVtXjE6Hh9pZAOBF8AoA:1696992330101&source=lnms&sa=X&ved=2ahUKEwjVuJaI_eyBAxV0sDEKHepuC1YQ_AUoAXoECAIQAw&biw=1920&bih=923&dpr=1#imgrc=Vez1ZQa6yCJvEM
+    https://co.pinterest.com/pin/48554502226370266/
+    
+        -->
 
-
-  
-  https://www.google.com/search?q=grafica+de+barras+web&tbm=isch&hl=en&sa=X&ved=2ahUKEwiP2beS9-yBAxU1j4kEHWiQDVoQBXoECAEQUg&biw=1903&bih=923#imgrc=ujC27eKfUXu-OM
-  https://www.visme.co/es/grafica-de-barras/
-  https://www.google.com/search?q=intenci%C3%B3n+de+voto+alcald%C3%ADa+de+bogot%C3%A1&sca_esv=572370827&tbm=isch&sxsrf=AM9HkKm1yBCuR2rvwlCqFiWOOhSDKWABhg:1696990440077&source=lnms&sa=X&ved=2ahUKEwjFwPiC9uyBAxVXTjABHYqYDY4Q_AUoAnoECAEQBA&biw=1920&bih=923&dpr=1#imgrc=G4DjVyvVzPUe9M
-  https://www.google.com/search?q=dashboard+modern&sca_esv=572370827&tbm=isch&sxsrf=AM9HkKkQWY3YfTrVtXjE6Hh9pZAOBF8AoA:1696992330101&source=lnms&sa=X&ved=2ahUKEwjVuJaI_eyBAxV0sDEKHepuC1YQ_AUoAXoECAIQAw&biw=1920&bih=923&dpr=1#imgrc=Vez1ZQa6yCJvEM
-  https://co.pinterest.com/pin/48554502226370266/
   <main id="section-dashboard">
     <div class="fg-section">
-      <div class="container-chart1">
-        <section class="area1">
-          <h6>Intención de voto</h6>
-        </section>
-        <section class="area2">
-          <div class="bar" style="height: 80%; background-color: #b98e87">
-            <div class="percent">40<span>%</span></div>          
+      <div class="area-section">
+        <h1 class="section-title">INTENCIÓN DE VOTO</h1>
+        <h2 class="section-title">CANDIDATOS A LA ALCALDÍA DE EL ROSAL</h2>
+        <p class="section-description">Te presentamos <strong>el primer</strong> resultado de la encuesta a la Alcaldía de El Rosal. Descubre la intención de voto de cada uno de los candidatos y sigue de cerca la variación en los votos a lo largo del tiempo. Tu participación es fundamental para tomar decisiones informadas en las próximas elecciones. ¡Acompáñanos en este emocionante proceso democrático!</p>
+        <article class="container-result">
+          <p class="description-chart">
+            Los resultados indican que Genaldo Hernández (41 %), candidato del partido liberal, encabeza la intención de voto de los rosalunos. Le sigue en empate, los candidatos Blanca Lilia (18%) del partido conservador y Jorge Mikan (18%) del partido de la U.
+          </p>
+          <div class="container-chart1">
+            <section class="area1">
+              <h6>Intención de voto</h6>
+            </section>
+            <section class="area2">
+              <div class="bar bar-1" data-tooltip="90 votos">
+                <div class="percent">
+                  <span id="percentage1">0</span><span class="percent">%</span>
+                </div>
+              </div>
+              <div class="bar bar-2" data-tooltip="39 votos">
+                <div class="percent">
+                  <span id="percentage2">0</span><span class="percent">%</span>
+                </div>
+              </div>
+              <div class="bar bar-3" data-tooltip="39 votos">
+                <div class="percent">
+                  <span id="percentage3">0</span><span class="percent">%</span>
+                </div>
+              </div>
+              <div class="bar bar-4" data-tooltip="27 votos">
+                <div class="percent">
+                  <span id="percentage4">0</span><span class="percent">%</span>
+                </div>
+              </div>
+              <div class="bar bar-5" data-tooltip="20 votos">
+                <div class="percent">
+                  <span id="percentage5">0</span><span class="percent">%</span>
+                </div>
+              </div>
+              <div class="bar bar-6" data-tooltip="2 votos">
+                <div class="percent">
+                  <span id="percentage6">0</span><span class="percent">%</span>
+                </div>
+              </div>
+              
+            </section>
+            <section class="area3"></section>
+            <section class="area4">
+              <div class="candadate">
+                <img src="{{ url_for('static', filename = 'images/photos/foto_genaldo_.png') }}" alt="Candidato" />
+                <figcaption>Genaldo Hernández</figcaption>
+              </div>
+              <div class="candadate">
+                <img src="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" alt="Candidato" />
+                <figcaption>Blanca Lilia</figcaption>
+              </div>
+              <div class="candadate">
+                <img src="{{ url_for('static', filename = 'images/photos/foto_mikan_.png') }}" alt="Candidato" />
+                <figcaption>Jorge Mikan</figcaption>
+              </div>
+              <div class="candadate">
+                <img src="{{ url_for('static', filename = 'images/photos/foto_juan_andres_.png') }}" alt="Candidato" />
+                <figcaption>Juan Andrés</figcaption>
+              </div>
+              <div class="candadate">
+                <img src="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}" alt="Candidato" />
+                <figcaption>Edison Beltrán</figcaption>
+              </div>
+              <div class="candadate">
+                <figcaption class="text-blank-vote">Voto en blanco</figcaption>
+              </div>
+              <!--      
+              -->
+            </section>
           </div>
-          <div class="bar" style="height: 60%; background-color: #dfc963">
-              <div class="percent">30<span>%</span></div>
+          <p class="description-chart">El comportamiento de la intención de voto acumulado por día, muestra un crecimiento considerable entre el 8 y 10 de octubre para el candadito Genaldo Hernández, que lo posiciona en lo más alto de la encuesta, mientras que para el resto de candidatos se mantiene la tendencia de crecimiento.</p>
+          <div class="container-chart2">
+            <canvas id="canvasChart"></canvas>
           </div>
-          <div class="bar" style="height: 44%; background-color: #67b56b">
-            <div class="percent">22<span>%</span></div>
-          </div>
-          <div class="bar" style="height: 36%; background-color: #67bfcb">
-            <div class="percent">18<span>%</span></div>
-          </div>
-          <div class="bar" style="height: 30%; background-color: #67cbb7">
-            <div class="percent">15<span>%</span></div>
-          </div>
-          <div class="bar" style="height: 6%; background-color: #ffffff">
-            <div class="percent">3<span>%</span></div>
-          </div>
-        </section>
-        <section class="area3"></section>
-        <section class="area4">
-          <div class="candadate">
-            <img src="{{ url_for('static', filename = 'images/photos/foto_genaldo_.png') }}" alt="Candidato" />
-            <figcaption>Genaldo Hernández</figcaption> 
-          </div>          
-          <div class="candadate">
-              <img src="{{ url_for('static', filename = 'images/photos/foto_edison_.png') }}" alt="Candidato" />
-              <figcaption>Edison Beltrán</figcaption>
+        </article>
+        <article class="container-inf">
+          <p class="description-card">
+            A continuación, te ofrecemos información relevante que arrojará luz sobre los resultados de la encuesta hasta la fecha. <span> Queremos subrayar una vez más la vital importancia de votar de manera justa y legítima </span>. Nuestro sistema está diseñado para garantizar la máxima transparencia en el proceso de encuesta.
+          </p>
+          <div class="container-cards">
+            <div class="card card-1">
+              <h5>829</h5>
+              <p>Usuarios que ha interactuado en el sitio web</p>
+              <img src="{{ url_for('static', filename = 'images/icons/checked.png') }}" alt="icono de la card" />
             </div>
-            <div class="candadate">
-              <img src="{{ url_for('static', filename = 'images/photos/foto_blanca_lilia_.png') }}" alt="Candidato" />
-              <figcaption>Blanca Lilia</figcaption>
+            <div class="card card-2">
+              <h5>293</h5>
+              <p>Usuarios registrados para votar en la encuesta</p>
+              <img src="{{ url_for('static', filename = 'images/icons/checked.png') }}" alt="icono de la card" />
             </div>
-            <div class="candadate">
-              <img src="{{ url_for('static', filename = 'images/photos/foto_mikan_.png') }}" alt="Candidato" />
-              <figcaption>Jorge Mikan</figcaption>
+            <div class="card card-3">
+              <h5>217</h5>
+              <p>Usuarios que han votado en la encuesta</p>
+              <img src="{{ url_for('static', filename = 'images/icons/checked.png') }}" alt="icono de la card" />
             </div>
-            <div class="candadate">
-              <img src="{{ url_for('static', filename = 'images/photos/foto_juan_andres_.png') }}" alt="Candidato" />
-              <figcaption>Juan Andrés</figcaption>
+            <div class="card card-3">
+              <h5>86</h5>
+              <p>Es el número máximo de votos que se ha realizado en un día
+                <img src="{{ url_for('static', filename = 'images/icons/checked.png') }}" alt="icono de la card" />
+              </p>
             </div>
-            <div class="candadate">
-              <figcaption class="text-blank-vote">Voto en blanco</figcaption>
+            <div class="card card-3">
+              <h5>7</h5>
+              <p>Usuarios identificados como fraudulentos y/o spam </p>
+              <img src="{{ url_for('static', filename = 'images/icons/cross.png') }}" alt="icono de la card" />
             </div>
-            <!--
-          -->
-        </section>
+          </div>
+        </article>
       </div>
     </div>
   </main>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="{{ url_for('static', filename = 'js/scripts_coprobant.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'js/scripts_results.js') }}"></script>
 </body>

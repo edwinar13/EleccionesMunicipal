@@ -183,7 +183,15 @@
 
         <div class="container-poll">
           <div class="poll-results">
+            {% if publish %}
+            <div class="result">
+              <p>¿Quieres conocer los primeros resultados de la encuesta?</p>
+              <p> Ingre a 👇 </p>
+              <a class="btn-results" href="results" target="_blank">Ver resultados #1</a>
+            </div>
+            {% else %}
             <img id="img-poll-0" src="{{ url_for('static', filename = 'images/polls/poll-2023-12-09.png') }}" alt="Resultados encuesta El Rosal" class="" />
+            {% endif %}
           </div>
           <div class="poll-form">
             <p class="timer-text">Primer resultado en:</p>
@@ -220,6 +228,7 @@
         </div>
       </div>
     </section>
+    
     <section id="section-concejales">
       <h2 class="title-section-dark">CONOCE LOS CANDIDATOS AL CONCEJO</h2>
       <p class="description-section3">Te presentamos a los candidatos que se postulan para el Concejo de nuestra comunidad. Queremos que conozcas a quienes buscan representarnos y participar en la toma de decisiones locales. A continuación, encontrarás tarjetas informativas de cada candidato, que incluyen su foto, nombre, número de tarjetón y un enlace directo a sus perfiles en redes sociales, como Facebook. Explora sus perfiles para obtener más información sobre sus propuestas y visiones para nuestra comunidad. Tu voto es importante, y conocer a los candidatos te ayudará a tomar una decisión informada en las próximas elecciones.</p>
@@ -238,13 +247,13 @@
               <a href="{{ council.facebook }}" target="_blank">
                 <div class="card-border-int">
                   <div class="councilor-img">
-                    <img src="{{ url_for('static', filename = 'images/councilors/' + council.partido + '/' + council.foto) }}" alt="Foto del council al concejo" />
+                    <img loading="lazy" src="{{ url_for('static', filename = 'images/councilors/' + council.partido + '/' + council.foto) }}" alt="Foto del council al concejo" />
                   </div>
                   <div class="councilor-data">
                     <figcaption class="councilor-name">{{ council.nombre }}</figcaption>
                     <figcaption class="councilor-name">{{ council.apellido }}</figcaption>
                     <div>
-                      <img src="{{ url_for('static', filename = 'images/councilors/' + council.partido + '/' + council.partido + '.svg') }}" alt="Foto del partido politico" />
+                      <img loading="lazy" src="{{ url_for('static', filename = 'images/councilors/' + council.partido + '/' + council.partido + '.svg') }}" alt="Foto del partido politico" />
                       <figcaption>{{ council.numero }}</figcaption>
                     </div>
                   </div>
@@ -267,13 +276,13 @@
         <div class="voting-card">
           <h3 class="bg-gobernador">Gobernador</h3>
           <figure>
-            <img src="{{ url_for('static', filename = 'images/RNEC/imagen1.png') }}" alt="Indicación de votación" />
+            <img loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen1.jpg') }}" alt="Indicación de votación" />
           </figure>
         </div>
         <div class="voting-card">
           <h3 class="bg-alcaldes">Alcalde</h3>
           <figure>
-            <img src="{{ url_for('static', filename = 'images/RNEC/imagen2.png') }}" alt="Indicación de votación" />
+            <img loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen2.jpg') }}" alt="Indicación de votación" />
           </figure>
         </div>
       </div>
@@ -281,33 +290,33 @@
         <div class="voting-card">
           <h3 class="bg-diputados">Diputados</h3>
           <figure>
-            <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen3.png') }}" alt="Indicación de votación" />
+            <img class="symmetrical" loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen3.jpg') }}" alt="Indicación de votación" />
           </figure>
         </div>
         <div class="voting-card">
           <h3 class="bg-concejales">Concejales</h3>
           <figure>
-            <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen4.png') }}" alt="Indicación de votación" />
+            <img class="symmetrical" loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen4.jpg') }}" alt="Indicación de votación" />
           </figure>
         </div>
         <div class="voting-card">
           <h3 class="bg-ediles">Ediles</h3>
           <figure>
-            <img class="symmetrical" src="{{ url_for('static', filename = 'images/RNEC/imagen5.png') }}" alt="Indicación de votación" />
+            <img class="symmetrical" loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen5.jpg') }}" alt="Indicación de votación" />
           </figure>
         </div>
       </div>
       <h3 class="subtitle">Para marcar correctamente las tarjetas electorales de gobernador y alcalde, sigue estos pasos:</h3>
       <div class="voting-cards-about">
-        <img src="{{ url_for('static', filename = 'images/RNEC/imagen6.png') }}" alt="Indicación de votación" />
-        <img src="{{ url_for('static', filename = 'images/RNEC/imagen7.png') }}" alt="Indicación de votación" />
-        <img src="{{ url_for('static', filename = 'images/RNEC/imagen8.png') }}" alt="Indicación de votación" />
+        <img loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen6.jpg') }}" alt="Indicación de votación" />
+        <img loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen7.jpg') }}" alt="Indicación de votación" />
+        <img loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen8.jpg') }}" alt="Indicación de votación" />
       </div>
       <h3 class="subtitle">Para marcar correctamente las tarjetas electorales de las corporaciones de asamblea, concejo o JAL, sigue estos pasos:</h3>
       <div class="voting-cards-about">
-        <img src="{{ url_for('static', filename = 'images/RNEC/imagen9.png') }}" alt="Indicación de votación" />
-        <img src="{{ url_for('static', filename = 'images/RNEC/imagen10.png') }}" alt="Indicación de votación" />
-        <img src="{{ url_for('static', filename = 'images/RNEC/imagen11.png') }}" alt="Indicación de votación" />
+        <img loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen9.jpg') }}" alt="Indicación de votación" />
+        <img loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen10.jpg') }}" alt="Indicación de votación" />
+        <img loading="lazy" src="{{ url_for('static', filename = 'images/RNEC/imagen11.jpg') }}" alt="Indicación de votación" />
       </div>
     </section>
   </main>
