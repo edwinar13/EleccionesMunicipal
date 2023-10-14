@@ -504,10 +504,20 @@ body {
         width: 100%;
         text-align: center;
         font-weight: 900;
+    }
+    & .color-y{
         background-image: linear-gradient(111deg, #654c4c 0%, #c0b20d 100%);
         -webkit-background-clip: text;
         color: transparent;
         text-transform: uppercase;
+        
+    }
+    & .color-r{
+        background-image: linear-gradient(111deg, #aa5d1e 0%, #c0280d 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-transform: uppercase;
+        
     }
 
     & p {
