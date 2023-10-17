@@ -66,6 +66,7 @@ def index():
 
 @app.route("/results")
 def results(): 
+    
     '''
     # json con los candiatas y porcentajes de votos
     date_votes = {'genaldo': {'votes': 0, 'percentage': 0.00},
@@ -517,7 +518,6 @@ AJUASTA MENU EN NLOS PLANES DE GOBIERNO
 
 
 '''
-
 def readVotes():
 
     # leer votos
@@ -557,5 +557,7 @@ def readVotes():
     for user in read_users:
         with open('src/static/json/users.txt', 'a') as f:            
             f.write(f"{user.user_id};{user.email};{user.has_voted};{user.token}\n")
-'''
+
            
+
+'''
