@@ -164,11 +164,11 @@ a {
         visibility: hidden;
         width: 0;
     }
-    
-#section-header {
-    justify-content: center;
-    padding: 0;
-}
+
+    #section-header {
+        justify-content: center;
+        padding: 0;
+    }
 }
 
 
@@ -403,14 +403,14 @@ a {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
     .container-contend {
         flex-direction: column;
     }
 
-   
-    
-    
+
+
+
 
     .container-contend .shield img {
         width: 100%;
@@ -437,6 +437,31 @@ a {
     display: flex;
     background-color: #fffaf4;
     margin-top: 120px;
+}
+
+#section-intro {
+    display: flex;
+    flex-direction: column;
+    background-color: #fffaf4;
+    margin-top: 120px;
+    padding-left: 10%;
+    padding-right: 10%;
+
+    & h2 {
+        text-align: center;
+        font-size: 2rem;
+        color: #2b3c4e;
+        width: 100%;
+    }
+
+    & p {
+        text-align: center;
+        margin-bottom: 10px;
+        color: #2b3c4e;
+        font-size: 1.2rem;
+        font-weight: 200;
+    }
+
 }
 
 .publicidad {
@@ -628,7 +653,7 @@ a {
     }
 
     .card-candidate {
-        margin:0 15px 0 15px;
+        margin: 0 15px 0 15px;
     }
 
     .fg-card {
@@ -657,7 +682,8 @@ a {
         background-image: url("../images/bg-candidates/bg_juan_andres_h.jpg");
     }
 
-    .title-section, .description-section {
+    .title-section,
+    .description-section {
         margin-left: 15px;
         margin-right: 15px;
     }
@@ -671,7 +697,7 @@ a {
         padding-bottom: 35px;
     }
 
-    .card-candidate p {        
+    .card-candidate p {
         font-weight: 100;
         margin: 15px;
     }
@@ -728,7 +754,7 @@ a {
     padding: 20px;
 }
 
-.result{
+.result {
     width: 100%;
     height: 100%;
     border: 20px solid #46c76696;
@@ -751,7 +777,7 @@ a {
 
 
 
-.poll-results p{
+.poll-results p {
     color: antiquewhite;
     font-size: 1.2rem;
     font-weight: 200;
@@ -768,7 +794,7 @@ a {
 
 
 
-.btn-results{
+.btn-results {
     background-color: #5f9ac21f;
     color: #ffffff;
     border: 5px solid #bec7cc96;
@@ -787,7 +813,7 @@ a {
 
 }
 
-.btn-results:hover{
+.btn-results:hover {
 
     background-color: #5fc285;
     color: #ffffff;
@@ -804,6 +830,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: end;
+    width: 100%;
 }
 
 #poll-form label {
@@ -881,7 +908,6 @@ a {
 .text-poll {
     font-size: 1rem;
     color: antiquewhite;
-    margin: 20px;
     font-weight: 100;
 }
 
@@ -1004,13 +1030,7 @@ a {
         width: auto;
     }
 
-    .timer-text {
-    }
 
-    #poll-form {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
 
     .countdown-card {
         scale: 0.8;
@@ -1071,7 +1091,7 @@ a {
     font-size: 2rem;
     font-weight: 900;
     text-align: center;
-    margin:0 5% 30px 5%;
+    margin: 0 5% 30px 5%;
 }
 
 .subtitle-section-dark {
@@ -1079,7 +1099,7 @@ a {
     font-size: 1.7rem;
     font-weight: 500;
     text-align: center;
-    margin:60px 5% 30px 5%;
+    margin: 60px 5% 30px 5%;
 }
 
 
@@ -1087,8 +1107,7 @@ a {
 
 
 @media (max-width: 800px) {
-    .title-section-dark {
-    }
+    .title-section-dark {}
 }
 
 .container-councilors {
@@ -1158,7 +1177,7 @@ a {
     flex-direction: column;
 }
 
-.card-border-int:hover{
+.card-border-int:hover {
     background-color: #435870;
     border: 2px dashed #13647985;
     cursor: pointer;
@@ -1269,7 +1288,7 @@ a {
         min-height: 40px;
     }
 
-   
+
 
     .councilor-data img {
         height: 30px;
@@ -1429,7 +1448,7 @@ a {
 
 
     /*   contenedor derecho  */
- 
+
 
     .social-icons-footer {
         margin-bottom: 20px;
@@ -1443,7 +1462,7 @@ a {
 
 
 
-.nota-aclaratoria{
+.nota-aclaratoria {
     color: black;
     font-size: 1.2rem;
     font-weight: 200;
@@ -1451,13 +1470,15 @@ a {
     margin: 5%;
     background-color: #c4e9cd;
     padding: 20px;
-    border-radius: 10px; 
+    border-radius: 10px;
     box-shadow: 0 0 10px #ffffff38;
 }
-.nota-aclaratoria span{
+
+.nota-aclaratoria span {
     font-weight: 900;
 }
-.nota-aclaratoria a{
+
+.nota-aclaratoria a {
     color: black;
     font-size: 1.2rem;
     font-weight: 200;
@@ -1467,7 +1488,7 @@ a {
 
 
 
-#section-about-vote{
+#section-about-vote {
 
     background-color: #2f3e4f;
     padding: 0 5% 80px 5%;
@@ -1483,9 +1504,10 @@ a {
     text-align: center;
     margin-left: 5%;
     margin-right: 5%;
-    
+
 }
-.description-section4 span{
+
+.description-section4 span {
     font-weight: 500;
     color: #f1c77d;
     text-decoration: underline;
@@ -1505,7 +1527,7 @@ a {
 
 }
 
-.voting-cards{
+.voting-cards {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1513,7 +1535,8 @@ a {
     gap: 30px;
     margin-top: 30px;
 }
-.voting-card{
+
+.voting-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1522,89 +1545,99 @@ a {
     height: 600px;
     border-radius: 5px;
     background-color: #d3d8e4;
-    
+
 }
 
-.voting-card:hover{
+.voting-card:hover {
     cursor: pointer;
-    & h3{
+
+    & h3 {
         box-shadow: none;
-        
+
     }
 }
-.voting-card h3{
+
+.voting-card h3 {
     text-align: center;
     font-weight: 800;
     font-size: 1.5rem;
     color: antiquewhite;
     width: 100%;
-    padding: 5px;    
+    padding: 5px;
     border-radius: 0 25px 25px 0;
     margin: 15px 0 0 0;
     transform: translateX(-10px);
     box-shadow: 4px 4px 4px 0px #454141b6;
     transition: box-shadow 0.5s ease;
 }
-.bg-gobernador{
+
+.bg-gobernador {
     background-color: #f37406;
 }
-.bg-alcaldes{
-    background-color: #ae89a2;  
-}
-.bg-diputados{
-    background-color: #036a46;  
-}
-.bg-concejales{
-    background-color: #023766;  
-}
-.bg-ediles{
-    background-color: #7c3622;  
+
+.bg-alcaldes {
+    background-color: #ae89a2;
 }
 
-.voting-card figure{
+.bg-diputados {
+    background-color: #036a46;
+}
+
+.bg-concejales {
+    background-color: #023766;
+}
+
+.bg-ediles {
+    background-color: #7c3622;
+}
+
+.voting-card figure {
     flex-grow: 1;
     width: 100%;
     display: grid;
     place-items: center;
-    
+
 }
 
 
-.voting-cards img{    
+.voting-cards img {
     object-fit: fill;
-    box-shadow: 4px 4px 13px 5px #797979b6;   
+    box-shadow: 4px 4px 13px 5px #797979b6;
 }
-.voting-cards-about{    
+
+.voting-cards-about {
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
     flex-wrap: wrap;
     gap: 30px;
     margin-top: 30px;
 }
 
-.voting-cards-about img{    
+.voting-cards-about img {
     border-radius: 10px;
     max-width: 400px;
-    box-shadow: 4px 4px 13px 5px #1b1b1bb6;   
+    box-shadow: 4px 4px 13px 5px #1b1b1bb6;
 }
 
 
 
 /* Media query para el diseño responsivo */
 @media (max-width: 500px) {
-    .voting-card{
-        height: auto;      
+    .voting-card {
+        height: auto;
     }
-    .voting-cards img{
+
+    .voting-cards img {
         margin: 30px;
-        width: 80%;        
+        width: 80%;
     }
+
     /*
     .symmetrical{
         height: auto;
     }
     */
-    
+
 
 }

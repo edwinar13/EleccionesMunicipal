@@ -31,7 +31,7 @@
       <nav class="nav-menu">
         <ul>
           <li>
-            <a href="#section-home" class="li-hover">Inicio</a>
+            <a href="#section-home" class="li-hover">Encuesta</a>
           </li>
           <li class="dropdown">
             <a href="javascript:void(0);">Candidatos &#9660;</a>
@@ -44,7 +44,7 @@
             </div>
           </li>
           <li>
-            <a href="#section-poll" class="li-hover">Encuesta</a>
+            <a href="#section-poll" class="li-hover">Resultados</a>
           </li>
           <li>
             <a href="#section-concejales" class="li-hover">Concejales</a>
@@ -61,14 +61,21 @@
     <section id="section-home">
       <div class="fg-home">
         <div class="container-contend">
+
           <div class="information">
             <div class="animated-text">
-              <h1>Candidatos <span>El Rosal</span></h1>
+              <h1>Mi candidato <span>El Rosal</span></h1>
             </div>
 
-            <h2>Votando por un Futuro Mejor</h2>
-            <p>Explora las visiones, propuestas y compromisos de nuestros candidatos políticos que trabajarán incansablemente por un Rosal mejor y más próspero. Conoce sus perfiles, valores y proyectos que marcarán el rumbo de nuestra comunidad.</p>
-            <p>Tu voto es una voz poderosa, ¡infórmate y participa en la construcción de un futuro brillante para El Rosal!</p>
+
+            <p>Participa en la encuesta de los candidatos a la alcaldía de El Rosal </p>
+            <p class="text-poll">Ingresa tu correo y te enviaremos un enlace para realizar la encuesta.</p>
+            <div id="alert-message" class="alert alert-danger" style="display: none;"></div>
+            <form id="poll-form" action="/enviar_correo" method="POST">
+              <input type="email" id="email-user" name="correo" required placeholder="Ingresa tu correo" />
+              <button type="submit"><span class="loader"></span> Enviar enlace de votación</button>
+            </form>
+
           </div>
 
           <figure id="shield" class="shield">
@@ -76,6 +83,8 @@
               <img id="shield-rosal" src="{{ url_for('static', filename = 'images/escudo_rosal.png') }}" alt="Escudo El Rosal" class="shield-rosal-style" />
             </div>
           </figure>
+
+
         </div>
         <div class="container-photos">
           <figure>
@@ -99,10 +108,17 @@
             <a href="#about_juan_andres"><img src="{{ url_for('static', filename = 'images/photos/foto_juan_andres_.png') }}" alt="Foto del candidato Juan Andres Campos" class="candidate-img cand-img-1" /></a>
             <figcaption>Juan Andrés Campos</figcaption>
           </figure>
-        </div>
-      </div>
+        </div>        
+      </div>      
     </section>
+    <section id="section-intro">
+      <h2>Votando por un Futuro Mejor</h2>
+      <p>Explora las visiones, propuestas y compromisos de nuestros candidatos políticos que trabajarán incansablemente por un Rosal mejor y más próspero. Conoce sus perfiles, valores y proyectos que marcarán el rumbo de nuestra comunidad.</p>
+      <p>Tu voto es una voz poderosa, ¡infórmate y participa en la construcción de un futuro brillante para El Rosal!</p>
+    
 
+    </section>
+    
     <section id="section-candidates">
       <aside class="publicidad"></aside>
       <main class="candidates">
@@ -178,9 +194,9 @@
 
     <section id="section-poll">
       <div class="fg-poll">
-        <h1 class="title-poll"> ENCUESTA</h1>
+        <h1 class="title-poll">RESULTADOS</h1>
         <p class="description-section3">
-          En el enlace de Abajo encontraras los resultados #1 de la encuesta. Estamos trabajando arduamente para recopilar y analizar todos los votos y opiniones de la comunidad. Los resultados reflejarán la voz de quienes participaron en la encuesta. Además, si aún no has tenido la oportunidad de votar, te invitamos a hacerlo y contribuir a la toma de decisiones en nuestra comunidad. ¡Tu voz es importante!</p>
+          En el enlace de abajo encontraras los resultados #1 de la encuesta. Estamos trabajando arduamente para recopilar y analizar todos los votos y opiniones de la comunidad. Los resultados reflejarán la voz de quienes participaron en la encuesta. Además, si aún no has tenido la oportunidad de votar, te invitamos a hacerlo y contribuir a la toma de decisiones en nuestra comunidad. ¡Tu voz es importante!</p>
 
         <div class="container-poll">
           <div class="poll-results">
@@ -219,12 +235,6 @@
             </div>
             <h2 class="subtitle-poll">Candidatos a la alcaldía</h2>
             <p class="text-poll">Tu participación es esencial para dar forma al futuro de El Rosal. Votar en esta encuesta es una forma valiosa de expresar tu opinión y contribuir a la toma de decisiones en nuestra comunidad.</p>
-            <p class="text-poll">Ingresa tu correo y te enviaremos un enlace para realizar la encuesta.</p>
-            <div id="alert-message" class="alert alert-danger" style="display: none;"></div>
-            <form id="poll-form" action="/enviar_correo" method="POST">
-              <input type="email" id="email-user" name="correo" required placeholder="Ingresa tu correo" />
-              <button type="submit"><span class="loader"></span> Enviar enlace de votación</button>
-            </form>
           </div>
         </div>
       </div>
@@ -347,8 +357,7 @@
       </div>
       <div class="footer-section">
         <p class="contact">Contáctanos</p>
-        <div class="social-icons-footer">
-          
+        <div class="social-icons-footer">          
           <a href="mailto:micandidato.org@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
         </div>
       </div>

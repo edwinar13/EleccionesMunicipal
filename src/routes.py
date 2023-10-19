@@ -236,8 +236,7 @@ def votar():
 def comprobante():
     token = request.args.get('token')
     if tokenHasVoted(token=token):       
-        existing_user = Usuario.query.filter_by(token=token).first()
-        print("[{}] El token para comprobante es: {}".format(existing_user.user_id, token))  
+        existing_user = Usuario.query.filter_by(token=token).first()       
         return render_template('coprobant.html', user_id=existing_user.user_id)    
     else:        
         return render_template('404.html'), 404
