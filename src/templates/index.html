@@ -196,22 +196,22 @@
       <div class="fg-poll">
         <h1 class="title-poll">RESULTADOS</h1>
         <p class="description-section3">
-          En el enlace de abajo encontraras los resultados #1 de la encuesta. Estamos trabajando arduamente para recopilar y analizar todos los votos y opiniones de la comunidad. Los resultados reflejarán la voz de quienes participaron en la encuesta. Además, si aún no has tenido la oportunidad de votar, te invitamos a hacerlo y contribuir a la toma de decisiones en nuestra comunidad. ¡Tu voz es importante!</p>
+          En el enlace de abajo encontraras los resultados #2 de la encuesta. Estamos trabajando arduamente para recopilar y analizar todos los votos y opiniones de la comunidad. Los resultados reflejarán la voz de quienes participaron en la encuesta. Además, si aún no has tenido la oportunidad de votar, te invitamos a hacerlo y contribuir a la toma de decisiones en nuestra comunidad. ¡Tu voz es importante!</p>
 
         <div class="container-poll">
           <div class="poll-results">
             {% if publish %}
             <div class="result">
-              <p>¿Quieres conocer los primeros resultados de la encuesta?</p>
+              <p>¿Quieres conocer los segundos resultados de la encuesta?</p>
               <p>Ingrese acá 👇</p>
-              <a class="btn-results" href="results" target="_blank">Ver resultados #1</a>
+              <a class="btn-results" href="results" target="_blank">Ver resultados #2</a>
             </div>
             {% else %}
             <img id="img-poll-0" src="{{ url_for('static', filename = 'images/polls/poll-2023-12-09.png') }}" alt="Resultados encuesta El Rosal" class="" />
             {% endif %}
           </div>
           <div class="poll-form">
-            <p class="timer-text">Segundo resultado en:</p>
+            <p class="timer-text">Resultado FINAL en:</p>
             <div id="countdown-timer">
               <div class="countdown-card" id="days-card">
                 <span class="countdown-number" id="days">00</span>

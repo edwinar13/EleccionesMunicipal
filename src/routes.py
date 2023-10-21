@@ -62,11 +62,11 @@ def index():
     publish = config('PUBLISH', default=False, cast=bool)
     return render_template("index.html", 
                            councils=councils, publish=publish)
-    
+
 
 @app.route("/results")
 def results(): 
-    
+   
     '''
     # json con los candiatas y porcentajes de votos
     date_votes = {'genaldo': {'votes': 0, 'percentage': 0.00},
@@ -517,10 +517,13 @@ AJUASTA MENU EN NLOS PLANES DE GOBIERNO
 
 
 '''
+'''
 def readVotes():
 
     # leer votos
     read_votes = Voto.query.all()
+    # ordenar por id
+    read_votes.sort(key=lambda x: x.vote_id, reverse=False) 
     edison = 0 #candidato 1
     juan_andres = 0 #candidato 2
     genaldo = 0 #candidato 3
@@ -531,7 +534,53 @@ def readVotes():
     for vote in read_votes:
         with open('src/static/json/votes.txt', 'a') as f: 
             db_timestamp = vote.vote_timestamp    
-            f.write(f"{vote.vote_id};{vote.user_id};{vote.candidate_id};{db_timestamp};{vote.ip_address};{vote.data_loc}\n")
+            ''' ejemplo ote.data_loc
+            {'status': 'success', 'country': 'Colombia', 'countryCode': 'CO', 'region': 'DC', 'regionName': 'Bogota D.C.', 'city': 'Bogot\u00e1', 'zip': '111411', 'lat': 4.6115, 'lon': -74.0833, 'timezone': 'America/Bogota', 'isp': 'Level 3 Colombia S.A', 'org': 'M@STV PRODUCCIONES', 'as': 'AS3549 Level 3 Parent, LLC', 'query': '190.217.106.4'}
+            {'status': 'success', 'country': 'Peru', 'countryCode': 'PE', 'region': 'LMA', 'regionName': 'Lima', 'city': 'Lima', 'zip': '', 'lat': -12.0432, 'lon': -77.0282, 'timezone': 'America/Lima', 'isp': 'Telefonica del Peru S.A.A.', 'org': 'Telefonica del Peru S.A.A', 'as': 'AS6147 Telefonica del Peru S.A.A.', 'query': '181.66.164.173'}
+            {'status': 'success', 'country': 'Colombia', 'countryCode': 'CO', 'region': 'DC', 'regionName': 'Bogota D.C.', 'city': 'Bogot\u00e1', 'zip': '111411', 'lat': 4.6115, 'lon': -74.0833, 'timezone': 'America/Bogota', 'isp': 'Level 3 Colombia S.A', 'org': 'M@STV PRODUCCIONES', 'as': 'AS3549 Level 3 Parent, LLC', 'query': '190.217.106.4'}
+            
+            
+            {'status': 'success',
+            'country': 'Colombia',
+            'countryCode': 'CO',
+            'region': 'DC',
+            'regionName': 'Bogota D.C.',
+            'city': 'Bogot\u00e1',
+            'zip': '110111',
+            'lat': 4.6913,
+            'lon': -74.032,
+            'timezone': 'America/Bogota',
+            'isp': 'Comcel S.A.',
+            'org': 'COMUNICACI\u00d3N CELULAR S.A. COMCEL S.A',
+            'as': 'AS26611 COMUNICACI\u00d3N CELULAR S.A. COMCEL S.A.',
+            'query': '191.156.57.63'}
+            
+            
+            json_data_loc = json.loads(vote.data_loc)
+            print(type(json_data_loc))
+            country = json_data_loc['country']
+            countryCode = json_data_loc['countryCode']
+            region = json_data_loc['region']
+            regionName = json_data_loc['regionName']
+            city = json_data_loc['city']
+            zip_code = json_data_loc['zip']
+            lat = json_data_loc['lat']
+            lon = json_data_loc['lon']
+            timezone = json_data_loc['timezone']
+            isp = json_data_loc['isp']
+            org = json_data_loc['org']
+            as_ = json_data_loc['as']
+            query = json_data_loc['query']
+            f.write(f"{vote.vote_id};  {vote.user_id}; {vote.candidate_id};{db_timestamp};{vote.ip_address}; {country}; {countryCode}; {region};{regionName};{city};{zip_code}; {lat};{lon}; {timezone};{isp};{org};{as_};{query}\n")
+            '''
+
+                
+            
+            f.write(f"{vote.vote_id};  {vote.user_id}; {vote.candidate_id};{db_timestamp};{vote.ip_address};{vote.data_loc}\n")
+
+
+
+
 
         if vote.candidate_id == 1:
             edison += 1
@@ -549,14 +598,19 @@ def readVotes():
             print("no se encontro candidato "*10)
     print(f"edison {edison} juan_andres {juan_andres} genaldo {genaldo} mikan {mikan} blanca_lilia {blanca_lilia} voto_blanco {voto_blanco}")
      
-     #leer usuarios
+    #leer usuarios y ordenarlos por id
     read_users = Usuario.query.all()
+    # ordenar por id
+    read_users.sort(key=lambda x: x.user_id, reverse=False)
+    
+     
+    #read_users = Usuario.query.all()
     total_user_registed = len(read_users)
     print(f"total_user_registed {total_user_registed}")
     for user in read_users:
-        with open('src/static/json/users.txt', 'a') as f:            
-            f.write(f"{user.user_id};{user.email};{user.has_voted};{user.token}\n")
+        with open('src/static/json/users.txt', 'a') as f:      
+            #dividir con @ el email user.email
+            email_extract = user.email.split('@')[1]   
+            f.write(f"{user.user_id};{user.email};{user.has_voted};{user.token};{email_extract}\n")
 
            
-
-'''

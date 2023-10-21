@@ -20,14 +20,23 @@ candidates = [
     'blanca lilia',
     'voto en blanco',
 ]
-day = ['6-Oct', '7-Oct', '8-Oct', '9-Oct', '10-Oct', '11-Oct', '12-Oct', '13-Oct', '14-Oct']
+day = ['6-Oct', '7-Oct', '8-Oct', '9-Oct', '10-Oct', '11-Oct', '12-Oct', '13-Oct', '14-Oct',
+    '15-Oct', 
+    '16-Oct',
+    '17-Oct',
+    '18-Oct',
+    '19-Oct',
+    '20-Oct',
+    '21-Oct']
+
 votes_day = {
-    edison: [0, 5, 6, 11, 14, 14, 15, 17, 20],
-    juan: [0, 3, 7, 14, 15, 17, 23, 25, 27],
-    genaldo: [0, 4, 7, 64, 87, 87, 89, 90, 90],
-    mikan: [0, 3, 14, 24, 30, 34, 35, 38, 39],
-    blanca: [0, 10, 22, 29, 35, 38, 38, 38, 39],
-    voto_blanco: [1, 1, 1, 1, 2, 2, 2, 2, 2],
+
+    edison: [0, 5, 6, 11, 14, 14, 15, 17, 20, 20, 20, 20,20, 21, 25, 25],
+    juan:   [0, 3, 7, 14, 15, 17, 23, 25, 29, 29, 30, 30,30, 33, 33, 36],
+    genaldo: [0, 4, 7, 64, 87, 87, 89, 90, 92, 95, 95, 96,96, 97, 98, 100],
+    mikan: [0, 3, 14, 24, 30, 34, 35, 38, 42, 42, 42, 42,42, 43, 44, 46],
+    blanca: [0, 10, 22, 29, 35, 38, 38, 38, 95, 98, 98, 98,98, 100, 100, 102],
+    voto_blanco: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2,2, 3, 3, 3],
 }
 
 
@@ -191,7 +200,7 @@ const percentageElements = [
 
 
 
-const percentageValues = [41, 18, 18, 12, 10, 1];
+const percentageValues = [33, 32, 15, 11, 8, 1];
 function updatePercentage(index) {
     let currentPercentage = 0;
     const element = percentageElements[index];
