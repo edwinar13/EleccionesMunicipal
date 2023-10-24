@@ -1,4 +1,4 @@
-from flask import render_template, request, jsonify,flash,Response,redirect, url_for
+from flask import render_template, request, jsonify,flash,Response,redirect, url_for, send_file
 from flask_mail import Mail, Message
 from flask import make_response
 from datetime import datetime
@@ -49,6 +49,7 @@ class Voto(db.Model):
 
 
 
+
 @app.route("/")
 def index():   
     with open('src/static/json/council_candidates_v1.json', 'r', encoding='utf-8') as f:
@@ -62,6 +63,11 @@ def index():
     publish = config('PUBLISH', default=False, cast=bool)
     return render_template("index.html", 
                            councils=councils, publish=publish)
+    
+
+@app.route('/ads.txt')
+def serve_ads_txt():
+    return send_file('ads.txt')
 
 
 @app.route("/results")
