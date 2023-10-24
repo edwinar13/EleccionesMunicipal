@@ -614,3 +614,27 @@ def readVotes():
             f.write(f"{user.user_id};{user.email};{user.has_voted};{user.token};{email_extract}\n")
 
            
+= SI(D16="";"";SI(B16<=$E$11;0; 
+                  SUMA(
+                    SI(D16="Cohesivo";(X16*Q16);0);
+                    SI(D16="No Cohesivo Arenas";(AB16*Q16);0);
+                    SI(D16="No Cohesivo Gravas";(AE16*Q16);0);
+                    SI(D16="IGM Cohesivo";(AG16*Q16);0);
+                    SI(D16="IGM No Cohesivo";(AK16*Q16);0);
+                    SI(D16="Roca";(AM16*Q16);0)
+                  )
+                ))
+
+
+=SI(D17="No Cohesivo Arenas";
+    SI((SI(G17>=15;
+           (1.5-(0.0077*RAIZ(B17*1000)));
+           ((G17/15)*(1.5-0.0077*RAIZ(B17*1000)))))<0.25;
+       0.25;
+       SI((SI(G17>=15;
+              (1.5-(0.0077*RAIZ(B17*1000)));
+              ((G17/15)*(1.5-0.0077*RAIZ(B17*1000)))))>1.2;1.2;
+          SI(G17>=15;
+             (1.5-(0.0077*RAIZ(B17*1000)));
+             ((G17/15)*(1.5-0.0077*RAIZ(B17*1000))))));
+    "")
