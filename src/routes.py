@@ -47,7 +47,11 @@ class Voto(db.Model):
     data_loc = db.Column(db.TEXT, nullable=False)
     usuario = db.relationship('Usuario', backref=db.backref('votos', lazy=True))
 
-
+class Candidato(db.Model):
+    __tablename__ = 'candidatos'
+    candidate_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    party = db.Column(db.String(255), nullable=False)
 
 
 @app.route("/")
@@ -72,7 +76,7 @@ def serve_ads_txt():
 
 @app.route("/results")
 def results(): 
-   
+ 
     '''
     # json con los candiatas y porcentajes de votos
     date_votes = {'genaldo': {'votes': 0, 'percentage': 0.00},
@@ -242,8 +246,11 @@ def votar():
 def comprobante():
     token = request.args.get('token')
     if tokenHasVoted(token=token):       
-        existing_user = Usuario.query.filter_by(token=token).first()       
-        return render_template('coprobant.html', user_id=existing_user.user_id)    
+        existing_user = Usuario.query.filter_by(token=token).first()   
+        vote_for_candidate = Voto.query.filter_by(user_id=existing_user.user_id).first().candidate_id
+        candidate_name = Candidato.query.filter_by(candidate_id=vote_for_candidate).first().name
+        candidate_name = candidate_name.title()
+        return render_template('coprobant.html', user_id=existing_user.user_id, candidate_name=candidate_name, votefor=vote_for_candidate)   
     else:        
         return render_template('404.html'), 404
 

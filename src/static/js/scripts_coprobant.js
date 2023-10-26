@@ -102,3 +102,19 @@ $(document).ready(function() {
 
 
   
+
+const buttonCoprobant = document.getElementById('button-coprobant');
+const textCoprobant = document.getElementById('text-coprobant');
+const btnOff = document.getElementById('btn-off');
+
+buttonCoprobant.addEventListener('mouseover', function() {
+  textCoprobant.style.color = '#fff';
+  btnOff.style.color = 'transparent';
+  
+});
+
+buttonCoprobant.addEventListener('mouseleave', function() {
+  textCoprobant.style.color = '#99999913';
+  btnOff.style.color = '#ae2430';
+});
+

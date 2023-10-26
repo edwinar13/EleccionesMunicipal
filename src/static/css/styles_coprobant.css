@@ -510,3 +510,34 @@ filter: grayscale(60%);
     background-color: #0000001a;
     border: 1px solid #535353;
 }
+
+
+.coprobant-button{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.button-coprobant{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;   
+    background: transparent;
+    color: rgb(133, 133, 133);
+}
+
+.btn-off{
+    color: #ae2430;
+}
+
+
+.text-coprobant{
+    color: #99999913;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;    
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
