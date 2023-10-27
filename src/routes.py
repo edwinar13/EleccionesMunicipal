@@ -9,7 +9,10 @@ import json
 from decouple import config
 import geoip2.database
 import jinja2
-
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user, login_required, logout_user, UserMixin, LoginManager, current_user
+from sqlalchemy.orm import joinedload
+import pandas as pd
 '''
 #from read import read_votes
 <!--
@@ -27,8 +30,7 @@ app.config['MAIL_USE_TLS'] = config('MAIL_USE_TLS', default=True, cast=bool)
 app.config['MAIL_USE_SSL'] = config('MAIL_USE_SSL', default=False, cast=bool)
 mail = Mail(app)
 
-
-
+app.data_comp = None
 
 class Usuario(db.Model):
     __tablename__ = 'usuarios'
@@ -53,7 +55,53 @@ class Candidato(db.Model):
     name = db.Column(db.String(255), nullable=False)
     party = db.Column(db.String(255), nullable=False)
 
+class Testigos(UserMixin, db.Model):
+    __tablename__ = 'testigos'
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(255), unique=True, nullable=False)
+    password = db.Column(db.String(255), nullable=False)
+    candidate = db.Column(db.String(255), nullable=False)
+    voting_tables = db.Column(db.String(255), nullable=False)
+    
+class Escrutinio(db.Model):
+    __tablename__ = 'escrutinio'
+    id = db.Column(db.Integer, primary_key=True)
+    lugar = db.Column(db.String(255), nullable=False)
+    mesa = db.Column(db.Integer, nullable=False)
+    id_testigo = db.Column(db.Integer, db.ForeignKey('testigos.id'), nullable=False) 
+    edison = db.Column(db.Integer, nullable=True)
+    juan = db.Column(db.Integer, nullable=True)
+    genaldo = db.Column(db.Integer, nullable=True)
+    mikan = db.Column(db.Integer, nullable=True)
+    blanca = db.Column(db.Integer, nullable=True)
+    voto_blanco = db.Column(db.Integer, nullable=True)
+    nulo = db.Column(db.Integer, nullable=True)
+    testigo =db.relationship('Testigos', backref=db.backref('escrutinio', lazy=True))
 
+login_manager = LoginManager()
+login_manager.login_view = 'login'
+login_manager.init_app(app)
+
+
+#*************************  LOGIN  ********************/
+@login_manager.user_loader
+def load_user(user_id):
+    try:
+        testigo = Testigos.query.get(int(user_id))
+        if testigo is not None:
+            print('='*50) 
+            print(f'===   {testigo.email}  ===')
+            print('='*50) 
+            return testigo
+    except Exception as e:
+        # Manejar la excepción de la manera que desees (p. ej., registrarla)
+        print(f"Error al cargar el usuario: {str(e)}")
+
+    # Devolver un valor predeterminado o None en caso de error
+    return None
+
+    
+    
 @app.route("/")
 def index():   
     with open('src/static/json/council_candidates_v1.json', 'r', encoding='utf-8') as f:
@@ -73,29 +121,349 @@ def index():
 def serve_ads_txt():
     return send_file('ads.txt')
 
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+@app.route('/loginPost', methods=['POST'])
+def loginPost():
+
+    email = request.form.get('email')
+    password = request.form.get('password')
+    remember = True if request.form.get('remember') else False
+    print(f'loginPost: {email}, {password}, {remember}')
+    
+    testigo = Testigos.query.filter_by(email=email).first()
+    print(f'existe:{ testigo}')    
+    
+        
+    if not testigo:       
+        flash('Por favor verifique su correo de inicio de sesión.')
+        return redirect(url_for('login'))
+    else:
+        if not testigo.password == password:
+            flash('Por favor verifique sus datos de inicio de sesión.')             
+            return redirect(url_for('login'))
+        else:
+            login_user(testigo, remember=remember)
+            return redirect(url_for('registerVote'))
+            return redirect(url_for('appPage.home'))
+        
+#/*************************  CERRAR SESION  ********************/
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+        
+        
+
+@app.route('/save_row', methods=['POST'])
+@login_required
+def saveRow():
+    data = request.get_json()
+    print(f'data: {data}')
+    #data: {'mesaId': 1, 'edison': '5', 'juan': '6', 'genaldo': '4', 'mikan': '5', 'blanca': '8', 'voto_blanco': '3', 'nulos': '5'}
+    
+    id = data['mesaId']
+    edison = data['edison']
+    juan = data['juan']
+    genaldo = data['genaldo']
+    mikan = data['mikan']
+    blanca = data['blanca']
+    voto_blanco = data['voto_blanco']
+    nulo = data['nulos']
+    # si alguno es vacio, se pone en null
+    if edison == '':
+        edison = None
+    if juan == '':
+        juan = None
+    if genaldo == '':
+        genaldo = None
+    if mikan == '':
+        mikan = None
+    if blanca == '':
+        blanca = None
+    if voto_blanco == '':
+        voto_blanco = None
+    if nulo == '':
+        nulo = None
+        
+    
+    escrutinio = Escrutinio.query.filter_by(id=id).first()
+    escrutinio.edison = edison
+    escrutinio.juan = juan
+    escrutinio.genaldo = genaldo
+    escrutinio.mikan = mikan
+    escrutinio.blanca = blanca
+    escrutinio.voto_blanco = voto_blanco
+    escrutinio.nulo = nulo
+    db.session.commit()
+    return jsonify({'success':True})
+    
+
+        
+@app.route('/check_change_votes')
+@login_required
+def checkChangeVotes():
+    data = Escrutinio.query.options(joinedload(Escrutinio.testigo)).all()
+    data = sorted(data, key=lambda x: x.id) 
+    data_act=[]
+    for mesa in data:        
+        testigo = mesa.testigo
+        campana = testigo.candidate
+        total = sum(filter(None, [mesa.edison, mesa.juan, mesa.genaldo, mesa.mikan, mesa.blanca, mesa.voto_blanco, mesa.nulo]))
+        row = {'lugar':mesa.lugar, 'numero': mesa.mesa, 'campana': campana, 'edison': mesa.edison, 'juan': mesa.juan, 'genaldo': mesa.genaldo, 'mikan': mesa.mikan, 'blanca': mesa.blanca, 'voto_blanco': mesa.voto_blanco, 'nulos': mesa.nulo, 'total': total}
+        data_act.append(row)        
+
+    
+    if data_act == app.data_comp:
+        return jsonify({'success':False})
+    else:
+        return jsonify({'success':True})
+    
+        
+@app.route('/register_vote')
+@login_required
+def registerVote():
+    #Parte1
+    time_1 = datetime.now()
+    data = Escrutinio.query.options(joinedload(Escrutinio.testigo)).all()   
+    data = sorted(data, key=lambda x: x.id)
+    
+    
+    lugares=[
+        'coliseo',
+        'campo_alegre',
+        'mega_colegio',
+    ]
+    mesas_edit = []
+    mesas_view_coliseo=[]
+    mesas_view_campo_alegre=[]
+    mesas_view_mega_colegio=[]
+    mesas_view_rodeo=[]
+    
+    #Parte2
+    time_2 = datetime.now()
+    current_email= current_user.email
+    table_register = False
+    app.data_comp=[]
+    for mesa in data:        
+        testigo = mesa.testigo
+        email = testigo.email
+        campana = testigo.candidate
+        if email == current_email:
+            table_register = True
+            mesas_edit.append({'id':mesa.id,'numero': mesa.mesa, 'email': email, 'edison': mesa.edison, 'juan': mesa.juan, 'genaldo': mesa.genaldo, 'mikan': mesa.mikan, 'blanca': mesa.blanca, 'voto_blanco': mesa.voto_blanco, 'nulos': mesa.nulo})
+        
+        total = sum(filter(None, [mesa.edison, mesa.juan, mesa.genaldo, mesa.mikan, mesa.blanca, mesa.voto_blanco, mesa.nulo]))
+        row = {'lugar':mesa.lugar, 'numero': mesa.mesa, 'campana': campana, 'edison': mesa.edison, 'juan': mesa.juan, 'genaldo': mesa.genaldo, 'mikan': mesa.mikan, 'blanca': mesa.blanca, 'voto_blanco': mesa.voto_blanco, 'nulos': mesa.nulo, 'total': total}
+        app.data_comp.append(row)
+        if mesa.lugar == 'coliseo':
+            mesas_view_coliseo.append(row)
+        elif mesa.lugar == 'campo_alegre':
+            mesas_view_campo_alegre.append(row)
+        elif mesa.lugar == 'mega_colegio':
+            mesas_view_mega_colegio.append(row)
+        elif mesa.lugar == 'rodeo':
+            mesas_view_rodeo.append(row)
+    
+        time_3 = datetime.now()
+
+    
+    # COLISEO
+    df = pd.DataFrame(mesas_view_coliseo)    
+    df = df.groupby(['lugar', 'numero', 'campana']).sum().reset_index()
+    df_edison = df[df['campana']=='edison']
+    df_edison_sum = df_edison.sum(axis = 0, skipna = True)
+    df_blanca = df[df['campana']=='blanca']
+    df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
+    df_mikan = df[df['campana']=='mikan']
+    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
+    df_genaldo = df[df['campana']=='genaldo']
+    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
+    mesas_view_coliseo_suma = [
+        {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
+        {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
+        {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
+        {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
+    ]
+    
+    # CAMPO ALEGRE
+    df = pd.DataFrame(mesas_view_campo_alegre)
+    df = df.groupby(['lugar', 'numero', 'campana']).sum().reset_index()
+    df_edison = df[df['campana']=='edison']
+    df_edison_sum = df_edison.sum(axis = 0, skipna = True)
+    df_blanca = df[df['campana']=='blanca']
+    df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
+    df_mikan = df[df['campana']=='mikan']
+    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
+    df_genaldo = df[df['campana']=='genaldo']
+    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
+    mesas_view_campo_alegre_suma = [
+        {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
+        {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
+        {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
+        {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
+    ]
+    
+    # MEGA COLEGIO
+    df = pd.DataFrame(mesas_view_mega_colegio)
+    df = df.groupby(['lugar', 'numero', 'campana']).sum().reset_index()
+    df_edison = df[df['campana']=='edison']
+    df_edison_sum = df_edison.sum(axis = 0, skipna = True)
+    df_blanca = df[df['campana']=='blanca']
+    df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
+    df_mikan = df[df['campana']=='mikan']
+    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
+    df_genaldo = df[df['campana']=='genaldo']
+    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
+    mesas_view_mega_colegio_suma = [
+        {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
+        {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
+        {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
+        {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
+    ]
+    
+    # RODEO
+    df = pd.DataFrame(mesas_view_rodeo)
+    df = df.groupby(['lugar', 'numero', 'campana']).sum().reset_index()
+    df_edison = df[df['campana']=='edison']
+    df_edison_sum = df_edison.sum(axis = 0, skipna = True)
+    df_blanca = df[df['campana']=='blanca']
+    df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
+    df_mikan = df[df['campana']=='mikan']
+    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
+    df_genaldo = df[df['campana']=='genaldo']
+    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
+    mesas_view_rodeo_suma = [
+        {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
+        {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
+        {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
+        {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
+    ]
+
+    
+    # CONSOLIDADO
+    mesas_view_all = mesas_view_coliseo + mesas_view_campo_alegre + mesas_view_mega_colegio + mesas_view_rodeo
+    df = pd.DataFrame(mesas_view_all)
+    df = df.groupby(['lugar', 'numero', 'campana']).sum().reset_index()
+    df_edison = df[df['campana']=='edison']
+    df_edison_sum = df_edison.sum(axis = 0, skipna = True)
+    df_blanca = df[df['campana']=='blanca']
+    df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
+    df_mikan = df[df['campana']=='mikan']
+    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
+    df_genaldo = df[df['campana']=='genaldo']
+    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
+    mesas_view_consolidado = [
+        {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
+        {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
+        {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
+        {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
+    ]
+    
+    
+
+    time_4 = datetime.now()
+    
+    print(f'time_2: {time_2-time_1}')
+    print(f'time_3: {time_3-time_2}')
+    print(f'time_4: {time_4-time_3}')
+    
+    return render_template("register_vote.html",
+                    current_user = current_user.email,
+                    mesas_edit=mesas_edit, 
+                    
+                    mesas_view_coliseo=mesas_view_coliseo,
+                    mesas_view_campo_alegre=mesas_view_campo_alegre,
+                    mesas_view_mega_colegio=mesas_view_mega_colegio,
+                    mesas_view_rodeo=mesas_view_rodeo,
+                    
+                    mesas_view_coliseo_suma=mesas_view_coliseo_suma,
+                    mesas_view_campo_alegre_suma=mesas_view_campo_alegre_suma,
+                    mesas_view_mega_colegio_suma=mesas_view_mega_colegio_suma,
+                    mesas_view_rodeo_suma=mesas_view_rodeo_suma,
+                    
+                    mesas_view_consolidado=mesas_view_consolidado,
+                    
+                    table_register = table_register)
+
+
+
+
+
+def inscribir_testigos():
+    testigos=[
+        {'email': 'micandidato.org@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': 'ADMINISTRADOR'},
+        {'email': 'edison@gmail.com','password': '123', 'candidate': 'edison', 'voting_tables': 'CANDIDATO'},
+        {'email': 'edison_1@gmail.com','password': '123', 'candidate': 'edison', 'voting_tables': '1, 2, 3'},
+        {'email': 'edison_2@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '4, 5, 6'},
+        {'email': 'edison_3@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '7, 8, 9'},
+        {'email': 'edison_4@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '10, 11, 12'},
+        {'email': 'edison_5@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '13, 14, 15'},
+        {'email': 'edison_6@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '16, 17, 18'},
+        {'email': 'edison_7@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '19, 20, 21'},
+        {'email': 'edison_8@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '22, 23, 24'},
+        {'email': 'edison_9@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '25, 26, 27'},
+        {'email': 'edison_10@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '28, 29, 30'},
+        {'email': 'edison_11@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '31, 32, 33'},
+        {'email': 'edison_12@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '34, 35, 36'},
+        {'email': 'edison_13@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '37, 38, 39'},
+        {'email': 'edison_14@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '40, 41, 42'},
+        {'email': 'edison_15@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '43, 44, 45'},    
+        {'email': 'edison_16@gmail.com', 'password': '123', 'candidate': 'edison', 'voting_tables': '46'}    
+    ]
+    
+    for testigo in testigos:
+        new_testigo = Testigos(email=testigo['email'], password=testigo['password'], candidate=testigo['candidate'], voting_tables=testigo['voting_tables'])
+        db.session.add(new_testigo)
+        db.session.commit()
+     
+def inscribir_mesas():
+    '''
+    Coliseo              mesa 1 a la 30
+    campo alegre        mesa 1 y 2
+    mega colegio        mesa 1 a la 27
+    rodeo              mesa 1 
+    '''
+    lugares = [['coliseo',30],
+                ['campo_alegre',2],
+                ['mega_colegio',27],
+                ['rodeo',1]]
+    
+    Candidatos = ['edison',
+                'blanca',
+                'mikan',
+                'genaldo'
+                ]
+        
+
+    for lugar in lugares:
+        print(f'lugar: {lugar[0]}')
+        for mesa in range(1,lugar[1]+1):            
+            for candidato in Candidatos:
+                email_testigo = f'{candidato}_{lugar[0]}@gmail.com'
+                testigo = Testigos.query.filter_by(email=email_testigo).first()
+                new_mesa = Escrutinio(lugar=lugar[0], mesa=mesa, id_testigo=testigo.id)
+                db.session.add(new_mesa)
+                db.session.commit()
+                print(f'mesa: {mesa}, candidato: {candidato} email_testigo: {email_testigo}')
+    
+    return
+    for mesa in mesas:
+        # ejemplo existing_user = Usuario.query.filter_by(token=token, has_voted=False).first()
+        testigo = Testigos.query.filter_by(email=mesa['email_testigo']).first()
+        if testigo:
+            new_mesa = Escrutinio(mesa=mesa['mesa'], id_testigo=testigo.id)
+            db.session.add(new_mesa)
+            db.session.commit()
+     
+
+     
 
 @app.route("/results")
 def results(): 
- 
-    '''
-    # json con los candiatas y porcentajes de votos
-    date_votes = {'genaldo': {'votes': 0, 'percentage': 0.00},
-                'edison': {'votes': 0, 'percentage': 0.00},
-                'blanca_lilia': {'votes': 0, 'percentage': 0.00},
-                'mikan': {'votes': 0, 'percentage': 0.00},
-                'juan_andres': {'votes': 0, 'percentage': 0.00},
-                'voto_blanco': {'votes': 0, 'percentage': 0.00}}
-    #json con los votos por dias y por candidato
-    date_votes_day = {'genaldo': [(0,'10/01'), (1,'10/02'),(5,'10/03')],
-                        'edison': [(0,'10/01'), (5,'10/02'),(20,'10/03')],
-                        'blanca_lilia': [(0,'10/01'), (1,'10/02'),(5,'10/03')],
-                        'mikan': [(0,'10/01'), (4,'10/02'),(5,'10/03')],
-                        'juan_andres': [(0,'10/01'), (0,'10/02'),(2,'10/03')] }    
-    date_info = {'total_user_registed': 400,
-                'total_votes': 250,                 
-                 'votes_from_cundinamarca': 100
-                 }    
-    '''
     publish = config('PUBLISH', default=False, cast=bool)
     if publish:
         return render_template("results.html")
@@ -240,6 +608,12 @@ def votar():
         return jsonify({'success': False, 'error': str(e)})
     '''
     
+
+
+
+
+
+
 
 
 @app.route('/comprobante', methods=['GET'])

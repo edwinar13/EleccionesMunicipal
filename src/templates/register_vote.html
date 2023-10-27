@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<head>
+  <title>Mi Candiadto | Comprobante</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link rel="icon" href="/static/favicon.png" />
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles_register_vote.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header id="header-page">
+    <section id="section-header">
+      <div class="header-container">
+        <a href="/"><img class="logo-header" src="{{ url_for('static', filename = 'images/imagotipo.svg') }}" alt="imagoipo" /></a>
+      </div>
+      <div class="header-container" id="btn-reload" 
+      toptip="Recargar página"
+      >
+        <div id="state" class="state">            
+        </div>
+        <img  class="reload-page" src="{{ url_for('static', filename = 'images/reload.png') }}" alt="reload page"/>
+      </div>
+      <div class="header-container">
+        <a class="logout" href="/logout" class="li-hover">Cerrar sesión</a>
+      </div>
+          
+
+      </nav>
+    </section>
+  </header>
+
+  <main id="section-coprobant">
+    <div class="fg-section">
+      <h1 class="title">Hola, {{ current_user }}</h1>
+      <div></div>
+      {% if table_register %}
+        <table class="table-register">
+          <tr>
+            <th>Mesa</th>
+            <th>Testigo</th>
+            <th>Edison</th>
+            <th>Juan</th>
+            <th>Genaldo</th>
+            <th>Mikan</th>
+            <th>Blanca</th>
+            <th>Voto blanco</th>
+            <th>Nulos</th>
+          </tr>
+
+          {% for mesa in mesas_edit %}
+            <tr id="row-{{mesa.id}}" data-mesa-id="{{ mesa.id }}">
+              <td class="td-row">{{ mesa.numero }}</td>
+              <td class="td-row">{{ mesa.email }}</td>
+              <td class="td-row">
+                <input class="edit-input" type="number" name="edison" value="{{ mesa.edison }}" min="0" max="1000" />
+              </td>
+              <td class="td-row">
+                <input class="edit-input" type="number" name="juan" value="{{ mesa.juan }}" min="0" max="1000" />
+              </td>
+              <td class="td-row">
+                <input class="edit-input" type="number" name="genaldo" value="{{ mesa.genaldo }}" min="0" max="1000" />
+              </td>
+              <td class="td-row">
+                <input class="edit-input" type="number" name="mikan" value="{{ mesa.mikan }}" min="0" max="1000" />
+              </td>
+              <td class="td-row">
+                <input class="edit-input" type="number" name="blanca" value="{{ mesa.blanca }}" min="0" max="1000" />
+              </td>
+              <td class="td-row">
+                <input class="edit-input" type="number" name="voto_blanco" value="{{ mesa.voto_blanco }}" min="0" max="1000" />
+              </td>
+              <td class="td-row">
+                <input class="edit-input" type="number" name="nulos" value="{{ mesa.nulos }}" min="0" max="1000" />
+              </td>
+              <td class="td-row">
+                <button class="btn-send" type="button" name="button-send" onclick="enviarRow({{ mesa.id}})">Guardar</button>
+              </td>
+              <td class="" id="loading-{{ mesa.id }}" style="visibility: hidden;">
+                <div class="loader"></div>
+              </td>
+
+            </tr>
+          {% endfor %}
+        </table>
+      {% endif %}
+
+      <!--      COLISEO    -->
+      <h1 class="subtitle">Coliseo</h1>
+      <table class="table-view">
+        <tr>
+          <th>Lugar</th>
+          <th>Mesa</th>
+          <th>Campaña</th>
+          <th>Edison</th>
+          <th>Juan</th>
+          <th>Genaldo</th>
+          <th>Mikan</th>
+          <th>Blanca</th>
+          <th>Voto blanco</th>
+          <th>Nulos</th>
+          <th>TOTAL</th>
+        </tr>
+        {% for mesa_view in mesas_view_coliseo %}
+          {%if mesa_view.numero % 2 == 0 %}
+          <tr class="color-1">
+          {% else %} 
+          <tr>
+          {% endif%}
+            <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+            <td class="td-row view-1">{{ mesa_view.numero }}</td>
+            <td class="td-row view-1">{{ mesa_view.campana }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null ' }}">{{ mesa_view.edison }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null ' }}">{{ mesa_view.juan }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+            <td class="td-row view-1">{{ mesa_view.total }}</td>
+          </tr>
+        {% endfor %}
+        <tr></tr>
+        {% for mesa_view in mesas_view_coliseo_suma %}
+        <tr class="color-2">
+          <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+          <td class="td-row view-1"> &sum; </td>
+          <td class="td-row view-1">{{ mesa_view.campana }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null' }}">{{ mesa_view.edison }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null ' }}">{{ mesa_view.juan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+          <td class="td-row view-1">{{ mesa_view.total }}</td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <th>Lugar</th>
+        <th></th>
+        <th>Campaña</th>
+        <th>Edison</th>
+        <th>Juan</th>
+        <th>Genaldo</th>
+        <th>Mikan</th>
+        <th>Blanca</th>
+        <th>Voto blanco</th>
+        <th>Nulos</th>
+        <th>TOTAL</th>
+      </tr>
+      </table>
+
+
+
+
+
+      <!--      CAMPO ALEGRE    -->
+      <h1 class="subtitle">Campo Alegre</h1>
+      <table class="table-view">
+        <tr>
+          <th>Lugar</th>
+          <th>Mesa</th>
+          <th>Campaña</th>
+          <th>Edison</th>
+          <th>Juan</th>
+          <th>Genaldo</th>
+          <th>Mikan</th>
+          <th>Blanca</th>
+          <th>Voto blanco</th>
+          <th>Nulos</th>
+          <th>TOTAL</th>
+        </tr>
+        {% for mesa_view in mesas_view_campo_alegre %}
+          {%if mesa_view.numero % 2 == 0 %}
+          <tr class="color-1">
+          {% else %} 
+          <tr>
+          {% endif%}
+            <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+            <td class="td-row view-1">{{ mesa_view.numero }}</td>
+            <td class="td-row view-1">{{ mesa_view.campana }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null ' }}">{{ mesa_view.edison }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null' }}">{{ mesa_view.juan }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+            <td class="td-row view-1">{{ mesa_view.total }}</td>
+          </tr>
+        {% endfor %}
+        <tr></tr>
+        {% for mesa_view in mesas_view_campo_alegre_suma %}
+        <tr class="color-2">
+          <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+          <td class="td-row view-1"> &sum; </td>
+          <td class="td-row view-1">{{ mesa_view.campana }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null ' }}">{{ mesa_view.edison }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null ' }}">{{ mesa_view.juan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+          <td class="td-row view-1">{{ mesa_view.total }}</td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <th>Lugar</th>
+        <th></th>
+        <th>Campaña</th>
+        <th>Edison</th>
+        <th>Juan</th>
+        <th>Genaldo</th>
+        <th>Mikan</th>
+        <th>Blanca</th>
+        <th>Voto blanco</th>
+        <th>Nulos</th>
+        <th>TOTAL</th>
+      </tr>
+      </table>
+
+
+
+
+
+
+
+
+
+      <!--        MEGA COLEGIO    -->
+      <h1 class="subtitle">Mega Colegio</h1>
+      <table class="table-view">
+        <tr>
+          <th>Lugar</th>
+          <th>Mesa</th>
+          <th>Campaña</th>
+          <th>Edison</th>
+          <th>Juan</th>
+          <th>Genaldo</th>
+          <th>Mikan</th>
+          <th>Blanca</th>
+          <th>Voto blanco</th>
+          <th>Nulos</th>
+          <th>TOTAL</th>
+        </tr>
+        {% for mesa_view in mesas_view_mega_colegio %}
+          {%if mesa_view.numero % 2 == 0 %}
+          <tr class="color-1">
+          {% else %} 
+          <tr>
+          {% endif%}
+            <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+            <td class="td-row view-1">{{ mesa_view.numero }}</td>
+            <td class="td-row view-1">{{ mesa_view.campana }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null ' }}">{{ mesa_view.edison }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null ' }}">{{ mesa_view.juan }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+            <td class="td-row view-1">{{ mesa_view.total }}</td>
+          </tr>
+        {% endfor %}
+        <tr></tr>
+        {% for mesa_view in mesas_view_mega_colegio_suma %}
+        <tr class="color-2">
+          <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+          <td class="td-row view-1"> &sum; </td>
+          <td class="td-row view-1">{{ mesa_view.campana }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null ' }}">{{ mesa_view.edison }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null ' }}">{{ mesa_view.juan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+          <td class="td-row view-1">{{ mesa_view.total }}</td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <th>Lugar</th>
+        <th></th>
+        <th>Campaña</th>
+        <th>Edison</th>
+        <th>Juan</th>
+        <th>Genaldo</th>
+        <th>Mikan</th>
+        <th>Blanca</th>
+        <th>Voto blanco</th>
+        <th>Nulos</th>
+        <th>TOTAL</th>
+      </tr>
+      </table>
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--        RODEO      -->
+      <h1 class="subtitle">Rodeo</h1>
+      <table class="table-view">
+        <tr>
+          <th>Lugar</th>
+          <th>Mesa</th>
+          <th>Campaña</th>
+          <th>Edison</th>
+          <th>Juan</th>
+          <th>Genaldo</th>
+          <th>Mikan</th>
+          <th>Blanca</th>
+          <th>Voto blanco</th>
+          <th>Nulos</th>
+          <th>TOTAL</th>
+        </tr>
+        {% for mesa_view in mesas_view_rodeo %}
+          {%if mesa_view.numero % 2 == 0 %}
+          <tr class="color-1">
+          {% else %} 
+          <tr>
+          {% endif%}
+            <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+            <td class="td-row view-1">{{ mesa_view.numero }}</td>
+            <td class="td-row view-1">{{ mesa_view.campana }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null ' }}">{{ mesa_view.edison }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null ' }}">{{ mesa_view.juan }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+            <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+            <td class="td-row view-1">{{ mesa_view.total }}</td>
+          </tr>
+        {% endfor %}
+        <tr></tr>
+        {% for mesa_view in mesas_view_rodeo_suma %}
+        <tr class="color-2">
+          <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+          <td class="td-row view-1"> &sum; </td>
+          <td class="td-row view-1">{{ mesa_view.campana }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null ' }}">{{ mesa_view.edison }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null ' }}">{{ mesa_view.juan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+          <td class="td-row view-1">{{ mesa_view.total }}</td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <th>Lugar</th>
+        <th></th>
+        <th>Campaña</th>
+        <th>Edison</th>
+        <th>Juan</th>
+        <th>Genaldo</th>
+        <th>Mikan</th>
+        <th>Blanca</th>
+        <th>Voto blanco</th>
+        <th>Nulos</th>
+        <th>TOTAL</th>
+      </tr>
+      </table>
+
+
+
+
+
+
+
+      <!--        CONSOLIDADO      -->
+      <h1 class="subtitle-2">Consolidado</h1>
+      <table class="table-view">
+
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Campaña</th>
+          <th>Edison</th>
+          <th>Juan</th>
+          <th>Genaldo</th>
+          <th>Mikan</th>
+          <th>Blanca</th>
+          <th>Voto blanco</th>
+          <th>Nulos</th>
+          <th>TOTAL</th>
+        </tr>
+
+
+        {% for mesa_view in mesas_view_consolidado %}
+        <tr class="color-3">
+          <td class="td-row view-1">{{ mesa_view.lugar }}</td>
+          <td class="td-row view-1"> &sum; </td>
+          <td class="td-row view-1">{{ mesa_view.campana }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.edison is none else 'text-no-null ' }}">{{ mesa_view.edison }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.juan is none else 'text-no-null ' }}">{{ mesa_view.juan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.genaldo is none else 'text-no-null' }}">{{ mesa_view.genaldo }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.mikan is none else 'text-no-null' }}">{{ mesa_view.mikan }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.blanca is none else 'text-no-null' }}">{{ mesa_view.blanca }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.voto_blanco is none else 'text-no-null' }}">{{ mesa_view.voto_blanco }}</td>
+          <td class="td-row view {{ 'text-null' if mesa_view.nulos is none else 'text-no-null' }}">{{ mesa_view.nulos }}</td>
+          <td class="td-row view-1">{{ mesa_view.total }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename = 'js/scripts_register_vote.js') }}"></script>
+</body>
