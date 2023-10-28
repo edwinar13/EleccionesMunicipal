@@ -462,8 +462,9 @@ def inscribir_mesas():
 
      
 
-@app.route("/results")
-def results(): 
+@app.route("/results5864")
+def results5864(): 
+    
     publish = config('PUBLISH', default=False, cast=bool)
     if publish:
         return render_template("results.html")

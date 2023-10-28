@@ -368,7 +368,7 @@ body {
 
 @keyframes bar-1 {
     to {
-        height: 66%;
+        height: 68%;
         background-color: #dfc963;
         z-index: 0;
         
@@ -377,7 +377,7 @@ body {
 
 @keyframes bar-2 {
     to {
-        height: 64%;
+        height: 62%;
         background-color: #b98e87;
         z-index: 0;
 
