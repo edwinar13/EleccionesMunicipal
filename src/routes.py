@@ -248,6 +248,9 @@ def registerVote():
     current_email= current_user.email
     table_register = False
     app.data_comp=[]
+       
+            
+        
     for mesa in data:        
         testigo = mesa.testigo
         email = testigo.email
@@ -266,8 +269,7 @@ def registerVote():
         elif mesa.lugar == 'mega_colegio':
             mesas_view_mega_colegio.append(row)
         elif mesa.lugar == 'rodeo':
-            mesas_view_rodeo.append(row)
-    
+            mesas_view_rodeo.append(row)    
         time_3 = datetime.now()
 
     
@@ -278,16 +280,9 @@ def registerVote():
     df_edison_sum = df_edison.sum(axis = 0, skipna = True)
     df_blanca = df[df['campana']=='blanca']
     df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
-    df_mikan = df[df['campana']=='mikan']
-    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
-    df_genaldo = df[df['campana']=='genaldo']
-    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
     mesas_view_coliseo_suma = [
         {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
-        {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
-        {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
-        {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
-    ]
+        {'lugar': 'coliseo', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']}]
     
     # CAMPO ALEGRE
     df = pd.DataFrame(mesas_view_campo_alegre)
@@ -296,16 +291,9 @@ def registerVote():
     df_edison_sum = df_edison.sum(axis = 0, skipna = True)
     df_blanca = df[df['campana']=='blanca']
     df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
-    df_mikan = df[df['campana']=='mikan']
-    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
-    df_genaldo = df[df['campana']=='genaldo']
-    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
     mesas_view_campo_alegre_suma = [
         {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
-        {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
-        {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
-        {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
-    ]
+        {'lugar': 'campo_alegre', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']}]
     
     # MEGA COLEGIO
     df = pd.DataFrame(mesas_view_mega_colegio)
@@ -314,16 +302,9 @@ def registerVote():
     df_edison_sum = df_edison.sum(axis = 0, skipna = True)
     df_blanca = df[df['campana']=='blanca']
     df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
-    df_mikan = df[df['campana']=='mikan']
-    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
-    df_genaldo = df[df['campana']=='genaldo']
-    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
     mesas_view_mega_colegio_suma = [
         {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
-        {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
-        {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
-        {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
-    ]
+        {'lugar': 'mega_colegio', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']}]
     
     # RODEO
     df = pd.DataFrame(mesas_view_rodeo)
@@ -332,16 +313,9 @@ def registerVote():
     df_edison_sum = df_edison.sum(axis = 0, skipna = True)
     df_blanca = df[df['campana']=='blanca']
     df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
-    df_mikan = df[df['campana']=='mikan']
-    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
-    df_genaldo = df[df['campana']=='genaldo']
-    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
     mesas_view_rodeo_suma = [
         {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
-        {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
-        {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
-        {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
-    ]
+        {'lugar': 'rodeo', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']}]
 
     
     # CONSOLIDADO
@@ -352,16 +326,9 @@ def registerVote():
     df_edison_sum = df_edison.sum(axis = 0, skipna = True)
     df_blanca = df[df['campana']=='blanca']
     df_blanca_sum = df_blanca.sum(axis = 0, skipna = True)
-    df_mikan = df[df['campana']=='mikan']
-    df_mikan_sum = df_mikan.sum(axis = 0, skipna = True)
-    df_genaldo = df[df['campana']=='genaldo']
-    df_genaldo_sum = df_genaldo.sum(axis = 0, skipna = True)
     mesas_view_consolidado = [
         {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'edison', 'edison': df_edison_sum['edison'], 'juan':df_edison_sum['juan'], 'genaldo':df_edison_sum['genaldo'], 'mikan':df_edison_sum['mikan'], 'blanca':df_edison_sum['blanca'], 'voto_blanco':df_edison_sum['voto_blanco'], 'nulos':df_edison_sum['nulos'], 'total':df_edison_sum['total']},
-        {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']},
-        {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'mikan', 'edison': df_mikan_sum['edison'], 'juan':df_mikan_sum['juan'], 'genaldo':df_mikan_sum['genaldo'], 'mikan':df_mikan_sum['mikan'], 'blanca':df_mikan_sum['blanca'], 'voto_blanco':df_mikan_sum['voto_blanco'], 'nulos':df_mikan_sum['nulos'], 'total':df_mikan_sum['total']},
-        {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'genaldo', 'edison': df_genaldo_sum['edison'], 'juan':df_genaldo_sum['juan'], 'genaldo':df_genaldo_sum['genaldo'], 'mikan':df_genaldo_sum['mikan'], 'blanca':df_genaldo_sum['blanca'], 'voto_blanco':df_genaldo_sum['voto_blanco'], 'nulos':df_genaldo_sum['nulos'], 'total':df_genaldo_sum['total']}
-    ]
+        {'lugar': 'consolidado', 'numero': 'Total', 'campana': 'blanca', 'edison': df_blanca_sum['edison'], 'juan':df_blanca_sum['juan'], 'genaldo':df_blanca_sum['genaldo'], 'mikan':df_blanca_sum['mikan'], 'blanca':df_blanca_sum['blanca'], 'voto_blanco':df_blanca_sum['voto_blanco'], 'nulos':df_blanca_sum['nulos'], 'total':df_blanca_sum['total']}]
     
     
 
